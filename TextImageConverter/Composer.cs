@@ -10,7 +10,7 @@ namespace TextImageConverter
     {
         public static void Compose()
         {
-            ComposeConfiguraton currentConfig = new ComposeConfiguraton();
+            ComposeConfiguration currentConfig = new ComposeConfiguration();
             GetFilePath(currentConfig);
             using (FileStream fileStream = new FileStream(currentConfig.WorkingPath, FileMode.Open))
             {
@@ -33,7 +33,7 @@ namespace TextImageConverter
             WriteLine("Done. ");
         }
 
-        public static void SilentCompose(ComposeConfiguraton currentConfig)
+        public static void SilentCompose(ComposeConfiguration currentConfig)
         {
             currentConfig.WorkingPath = Path.GetTempFileName();
             File.Copy(currentConfig.SourcePath, currentConfig.WorkingPath, true);
@@ -54,7 +54,7 @@ namespace TextImageConverter
             File.Delete(currentConfig.WorkingPath);
         }
 
-        private static void WriteOffset(ComposeConfiguraton currentConfig, FileStream fileStream)
+        private static void WriteOffset(ComposeConfiguration currentConfig, FileStream fileStream)
         {
             if (currentConfig.OffsetGenerator != null)
             {
@@ -62,14 +62,14 @@ namespace TextImageConverter
                 for (int i = 0; i < currentConfig.FileLength; i++)
                 {
                     int originalByte = fileStream.ReadByte();
-                    byte byteWithOffset = (byte)((originalByte + currentConfig.OffsetGenerator.Next(256)) % 256);
+                    byte byteWithOffset = (byte)((originalByte + currentConfig.OffsetGenerator.Next(256)) % 256); // Expectation: ((0 + 0) % 256) = 0 to ((255 + 255) % 256) = 254
                     fileStream.Seek(-1, SeekOrigin.Current);
                     fileStream.WriteByte(byteWithOffset);
                 }
             }
         }
 
-        private static void GetOffsetGenerator(ComposeConfiguraton currentConfig)
+        private static void GetOffsetGenerator(ComposeConfiguration currentConfig)
         {
             WriteLine("You may specify an integer as seed to encrypt the image if you would like to, otherwise, press Enter to continue. Please note that you will need to enter the same seed when reading the image generated to correctly decompose it into a file. ");
             while (true)
@@ -91,7 +91,7 @@ namespace TextImageConverter
             }
         }
 
-        private static void SaveImage(Bitmap bitmap, ComposeConfiguraton currentConfig)
+        private static void SaveImage(Bitmap bitmap, ComposeConfiguration currentConfig)
         {
             WriteLine("Please specify the path for the image to be saved: ");
             while (true)
@@ -110,7 +110,7 @@ namespace TextImageConverter
             }
         }
 
-        private static Color GetCurrentColor(long currentPosition, FileStream fileStream, ComposeConfiguraton currentConfig)
+        private static Color GetCurrentColor(long currentPosition, FileStream fileStream, ComposeConfiguration currentConfig)
         {
             if (currentPosition < currentConfig.FileLength)
             {
@@ -123,7 +123,7 @@ namespace TextImageConverter
             return Color.Black;
         }
 
-        private static void PlotPixels(ComposeConfiguraton currentConfig, FileStream fileStream, Bitmap bitmap)
+        private static void PlotPixels(ComposeConfiguration currentConfig, FileStream fileStream, Bitmap bitmap)
         {
             long currentPosition = 0;
             for (int y = 0; y < currentConfig.ImgHeight.Value; y++)
@@ -137,7 +137,7 @@ namespace TextImageConverter
             }
         }
 
-        private static void GetImageSize(ComposeConfiguraton currentConfig)
+        private static void GetImageSize(ComposeConfiguration currentConfig)
         {
             WriteLine("By default, an image with width and height as consistent as possible will be generated. However, you may specify the width, height, or both dimensions of the image. ");
             while (true)
@@ -195,7 +195,7 @@ namespace TextImageConverter
             }
         }
 
-        private static void CalculateImageSize(ComposeConfiguraton currentConfig)
+        private static void CalculateImageSize(ComposeConfiguration currentConfig)
         {
             double pixelCount = currentConfig.FileLength / 3; // currentConfig.FileLength can be surely divided by 3 with no remainder, however pixelCount need to be in a non-integral type to prevent force flooring during division operation with an int. 
             if (currentConfig.ImgHeight.HasValue && !currentConfig.ImgWidth.HasValue)
@@ -216,7 +216,7 @@ namespace TextImageConverter
             }
         }
 
-        private static void ProcessFileTail(ComposeConfiguraton currentConfig, FileStream fileStream)
+        private static void ProcessFileTail(ComposeConfiguration currentConfig, FileStream fileStream)
         {
             fileStream.Seek(0, SeekOrigin.End);
             fileStream.WriteByte(23); // Append 'End of Transmission Block' byte at the end of the file. 
@@ -233,7 +233,7 @@ namespace TextImageConverter
             currentConfig.FileLength = fileStream.Length;
         }
 
-        private static void GetFilePath(ComposeConfiguraton currentConfig)
+        private static void GetFilePath(ComposeConfiguration currentConfig)
         {
             WriteLine("Please specify the path for the file to be read: ");
             while (true)

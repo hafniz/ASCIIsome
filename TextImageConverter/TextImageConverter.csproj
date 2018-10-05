@@ -71,6 +71,7 @@
   <ItemGroup>
     <Compile Include="ComposeConfiguraton.cs" />
     <Compile Include="Composer.cs" />
+    <Compile Include="ConfigurationBase.cs" />
     <Compile Include="DecomposeConfiguration.cs" />
     <Compile Include="Decomposer.cs" />
     <Compile Include="Program.cs" />

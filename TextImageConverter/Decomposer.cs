@@ -14,6 +14,7 @@ namespace TextImageConverter
             GetFilePath(currentConfig);
             WriteLine($"The image is of {currentConfig.ImgWidth} pixels in width and {currentConfig.ImgHeight} pixels in height. The pixels contain data of {currentConfig.ImgHeight * currentConfig.ImgWidth * 3} bytes. ");
             currentConfig.WorkingPath = Path.GetTempFileName();
+            GetOffsetGenerator(currentConfig);
             using (FileStream fileStream = new FileStream(currentConfig.WorkingPath, FileMode.Open))
             {
                 Stopwatch stopWatch = Stopwatch.StartNew();
@@ -21,6 +22,7 @@ namespace TextImageConverter
                 WriteLine("Started reading pixels... ");
                 ReadPixels(currentConfig, fileStream);
                 ProcessFileTail(fileStream);
+                RemoveOffset(currentConfig, fileStream);
                 stopWatch.Stop();
                 WriteLine($"Process completed in {stopWatch.Elapsed}. ");
             }
@@ -42,6 +44,44 @@ namespace TextImageConverter
             }
             File.Copy(currentConfig.WorkingPath, currentConfig.SavePath, true);
             File.Delete(currentConfig.WorkingPath);
+        }
+
+        private static void RemoveOffset(DecomposeConfiguration currentConfig, FileStream fileStream)
+        {
+            if (currentConfig.OffsetGenerator != null)
+            {
+                fileStream.Seek(0, SeekOrigin.Begin);
+                for (int i = 0; i < fileStream.Length; i++)
+                {
+                    int byteWithOffset = fileStream.ReadByte();
+                    int originalByte = (byteWithOffset - currentConfig.OffsetGenerator.Next(256)) % 256;
+                    byte originalByteCalibrated = (byte)(originalByte >= 0 ? originalByte : originalByte + 256);
+                    fileStream.Seek(-1, SeekOrigin.Current);
+                    fileStream.WriteByte(originalByteCalibrated);
+                }
+            }
+        }
+
+        private static void GetOffsetGenerator(DecomposeConfiguration currentConfig)
+        {
+            WriteLine("You may specify an integer as seed to decrypt the image if you would like to, otherwise, press Enter to continue. ");
+            while (true)
+            {
+                try
+                {
+                    string inputSeed = ReadLine();
+                    if (!string.IsNullOrWhiteSpace(inputSeed))
+                    {
+                        currentConfig.OffsetSeed = int.Parse(inputSeed);
+                        currentConfig.OffsetGenerator = new Random(currentConfig.OffsetSeed.Value);
+                    }
+                    break;
+                }
+                catch (Exception e)
+                {
+                    WriteLine($"Error: {e.Message} Please check your input and try again: ");
+                }
+            }
         }
 
         private static void SaveFile(DecomposeConfiguration currentConfig)
