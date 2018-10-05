@@ -61,6 +61,51 @@ namespace ASCIIsome.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Use dynamic grayscale range.
+        /// </summary>
+        public static string DynamicGrayscaleRange {
+            get {
+                return ResourceManager.GetString("DynamicGrayscaleRange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Image height.
+        /// </summary>
+        public static string ImgHeight {
+            get {
+                return ResourceManager.GetString("ImgHeight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Image width.
+        /// </summary>
+        public static string ImgWidth {
+            get {
+                return ResourceManager.GetString("ImgWidth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invert grayscale range.
+        /// </summary>
+        public static string InvertGrayscaleRange {
+            get {
+                return ResourceManager.GetString("InvertGrayscaleRange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Keep the aspect ratio.
+        /// </summary>
+        public static string KeepAspectRatio {
+            get {
+                return ResourceManager.GetString("KeepAspectRatio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ready.
         /// </summary>
         public static string Ready {
