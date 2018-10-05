@@ -166,10 +166,10 @@ namespace TextImageConverter
                 case 0:
                     break;
                 case 1:
-                    inputArgs.TryGetValue(inputArgs.First(isSeedArg).Key + 1, out string inputSeed);
                     try
                     {
-                        parsedConfig.OffsetSeed = int.Parse(inputSeed);
+                        parsedConfig.OffsetSeed = int.Parse(inputArgs[inputArgs.First(isSeedArg).Key + 1]);
+                        parsedConfig.OffsetGenerator = new Random(parsedConfig.OffsetSeed.Value);
                     }
                     catch (Exception e)
                     {
@@ -190,10 +190,9 @@ namespace TextImageConverter
                 case 0:
                     break;
                 case 1:
-                    inputArgs.TryGetValue(inputArgs.First(isHeightArg).Key + 1, out string inputHeight);
                     try
                     {
-                        parsedConfig.ImgHeight = int.Parse(inputHeight);
+                        parsedConfig.ImgHeight = int.Parse(inputArgs[inputArgs.First(isHeightArg).Key + 1]);
                     }
                     catch (Exception e)
                     {
@@ -214,10 +213,9 @@ namespace TextImageConverter
                 case 0:
                     break;
                 case 1:
-                    inputArgs.TryGetValue(inputArgs.First(isWidthArg).Key + 1, out string inputWidth);
                     try
                     {
-                        parsedConfig.ImgWidth = int.Parse(inputWidth);
+                        parsedConfig.ImgWidth = int.Parse(inputArgs[inputArgs.First(isWidthArg).Key + 1]);
                     }
                     catch (Exception e)
                     {

@@ -40,10 +40,6 @@ namespace TextImageConverter
             using (FileStream fileStream = new FileStream(currentConfig.WorkingPath, FileMode.Open))
             {
                 currentConfig.FileLength = fileStream.Length;
-                if (currentConfig.OffsetSeed.HasValue)
-                {
-                    currentConfig.OffsetGenerator = new Random(currentConfig.OffsetSeed.Value);
-                }
                 WriteOffset(currentConfig, fileStream);
                 ProcessFileTail(currentConfig, fileStream);
                 CalculateImageSize(currentConfig);

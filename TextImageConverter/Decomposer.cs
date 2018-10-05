@@ -41,6 +41,7 @@ namespace TextImageConverter
             {
                 ReadPixels(currentConfig, fileStream);
                 ProcessFileTail(fileStream);
+                RemoveOffset(currentConfig, fileStream);
             }
             File.Copy(currentConfig.WorkingPath, currentConfig.SavePath, true);
             File.Delete(currentConfig.WorkingPath);
