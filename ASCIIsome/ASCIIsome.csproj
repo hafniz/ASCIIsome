@@ -167,5 +167,12 @@
   <ItemGroup>
     <Resource Include="Image\linkactivated.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\locale.png" />
+    <Resource Include="Image\rubberduck.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\info.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

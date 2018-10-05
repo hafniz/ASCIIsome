@@ -61,11 +61,47 @@ namespace ASCIIsome.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to About.
+        /// </summary>
+        public static string About {
+            get {
+                return ResourceManager.GetString("About", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Character set:.
+        /// </summary>
+        public static string CharSet {
+            get {
+                return ResourceManager.GetString("CharSet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Use dynamic grayscale range.
         /// </summary>
         public static string DynamicGrayscaleRange {
             get {
                 return ResourceManager.GetString("DynamicGrayscaleRange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ¿¿¿.
+        /// </summary>
+        public static string EasterEgg {
+            get {
+                return ResourceManager.GetString("EasterEgg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Export to clipboard.
+        /// </summary>
+        public static string ExportToClipboard {
+            get {
+                return ResourceManager.GetString("ExportToClipboard", resourceCulture);
             }
         }
         
@@ -88,6 +124,15 @@ namespace ASCIIsome.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Import from clipboard.
+        /// </summary>
+        public static string ImportFromClipboard {
+            get {
+                return ResourceManager.GetString("ImportFromClipboard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invert grayscale range.
         /// </summary>
         public static string InvertGrayscaleRange {
@@ -106,11 +151,47 @@ namespace ASCIIsome.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Language.
+        /// </summary>
+        public static string Language {
+            get {
+                return ResourceManager.GetString("Language", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Manage character set....
+        /// </summary>
+        public static string ManageCharSet {
+            get {
+                return ResourceManager.GetString("ManageCharSet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open file....
+        /// </summary>
+        public static string OpenFile {
+            get {
+                return ResourceManager.GetString("OpenFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ready.
         /// </summary>
         public static string Ready {
             get {
                 return ResourceManager.GetString("Ready", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save As....
+        /// </summary>
+        public static string SaveAs {
+            get {
+                return ResourceManager.GetString("SaveAs", resourceCulture);
             }
         }
         
