@@ -145,7 +145,7 @@
     <value>Invert grayscale range</value>
   </data>
   <data name="KeepAspectRatio" xml:space="preserve">
-    <value>Keep the aspect ratio</value>
+    <value>Keep aspect ratio of the image</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>Language</value>

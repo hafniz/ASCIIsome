@@ -142,7 +142,7 @@ namespace ASCIIsome.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Keep the aspect ratio.
+        ///   Looks up a localized string similar to Keep aspect ratio of the image.
         /// </summary>
         public static string KeepAspectRatio {
             get {

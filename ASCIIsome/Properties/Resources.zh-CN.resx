@@ -117,8 +117,50 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="About" xml:space="preserve">
+    <value>关于</value>
+  </data>
+  <data name="CharSet" xml:space="preserve">
+    <value>字符集：</value>
+  </data>
+  <data name="DynamicGrayscaleRange" xml:space="preserve">
+    <value>动态灰度范围</value>
+  </data>
+  <data name="EasterEgg" xml:space="preserve">
+    <value>¿¿¿</value>
+  </data>
+  <data name="ExportToClipboard" xml:space="preserve">
+    <value>导出到剪贴板</value>
+  </data>
+  <data name="ImgHeight" xml:space="preserve">
+    <value>图片高度</value>
+  </data>
+  <data name="ImgWidth" xml:space="preserve">
+    <value>图片宽度</value>
+  </data>
+  <data name="ImportFromClipboard" xml:space="preserve">
+    <value>导入自剪贴板</value>
+  </data>
+  <data name="InvertGrayscaleRange" xml:space="preserve">
+    <value>反相灰度范围</value>
+  </data>
+  <data name="KeepAspectRatio" xml:space="preserve">
+    <value>保持图片长宽比</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>语言</value>
+  </data>
+  <data name="ManageCharSet" xml:space="preserve">
+    <value>管理字符集</value>
+  </data>
+  <data name="OpenFile" xml:space="preserve">
+    <value>打开文件…</value>
+  </data>
   <data name="Ready" xml:space="preserve">
     <value>就绪</value>
+  </data>
+  <data name="SaveAs" xml:space="preserve">
+    <value>保存为…</value>
   </data>
   <data name="Title" xml:space="preserve">
     <value>即时视图 - ASCIIsome</value>

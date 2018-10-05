@@ -117,10 +117,52 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="About" xml:space="preserve">
+    <value>о программе</value>
+  </data>
+  <data name="CharSet" xml:space="preserve">
+    <value>набор символов:</value>
+  </data>
+  <data name="DynamicGrayscaleRange" xml:space="preserve">
+    <value>использовать динамический диапазон оттенков серого</value>
+  </data>
+  <data name="EasterEgg" xml:space="preserve">
+    <value>¿¿¿</value>
+  </data>
+  <data name="ExportToClipboard" xml:space="preserve">
+    <value>экспорт в буфер обмена</value>
+  </data>
+  <data name="ImgHeight" xml:space="preserve">
+    <value>высота изображения</value>
+  </data>
+  <data name="ImgWidth" xml:space="preserve">
+    <value>ширина изображения</value>
+  </data>
+  <data name="ImportFromClipboard" xml:space="preserve">
+    <value>импорт из буфера обмена</value>
+  </data>
+  <data name="InvertGrayscaleRange" xml:space="preserve">
+    <value>инвертировать диапазон оттенки серого</value>
+  </data>
+  <data name="KeepAspectRatio" xml:space="preserve">
+    <value>сохранять пропорции изображения</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>язык</value>
+  </data>
+  <data name="ManageCharSet" xml:space="preserve">
+    <value>управлять наборами символов...</value>
+  </data>
+  <data name="OpenFile" xml:space="preserve">
+    <value>открыть файл...</value>
+  </data>
   <data name="Ready" xml:space="preserve">
-    <value>Готовый</value>
+    <value>готово</value>
+  </data>
+  <data name="SaveAs" xml:space="preserve">
+    <value>сохранить как...</value>
   </data>
   <data name="Title" xml:space="preserve">
-    <value>Мгновенный просмотр - ASCIIsome</value>
+    <value>мгновенный просмотр - ASCIIsome</value>
   </data>
 </root>
