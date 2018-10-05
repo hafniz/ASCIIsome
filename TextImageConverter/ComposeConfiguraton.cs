@@ -1,4 +1,6 @@
-﻿namespace TextImageConverter
+﻿using System;
+
+namespace TextImageConverter
 {
     public class ComposeConfiguraton
     {
@@ -8,5 +10,7 @@
         public long FileLength { get; set; } // automatically calculated depending on SourcePath
         public int? ImgWidth { get; set; } // optionally spcified by user
         public int? ImgHeight { get; set; } // optionally specified by user
+        public int? OffsetSeed { get; set; } // optionally specfied by user
+        public Random OffsetGenerator { get; set; } // automatically determined depending on OffsetSeed
     }
 }

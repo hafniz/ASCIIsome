@@ -16,6 +16,8 @@ namespace TextImageConverter
             {
                 currentConfig.FileLength = fileStream.Length;
                 WriteLine($"The size of this file is {currentConfig.FileLength} bytes. ");
+                GetOffsetGenerator(currentConfig);
+                WriteOffset(currentConfig, fileStream);
                 ProcessFileTail(currentConfig, fileStream);
                 GetImageSize(currentConfig);
                 Bitmap bitmap = new Bitmap(currentConfig.ImgWidth.Value, currentConfig.ImgHeight.Value);
@@ -38,6 +40,11 @@ namespace TextImageConverter
             using (FileStream fileStream = new FileStream(currentConfig.WorkingPath, FileMode.Open))
             {
                 currentConfig.FileLength = fileStream.Length;
+                if (currentConfig.OffsetSeed.HasValue)
+                {
+                    currentConfig.OffsetGenerator = new Random(currentConfig.OffsetSeed.Value);
+                }
+                WriteOffset(currentConfig, fileStream);
                 ProcessFileTail(currentConfig, fileStream);
                 CalculateImageSize(currentConfig);
                 Bitmap bitmap = new Bitmap(currentConfig.ImgWidth.Value, currentConfig.ImgHeight.Value);
@@ -45,6 +52,43 @@ namespace TextImageConverter
                 bitmap.Save(currentConfig.SavePath);
             }
             File.Delete(currentConfig.WorkingPath);
+        }
+
+        private static void WriteOffset(ComposeConfiguraton currentConfig, FileStream fileStream)
+        {
+            if (currentConfig.OffsetGenerator != null)
+            {
+                fileStream.Seek(0, SeekOrigin.Begin);
+                for (int i = 0; i < currentConfig.FileLength; i++)
+                {
+                    int originalByte = fileStream.ReadByte();
+                    byte byteWithOffset = (byte)((originalByte + currentConfig.OffsetGenerator.Next(256)) % 256);
+                    fileStream.Seek(-1, SeekOrigin.Current);
+                    fileStream.WriteByte(byteWithOffset);
+                }
+            }
+        }
+
+        private static void GetOffsetGenerator(ComposeConfiguraton currentConfig)
+        {
+            WriteLine("You may specify an integer as seed to encrypt the image if you would like to, otherwise, press Enter to continue. Please note that you will need to enter the same seed when reading the image generated to correctly decompose it into a file. ");
+            while (true)
+            {
+                try
+                {
+                    string inputSeed = ReadLine();
+                    if (!string.IsNullOrWhiteSpace(inputSeed))
+                    {
+                        currentConfig.OffsetSeed = int.Parse(inputSeed);
+                        currentConfig.OffsetGenerator = new Random(currentConfig.OffsetSeed.Value);
+                    }
+                    break;
+                }
+                catch (Exception e)
+                {
+                    WriteLine($"Error: {e.Message} Please check your input and try again: ");
+                }
+            }
         }
 
         private static void SaveImage(Bitmap bitmap, ComposeConfiguraton currentConfig)
