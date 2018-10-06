@@ -126,9 +126,6 @@
   <data name="DynamicGrayscaleRange" xml:space="preserve">
     <value>动态灰度范围</value>
   </data>
-  <data name="EasterEgg" xml:space="preserve">
-    <value>¿¿¿</value>
-  </data>
   <data name="ExportToClipboard" xml:space="preserve">
     <value>导出到剪贴板</value>
   </data>

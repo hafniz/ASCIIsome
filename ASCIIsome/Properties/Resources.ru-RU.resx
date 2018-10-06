@@ -126,9 +126,6 @@
   <data name="DynamicGrayscaleRange" xml:space="preserve">
     <value>использовать динамический диапазон оттенков серого</value>
   </data>
-  <data name="EasterEgg" xml:space="preserve">
-    <value>¿¿¿</value>
-  </data>
   <data name="ExportToClipboard" xml:space="preserve">
     <value>экспорт в буфер обмена</value>
   </data>

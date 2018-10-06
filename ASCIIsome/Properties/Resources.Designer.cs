@@ -88,15 +88,6 @@ namespace ASCIIsome.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ¿¿¿.
-        /// </summary>
-        public static string EasterEgg {
-            get {
-                return ResourceManager.GetString("EasterEgg", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Export to clipboard.
         /// </summary>
         public static string ExportToClipboard {

@@ -8,39 +8,42 @@
         xmlns:local="clr-namespace:ASCIIsome"
         mc:Ignorable="d"
         Title="{x:Static p:Resources.Title}" Height="540" Width="854">
-    <DockPanel>
+    <Window.Resources>
+        <local:ViewModel x:Key="viewModel"/>
+    </Window.Resources>
+    <DockPanel DataContext="{Binding Source={StaticResource viewModel}}">
         <DockPanel DockPanel.Dock="Top">
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Left">
-                <Button Margin="10,10,0,5" VerticalAlignment="Center">
+                <Button Margin="10,10,0,5" VerticalAlignment="Center" Command="{Binding ImportFromClipboardCommand}">
                     <TextBlock Text="{x:Static p:Resources.ImportFromClipboard}" Margin="5,5,5,5"/>
                 </Button>
-                <Button Margin="10,10,0,5" VerticalAlignment="Center">
+                <Button Margin="10,10,0,5" VerticalAlignment="Center" Command="{Binding OpenFileCommand}">
                     <TextBlock Text="{x:Static p:Resources.OpenFile}" Margin="5,5,5,5"/>
                 </Button>
-                <Button Margin="10,10,0,5" VerticalAlignment="Center">
+                <Button Margin="10,10,0,5" VerticalAlignment="Center" Command="{Binding ExportToClipboardCommand}">
                     <TextBlock Text="{x:Static p:Resources.ExportToClipboard}" Margin="5,5,5,5"/>
                 </Button>
-                <Button Margin="10,10,0,5" VerticalAlignment="Center">
+                <Button Margin="10,10,0,5" VerticalAlignment="Center" Command="{Binding SaveAsCommand}">
                     <TextBlock Text="{x:Static p:Resources.SaveAs}" Margin="5,5,5,5"/>
                 </Button>
-                <Button Margin="10,10,0,5" VerticalAlignment="Center">
+                <Button Margin="10,10,0,5" VerticalAlignment="Center" Command="{Binding ManageCharSetCommand}">
                     <TextBlock Text="{x:Static p:Resources.ManageCharSet}" Margin="5,5,5,5"/>
                 </Button>
             </StackPanel>
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Right" HorizontalAlignment="Right">
-                <Button Margin="10,10,0,5" VerticalAlignment="Center">
+                <Button Margin="10,10,0,5" VerticalAlignment="Center" Command="{Binding RubberDuckCommand}">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="Image\rubberduck.png" Height="16" Margin="5,5,0,5"/>
-                        <TextBlock Text="{x:Static p:Resources.EasterEgg}" Margin="5,5,5,5"/>
+                        <TextBlock Text="{Binding RubberDuckText}" Margin="5,5,5,5"/>
                     </StackPanel>
                 </Button>
-                <Button Margin="10,10,0,5" VerticalAlignment="Center">
+                <Button Margin="10,10,0,5" VerticalAlignment="Center" Command="{Binding ChangeLanguageCommand}">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="Image\locale.png" Height="16" Margin="5,5,0,5"/>
                         <TextBlock Text="{x:Static p:Resources.Language}" Margin="5,5,5,5"/>
                     </StackPanel>
                 </Button>
-                <Button Margin="10,10,10,5" VerticalAlignment="Center">
+                <Button Margin="10,10,10,5" VerticalAlignment="Center" Command="{Binding ShowAboutCommand}">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="Image\info.png" Height="16" Margin="5,5,0,5"/>
                         <TextBlock Text="{x:Static p:Resources.About}" Margin="5,5,5,5"/>
@@ -50,8 +53,8 @@
         </DockPanel>
         <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
             <TextBlock VerticalAlignment="Center" Text="{x:Static p:Resources.ImgWidth}" Margin="10,5,0,5"/>
-            <xctk:IntegerUpDown VerticalAlignment="Center" Margin="5,5,0,5" Width="60"/>
-            <ToggleButton VerticalAlignment="Center" Margin="10,5,0,5" ToolTip="{x:Static p:Resources.KeepAspectRatio}" Height="18">
+            <xctk:IntegerUpDown VerticalAlignment="Center" Margin="5,5,0,5" Width="60" Value="{Binding CharImgWidth, Mode=TwoWay}"/>
+            <ToggleButton VerticalAlignment="Center" Margin="10,5,0,5" ToolTip="{x:Static p:Resources.KeepAspectRatio}" Height="18" IsChecked="{Binding IsAspectRatioKept, Mode=TwoWay}" >
                 <ToggleButton.Style>
                     <Style TargetType="{x:Type ToggleButton}">
                         <Style.Triggers>
@@ -74,15 +77,15 @@
                 </ToggleButton.Style>
             </ToggleButton>
             <TextBlock VerticalAlignment="Center" Text="{x:Static p:Resources.ImgHeight}" Margin="10,5,0,5"/>
-            <xctk:IntegerUpDown VerticalAlignment="Center" Margin="5,5,0,5" Width="60"/>
-            <CheckBox VerticalAlignment="Center" Margin="10,5,0,5">
+            <xctk:IntegerUpDown VerticalAlignment="Center" Margin="5,5,0,5" Width="60" Value="{Binding CharImgHeight, Mode=TwoWay}" />
+            <CheckBox VerticalAlignment="Center" Margin="10,5,0,5" IsChecked="{Binding IsDynamicGrayscaleRangeEnabled, Mode=TwoWay}">
                 <TextBlock VerticalAlignment="Center" Text="{x:Static p:Resources.DynamicGrayscaleRange}"/>
             </CheckBox>
-            <CheckBox VerticalAlignment="Center" Margin="10,5,0,5">
+            <CheckBox VerticalAlignment="Center" Margin="10,5,0,5" IsChecked="{Binding IsGrayscaleRangeInverted, Mode=TwoWay}">
                 <TextBlock VerticalAlignment="Center" Text="{x:Static p:Resources.InvertGrayscaleRange}"/>
             </CheckBox>
             <TextBlock VerticalAlignment="Center" Margin="10,5,0,5" Text="{x:Static p:Resources.CharSet}"/>
-            <ComboBox VerticalAlignment="Center" Margin="5,5,10,5" Width="100"/>
+            <ComboBox VerticalAlignment="Center" Margin="5,5,10,5" Width="100" ItemsSource="{Binding CharSetsAvailable, Mode=TwoWay}" SelectedItem="{Binding CurrentCharSet, Mode=TwoWay}" />
         </StackPanel>
         <StatusBar DockPanel.Dock="Bottom">
             <TextBlock Margin="10,0,0,0" Text="{x:Static p:Resources.Ready}"/>
@@ -92,9 +95,9 @@
                 <ColumnDefinition Width="2*"/>
                 <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
-            <Image Grid.Column="0" Margin="0,0,10,0"/>
+            <Image Grid.Column="0" Margin="0,0,10,0" Source="{Binding ImgSource, Mode=TwoWay}"/>
             <GridSplitter Width="5"/>
-            <TextBox Grid.Column="1" Margin="5,0,0,0" FontFamily="Lucida Console"/>
+            <TextBox Grid.Column="1" Margin="5,0,0,0" FontFamily="Lucida Console" IsReadOnly="True" Text="{Binding CharOut}"/>
         </Grid>
     </DockPanel>
 </Window>

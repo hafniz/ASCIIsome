@@ -126,9 +126,6 @@
   <data name="DynamicGrayscaleRange" xml:space="preserve">
     <value>Use dynamic grayscale range</value>
   </data>
-  <data name="EasterEgg" xml:space="preserve">
-    <value>¿¿¿</value>
-  </data>
   <data name="ExportToClipboard" xml:space="preserve">
     <value>Export to clipboard</value>
   </data>

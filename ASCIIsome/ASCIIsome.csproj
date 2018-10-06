@@ -91,6 +91,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CharSet.cs" />
+    <Compile Include="CharSets.cs" />
+    <Compile Include="Commands\ChangeLanguageCommand.cs" />
+    <Compile Include="Commands\ExportToClipboardCommand.cs" />
+    <Compile Include="Commands\ManageCharSetCommand.cs" />
+    <Compile Include="Commands\OpenFileCommand.cs" />
+    <Compile Include="Commands\ImportFromClipboardCommand.cs" />
+    <Compile Include="Commands\RubberDuckCommand.cs" />
+    <Compile Include="Commands\SaveAsCommand.cs" />
+    <Compile Include="Commands\ShowAboutCommand.cs" />
+    <Compile Include="Plotter.cs" />
+    <Compile Include="ViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
