@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.28107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextImageConverter", "TextImageConverter\TextImageConverter.csproj", "{358857AF-64CD-430A-BC7D-D577902A3439}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASCIIsome", "ASCIIsome\ASCIIsome.csproj", "{32EF5AD3-64FE-4131-91DE-DCDD41C0B338}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{358857AF-64CD-430A-BC7D-D577902A3439}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{358857AF-64CD-430A-BC7D-D577902A3439}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{358857AF-64CD-430A-BC7D-D577902A3439}.Release|Any CPU.Build.0 = Release|Any CPU
-		{32EF5AD3-64FE-4131-91DE-DCDD41C0B338}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{32EF5AD3-64FE-4131-91DE-DCDD41C0B338}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{32EF5AD3-64FE-4131-91DE-DCDD41C0B338}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{32EF5AD3-64FE-4131-91DE-DCDD41C0B338}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
