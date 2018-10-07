@@ -120,6 +120,12 @@
   <data name="About" xml:space="preserve">
     <value>关于</value>
   </data>
+  <data name="AboutDetails" xml:space="preserve">
+    <value>(placeholder for Chinese aboutdetails)</value>
+  </data>
+  <data name="ChangeLanguage" xml:space="preserve">
+    <value>选择显示语言</value>
+  </data>
   <data name="CharSet" xml:space="preserve">
     <value>字符集：</value>
   </data>

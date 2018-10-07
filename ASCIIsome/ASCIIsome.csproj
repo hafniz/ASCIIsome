@@ -96,6 +96,9 @@
     <Compile Include="About.xaml.cs">
       <DependentUpon>About.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ChangeLanguage.xaml.cs">
+      <DependentUpon>ChangeLanguage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CharSet.cs" />
     <Compile Include="CharSetList.cs" />
     <Compile Include="Commands\ChangeLanguageCommand.cs" />
@@ -106,10 +109,17 @@
     <Compile Include="Commands\RubberDuckCommand.cs" />
     <Compile Include="Commands\SaveAsCommand.cs" />
     <Compile Include="Commands\ShowAboutCommand.cs" />
+    <Compile Include="DisplayLanguage.cs" />
+    <Compile Include="ValueConverters\DisplayLanguageIndexConverter.cs" />
     <Compile Include="EnvironmentConst.cs" />
     <Compile Include="Plotter.cs" />
+    <Compile Include="ValueConverters\VersionNumberConverter.cs" />
     <Compile Include="ViewModel.cs" />
     <Page Include="About.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ChangeLanguage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Windows;
 using ASCIIsome.Commands;
 
 namespace ASCIIsome
@@ -14,7 +17,7 @@ namespace ASCIIsome
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
-        private int charImgWidth = 1;
+        private int charImgWidth = 40;
         public int CharImgWidth
         {
             get { return charImgWidth; }
@@ -29,7 +32,7 @@ namespace ASCIIsome
             }
         }
 
-        private int charImgHeight = 1;
+        private int charImgHeight = 25;
         public int CharImgHeight
         {
             get { return charImgHeight; }
@@ -134,6 +137,18 @@ namespace ASCIIsome
                 currentCharSet = value;
                 OnPropertyChanged(nameof(CurrentCharSet));
                 Plotter.Plot(this);
+            }
+        }
+
+        private DisplayLanguage displayLanguage = DisplayLanguage.GetDisplayLanguageFromSymbol(Thread.CurrentThread.CurrentUICulture.Name);
+        public DisplayLanguage DisplayLanguage
+        {
+            get { return displayLanguage; }
+            set
+            {
+                displayLanguage = value;
+                OnPropertyChanged(nameof(DisplayLanguage));
+                //DisplayLanguage.ChangeDisplayLanguage(this);
             }
         }
 

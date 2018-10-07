@@ -15,10 +15,6 @@ namespace ASCIIsome.Commands
 
         public event EventHandler CanExecuteChanged;
         public bool CanExecute(object parameter) => true;
-
-        public void Execute(object parameter)
-        {
-            Debug.WriteLine("ChangeLanguage command executed. ");
-        }
+        public void Execute(object parameter) => new ChangeLanguage().Show();
     }
 }

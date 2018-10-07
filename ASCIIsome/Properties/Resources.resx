@@ -124,6 +124,9 @@
     <value>A hafniz program. 
 Under development</value>
   </data>
+  <data name="ChangeLanguage" xml:space="preserve">
+    <value>Choose display language</value>
+  </data>
   <data name="CharSet" xml:space="preserve">
     <value>Character set:</value>
   </data>

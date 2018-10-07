@@ -8,6 +8,7 @@ namespace ASCIIsome
 {
     public static class EnvironmentConst
     {
-        public const string version = "ver. 0.1.?.?";
+        public static string ApplicationName { get; } = "ASCIIsome";
+        public static Version ApplicationVersion { get; } = new Version(0, 9, 9, 9);
     }
 }
