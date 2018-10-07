@@ -177,17 +177,17 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\link.png" />
+    <Resource Include="Images\link.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\linkactivated.png" />
+    <Resource Include="Images\linkactivated.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\locale.png" />
-    <Resource Include="Image\rubberduck.png" />
+    <Resource Include="Images\locale.png" />
+    <Resource Include="Images\rubberduck.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\info.png" />
+    <Resource Include="Images\info.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="CharSets\Numerals.xml" />

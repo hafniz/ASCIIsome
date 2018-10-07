@@ -13,6 +13,7 @@ namespace ASCIIsome
     public class CharSet : Dictionary<double, char>
     {
         public string DisplayName { get; set; }
+        public override string ToString() => DisplayName;
 
         public static CharSet Concat(params CharSet[] charSets)
         {
