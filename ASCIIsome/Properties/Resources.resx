@@ -120,6 +120,10 @@
   <data name="About" xml:space="preserve">
     <value>About</value>
   </data>
+  <data name="AboutDetails" xml:space="preserve">
+    <value>A hafniz program. 
+Under development</value>
+  </data>
   <data name="CharSet" xml:space="preserve">
     <value>Character set:</value>
   </data>

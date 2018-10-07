@@ -18,7 +18,7 @@ namespace ASCIIsome.Commands
 
         public void Execute(object parameter)
         {
-            Debug.WriteLine("RubberDuck command executed. ");
+            CurrentViewModel.RubberDuckText = CurrentViewModel.RubberDuckText == "???" ? "¿¿¿" : "???";
         }
     }
 }

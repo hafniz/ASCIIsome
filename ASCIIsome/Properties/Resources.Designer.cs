@@ -70,6 +70,16 @@ namespace ASCIIsome.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to A hafniz program. 
+        ///Under development.
+        /// </summary>
+        public static string AboutDetails {
+            get {
+                return ResourceManager.GetString("AboutDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Character set:.
         /// </summary>
         public static string CharSet {
