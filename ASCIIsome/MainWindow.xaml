@@ -85,7 +85,7 @@
                 <TextBlock VerticalAlignment="Center" Text="{x:Static p:Resources.InvertGrayscaleRange}"/>
             </CheckBox>
             <TextBlock VerticalAlignment="Center" Margin="10,5,0,5" Text="{x:Static p:Resources.CharSet}"/>
-            <ComboBox VerticalAlignment="Center" Margin="5,5,10,5" Width="100" ItemsSource="{Binding CharSetsAvailable, Mode=TwoWay}" SelectedItem="{Binding CurrentCharSet, Mode=TwoWay}" />
+            <ComboBox VerticalAlignment="Center" Margin="5,5,10,5" Width="100" ItemsSource="{Binding CharSetsAvailable, Mode=TwoWay}" SelectedItem="{Binding CurrentCharSet, Mode=TwoWay}" /> <!--valueconverter needed to display displayname-->
         </StackPanel>
         <StatusBar DockPanel.Dock="Bottom">
             <TextBlock Margin="10,0,0,0" Text="{x:Static p:Resources.Ready}"/>

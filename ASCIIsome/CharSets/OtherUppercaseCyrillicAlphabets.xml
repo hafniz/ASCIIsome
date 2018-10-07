@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CharSet DisplayName="Other uppercase Cyrillic alphabets in ISO/IEC 8859-5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="ASCIIsome.CharSets CharSetSchema.xsd">
+  <KeyValuePair GrayscaleIndex="0.24264" Character="Ђ"/>
+  <KeyValuePair GrayscaleIndex="0.16226" Character="Ѓ"/>
+  <KeyValuePair GrayscaleIndex="0.22168" Character="Є"/>
+  <KeyValuePair GrayscaleIndex="0.20835" Character="Ѕ"/>
+  <KeyValuePair GrayscaleIndex="0.18173" Character="І"/>
+  <KeyValuePair GrayscaleIndex="0.20563" Character="Ї"/>
+  <KeyValuePair GrayscaleIndex="0.15177" Character="Ј"/>
+  <KeyValuePair GrayscaleIndex="0.27638" Character="Љ"/>
+  <KeyValuePair GrayscaleIndex="0.28653" Character="Њ"/>
+  <KeyValuePair GrayscaleIndex="0.22908" Character="Ћ"/>
+  <KeyValuePair GrayscaleIndex="0.23922" Character="Ќ"/>
+  <KeyValuePair GrayscaleIndex="0.21991" Character="Ў"/>
+  <KeyValuePair GrayscaleIndex="0.25934" Character="Џ"/>
+</CharSet>

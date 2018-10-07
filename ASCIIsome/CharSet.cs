@@ -16,7 +16,7 @@ namespace ASCIIsome
 
         public static CharSet Concat(params CharSet[] charSets)
         {
-            CharSet charSetsJoined = new CharSet();
+            CharSet charSetsJoined = new CharSet { DisplayName = $"{charSets.Count()} charsets selected" };
             foreach (CharSet charSet in charSets)
             {
                 foreach (KeyValuePair<double, char> keyValuePair in charSet)
@@ -24,11 +24,11 @@ namespace ASCIIsome
                     charSetsJoined.Add(keyValuePair.Key, keyValuePair.Value);
                 }
             }
-            return OrderedDistinct(charSetsJoined);
+            return MakeOrderedDistinct(charSetsJoined);
         }
         public static CharSet operator &(CharSet charSet1, CharSet charSet2) => Concat(charSet1, charSet2);
 
-        private static CharSet OrderedDistinct(CharSet charSet)
+        private static CharSet MakeOrderedDistinct(CharSet charSet)
         {
             IEnumerable<KeyValuePair<double, char>> orderedDistinctKeyValuePairs = charSet.Distinct().OrderBy(x => x.Key);
             CharSet orderedDistinctCharSet = new CharSet();
@@ -40,7 +40,7 @@ namespace ASCIIsome
             return orderedDistinctCharSet;
         }
 
-        public static CharSet ParseFromXMLFile(string filePath) // Validation/Exception handling needed
+        public static CharSet ParseFromXMLFile(string filePath) // Validation/Exception handling needed (in external code)
         {
             CharSet parsedCharSet = new CharSet();
             XmlDocument document = new XmlDocument();
@@ -54,7 +54,7 @@ namespace ASCIIsome
                 parsedCharSet.Add(parsedGrayscaleIndex, parsedCharacter);
             }
             parsedCharSet.DisplayName = rootNode.Attributes["DisplayName"].Value;
-            return OrderedDistinct(parsedCharSet);
+            return MakeOrderedDistinct(parsedCharSet);
         }
 
         public void ExportToXMLFile(string filePath)
@@ -66,7 +66,7 @@ namespace ASCIIsome
                 xmlWriter.WriteAttributeString("DisplayName", DisplayName);
                 xmlWriter.WriteAttributeString("xmlns", "xsi", null, "http://www.w3.org/2001/XMLSchema-instance");
                 xmlWriter.WriteAttributeString("xsi", "schemaLocation", null, "ASCIIsome.CharSets CharSetSchema.xsd");
-                CharSet orderedDistinctCharSet = OrderedDistinct(this);
+                CharSet orderedDistinctCharSet = MakeOrderedDistinct(this);
                 foreach (KeyValuePair<double, char> keyValuePair in orderedDistinctCharSet)
                 {
                     xmlWriter.WriteStartElement("KeyValuePair");

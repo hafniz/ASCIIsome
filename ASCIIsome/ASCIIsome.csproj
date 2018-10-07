@@ -192,5 +192,35 @@
   <ItemGroup>
     <Resource Include="CharSets\Numerals.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="CharSets\LowercaseEnglishAlphabets.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="CharSets\UppercaseEnglishAlphabets.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="CharSets\ASCIISymbols.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="CharSets\UppercaseRussianAlphabets.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="CharSets\LowercaseRussianAlphabets.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="CharSets\OtherUppercaseCyrillicAlphabets.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="CharSets\OtherLowercaseCyrillicAlphabets.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="CharSets\OtherSymbols.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="CharSets\SpaceAndFullBlock.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="CharSets\Shades.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

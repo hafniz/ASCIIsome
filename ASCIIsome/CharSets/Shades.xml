@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CharSet DisplayName="Supported block elements" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="ASCIIsome.CharSets CharSetSchema.xsd">
+  <KeyValuePair GrayscaleIndex="0.00000" Character=" "/>
+  <KeyValuePair GrayscaleIndex="0.25308" Character="░"/>
+  <KeyValuePair GrayscaleIndex="0.50514" Character="▒"/>
+  <KeyValuePair GrayscaleIndex="0.75307" Character="▓"/>
+  <KeyValuePair GrayscaleIndex="1.00000" Character="█"/>
+</CharSet>
