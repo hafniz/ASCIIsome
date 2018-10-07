@@ -114,8 +114,8 @@ namespace ASCIIsome
             }
         }
 
-        private CharSets charSetsAvailable;
-        public CharSets CharSetsAvailable
+        private CharSetList charSetsAvailable;
+        public CharSetList CharSetsAvailable
         {
             get { return charSetsAvailable; }
             set

@@ -92,7 +92,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="CharSet.cs" />
-    <Compile Include="CharSets.cs" />
+    <Compile Include="CharSetList.cs" />
     <Compile Include="Commands\ChangeLanguageCommand.cs" />
     <Compile Include="Commands\ExportToClipboardCommand.cs" />
     <Compile Include="Commands\ManageCharSetCommand.cs" />
@@ -152,6 +152,9 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.zh-CN.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="CharSets\CharSetSchema.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -185,6 +188,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Image\info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="CharSets\Numerals.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

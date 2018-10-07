@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml;
 
 namespace ASCIIsome
 {
@@ -23,6 +24,8 @@ namespace ASCIIsome
         public MainWindow()
         {
             InitializeComponent();
+            CharSet numeralsCharSet = CharSet.ParseFromXMLFile(@"D:\Documents\Projects\ASCIIsome\ASCIIsome\CharSets\Numerals.xml");
+            numeralsCharSet.ExportToXMLFile(@"c:\users\chenh\desktop\out.xml");
         }
     }
 }

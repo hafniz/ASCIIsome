@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ASCIIsome
 {
-    public class CharSets : ObservableCollection<CharSet>
+    public class CharSetList : ObservableCollection<CharSet>
     {
     }
 }
