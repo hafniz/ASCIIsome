@@ -28,6 +28,7 @@ namespace ASCIIsome
 
         public void Show(ViewModel viewModel)
         {
+            Resources["viewModel"] = viewModel;
             Show();
         }
     }

@@ -123,6 +123,9 @@
   <data name="AboutDetails" xml:space="preserve">
     <value>(placeholder for russian aboutdetails)</value>
   </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
   <data name="ChangeLanguage" xml:space="preserve">
     <value>Выбрать язык отображения</value>
   </data>
@@ -155,6 +158,9 @@
   </data>
   <data name="ManageCharSet" xml:space="preserve">
     <value>Управлять наборами символов...</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>ОК</value>
   </data>
   <data name="OpenFile" xml:space="preserve">
     <value>Открыть файл...</value>

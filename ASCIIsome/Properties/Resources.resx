@@ -124,6 +124,9 @@
     <value>A hafniz program. 
 Under development</value>
   </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
   <data name="ChangeLanguage" xml:space="preserve">
     <value>Choose display language</value>
   </data>
@@ -156,6 +159,9 @@ Under development</value>
   </data>
   <data name="ManageCharSet" xml:space="preserve">
     <value>Manage character set...</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>OK</value>
   </data>
   <data name="OpenFile" xml:space="preserve">
     <value>Open file...</value>

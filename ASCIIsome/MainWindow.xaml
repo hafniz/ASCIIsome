@@ -12,6 +12,7 @@
         <local:ViewModel x:Key="viewModel"/>
     </Window.Resources>
     <DockPanel DataContext="{Binding Source={StaticResource viewModel}}">
+        <TextBox Text="{Binding Source={StaticResource viewModel}, Path=CharImgWidth}"/>
         <DockPanel DockPanel.Dock="Top">
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Left">
                 <Button Margin="10,10,0,5" VerticalAlignment="Center" Command="{Binding ImportFromClipboardCommand}">
@@ -37,7 +38,7 @@
                         <TextBlock Text="{Binding RubberDuckText}" Margin="5,5,5,5"/>
                     </StackPanel>
                 </Button>
-                <Button Margin="10,10,0,5" VerticalAlignment="Center" Command="{Binding ChangeLanguageCommand}">
+                <Button Margin="10,10,0,5" VerticalAlignment="Center" Command="{Binding ShowChangeLanguageCommand}" CommandParameter="{Binding Mode=OneWay, Source={StaticResource viewModel}}">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="Images\locale.png" Height="16" Margin="5,5,0,5"/>
                         <TextBlock Text="{x:Static p:Resources.Language}" Margin="5,5,5,5"/>

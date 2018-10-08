@@ -17,7 +17,7 @@ namespace ASCIIsome
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
-        private int charImgWidth = 40;
+        private int charImgWidth;
         public int CharImgWidth
         {
             get { return charImgWidth; }
@@ -32,7 +32,7 @@ namespace ASCIIsome
             }
         }
 
-        private int charImgHeight = 25;
+        private int charImgHeight;
         public int CharImgHeight
         {
             get { return charImgHeight; }
@@ -117,8 +117,8 @@ namespace ASCIIsome
             }
         }
 
-        private CharSetList charSetsAvailable;
-        public CharSetList CharSetsAvailable
+        private CharSetCollection charSetsAvailable;
+        public CharSetCollection CharSetsAvailable
         {
             get { return charSetsAvailable; }
             set
@@ -148,7 +148,6 @@ namespace ASCIIsome
             {
                 displayLanguage = value;
                 OnPropertyChanged(nameof(DisplayLanguage));
-                //DisplayLanguage.ChangeDisplayLanguage(this);
             }
         }
 
@@ -158,8 +157,10 @@ namespace ASCIIsome
         public SaveAsCommand SaveAsCommand { get; set; }
         public ManageCharSetCommand ManageCharSetCommand { get; set; }
         public RubberDuckCommand RubberDuckCommand { get; set; }
-        public ChangeLanguageCommand ChangeLanguageCommand { get; set; }
+        public ShowChangeLanguageCommand ShowChangeLanguageCommand { get; set; }
         public ShowAboutCommand ShowAboutCommand { get; set; }
+        public CancelAndCloseCommand CancelAndCloseCommand { get; set; }
+        public SubmitLanguageChangeCommand SubmitLanguageChangeCommand { get; set; }
 
         public ViewModel()
         {
@@ -169,8 +170,10 @@ namespace ASCIIsome
             SaveAsCommand = new SaveAsCommand(this);
             ManageCharSetCommand = new ManageCharSetCommand(this);
             RubberDuckCommand = new RubberDuckCommand(this);
-            ChangeLanguageCommand = new ChangeLanguageCommand(this);
+            ShowChangeLanguageCommand = new ShowChangeLanguageCommand(this);
             ShowAboutCommand = new ShowAboutCommand(this);
+            CancelAndCloseCommand = new CancelAndCloseCommand(this);
+            SubmitLanguageChangeCommand = new SubmitLanguageChangeCommand(this);
         }
     }
 }

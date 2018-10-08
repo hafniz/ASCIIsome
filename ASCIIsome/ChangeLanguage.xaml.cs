@@ -23,5 +23,11 @@ namespace ASCIIsome
         {
             InitializeComponent();
         }
+
+        public void Show(ViewModel viewModel)
+        {
+            Resources["viewModel"] = viewModel;
+            Show();
+        }
     }
 }

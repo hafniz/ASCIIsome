@@ -100,8 +100,9 @@
       <DependentUpon>ChangeLanguage.xaml</DependentUpon>
     </Compile>
     <Compile Include="CharSet.cs" />
-    <Compile Include="CharSetList.cs" />
-    <Compile Include="Commands\ChangeLanguageCommand.cs" />
+    <Compile Include="CharSetCollection.cs" />
+    <Compile Include="Commands\CancelAndCloseCommand.cs" />
+    <Compile Include="Commands\ShowChangeLanguageCommand.cs" />
     <Compile Include="Commands\ExportToClipboardCommand.cs" />
     <Compile Include="Commands\ManageCharSetCommand.cs" />
     <Compile Include="Commands\OpenFileCommand.cs" />
@@ -109,6 +110,7 @@
     <Compile Include="Commands\RubberDuckCommand.cs" />
     <Compile Include="Commands\SaveAsCommand.cs" />
     <Compile Include="Commands\ShowAboutCommand.cs" />
+    <Compile Include="Commands\SubmitLanguageChangeCommand.cs" />
     <Compile Include="DisplayLanguage.cs" />
     <Compile Include="ValueConverters\DisplayLanguageIndexConverter.cs" />
     <Compile Include="EnvironmentConst.cs" />
@@ -163,14 +165,17 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.ru-RU.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.ru-RU.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.zh-CN.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.zh-CN.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="CharSets\CharSetSchema.xsd">
       <SubType>Designer</SubType>

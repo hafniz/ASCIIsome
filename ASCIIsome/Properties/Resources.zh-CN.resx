@@ -123,6 +123,9 @@
   <data name="AboutDetails" xml:space="preserve">
     <value>(placeholder for Chinese aboutdetails)</value>
   </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
   <data name="ChangeLanguage" xml:space="preserve">
     <value>选择显示语言</value>
   </data>
@@ -155,6 +158,9 @@
   </data>
   <data name="ManageCharSet" xml:space="preserve">
     <value>管理字符集</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>确定</value>
   </data>
   <data name="OpenFile" xml:space="preserve">
     <value>打开文件…</value>
