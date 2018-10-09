@@ -130,9 +130,6 @@ Under development</value>
   <data name="ChangeLanguage" xml:space="preserve">
     <value>Choose display language</value>
   </data>
-  <data name="CharSet" xml:space="preserve">
-    <value>Character set:</value>
-  </data>
   <data name="DynamicGrayscaleRange" xml:space="preserve">
     <value>Use dynamic grayscale range</value>
   </data>

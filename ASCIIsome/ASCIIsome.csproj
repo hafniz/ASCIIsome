@@ -93,12 +93,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="About.xaml.cs">
-      <DependentUpon>About.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ChangeLanguage.xaml.cs">
-      <DependentUpon>ChangeLanguage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="CharSet.cs" />
     <Compile Include="CharSetCollection.cs" />
     <Compile Include="Commands\CancelAndCloseCommand.cs" />
@@ -113,30 +107,35 @@
     <Compile Include="Commands\SubmitLanguageChangeCommand.cs" />
     <Compile Include="DisplayLanguage.cs" />
     <Compile Include="ValueConverters\DisplayLanguageIndexConverter.cs" />
-    <Compile Include="EnvironmentConst.cs" />
+    <Compile Include="ApplicationInfo.cs" />
     <Compile Include="Plotter.cs" />
     <Compile Include="ValueConverters\VersionNumberConverter.cs" />
     <Compile Include="ViewModel.cs" />
-    <Page Include="About.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ChangeLanguage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
+    <Compile Include="Windows\About.xaml.cs">
+      <DependentUpon>About.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ChangeLanguage.xaml.cs">
+      <DependentUpon>ChangeLanguage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
+    <Page Include="Windows\About.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ChangeLanguage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

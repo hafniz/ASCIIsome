@@ -10,31 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Xml;
 
-namespace ASCIIsome
+namespace ASCIIsome.Windows
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for About.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class About : Window
     {
-        public MainWindow()
+        public About()
         {
             InitializeComponent();
-        }
-
-        public void Show(ViewModel viewModel)
-        {
-            Resources["viewModel"] = viewModel;
-            Show();
-        }
-
-        private void TextBox_LostFocus(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

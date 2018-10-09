@@ -1,0 +1,22 @@
+﻿<Window x:Class="ASCIIsome.Windows.About"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:p="clr-namespace:ASCIIsome.Properties"
+        xmlns:c="clr-namespace:ASCIIsome.ValueConverters"
+        xmlns:r="clr-namespace:ASCIIsome"
+        xmlns:local="clr-namespace:ASCIIsome.Windows"
+        mc:Ignorable="d"
+        Title="{x:Static p:Resources.About}" Height="400" Width="400" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" Icon="..\Images\info.png">
+    <Window.Resources>
+        <c:VersionNumberConverter x:Key="versionNumberConverter"/>
+    </Window.Resources>
+    <DockPanel Margin="20,20,20,20">
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+            <TextBlock Text="{Binding Source={x:Static r:ApplicationInfo.ApplicationName}}" Foreground="{Binding Source={x:Static r:ApplicationInfo.ApplicationTitleBrush}}" FontSize="24" FontFamily="Segoe UI" VerticalAlignment="Bottom"/>
+            <TextBlock Text="{Binding Source={x:Static r:ApplicationInfo.ApplicationVersion}, Converter={StaticResource versionNumberConverter}}" Margin="10,0,0,4" VerticalAlignment="Bottom"/>
+        </StackPanel>
+        <TextBox IsReadOnly="True" Margin="0,10,0,0" Text="{x:Static p:Resources.AboutDetails}"/>
+    </DockPanel>
+</Window>

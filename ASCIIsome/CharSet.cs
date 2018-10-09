@@ -27,7 +27,7 @@ namespace ASCIIsome
             }
             return MakeOrderedDistinct(charSetsJoined);
         }
-        public static CharSet operator &(CharSet charSet1, CharSet charSet2) => Concat(charSet1, charSet2);
+        public static CharSet operator |(CharSet charSet1, CharSet charSet2) => Concat(charSet1, charSet2);
 
         private static CharSet MakeOrderedDistinct(CharSet charSet)
         {

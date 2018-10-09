@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace ASCIIsome
+namespace ASCIIsome.Windows
 {
     /// <summary>
     /// Interaction logic for ChangeLanguage.xaml
@@ -26,13 +26,8 @@ namespace ASCIIsome
 
         public void Show(ViewModel viewModel)
         {
-            Resources["viewModel"] = viewModel;
+            dataContextContainer.DataContext = viewModel;
             Show();
-        }
-
-        private void TextBox_LostFocus(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

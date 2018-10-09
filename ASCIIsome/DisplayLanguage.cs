@@ -7,6 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Data;
+using ASCIIsome.Windows;
 
 namespace ASCIIsome
 {
@@ -34,19 +35,21 @@ namespace ASCIIsome
             Index = index;
         }
 
-        public static void ChangeDisplayLanguage(ViewModel senderViewModel)
+        public static void ChangeDisplayLanguage(ViewModel viewModel)
         {
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo(senderViewModel.DisplayLanguage.CultureSymbol);
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(viewModel.DisplayLanguage.CultureSymbol);
             Window oldMainWindow = Application.Current.MainWindow;
             foreach (object window in Application.Current.Windows)
             {
-                if (window as Window != Application.Current.MainWindow)
+                if (window as Window != oldMainWindow)
                 {
                     (window as Window).Close();
                 }
             }
-            new MainWindow().Show(senderViewModel);
+            MainWindow newMainWindow = new MainWindow();
+            Application.Current.MainWindow = newMainWindow;
             oldMainWindow.Close();
+            newMainWindow.Show(viewModel);
         }
     }
 }

@@ -129,9 +129,6 @@
   <data name="ChangeLanguage" xml:space="preserve">
     <value>Выбрать язык отображения</value>
   </data>
-  <data name="CharSet" xml:space="preserve">
-    <value>Набор символов:</value>
-  </data>
   <data name="DynamicGrayscaleRange" xml:space="preserve">
     <value>Использовать динамический диапазон оттенков серого</value>
   </data>

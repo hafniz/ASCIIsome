@@ -12,16 +12,22 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace ASCIIsome
+namespace ASCIIsome.Windows
 {
     /// <summary>
-    /// Interaction logic for About.xaml
+    /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class About : Window
+    public partial class MainWindow : Window
     {
-        public About()
+        public MainWindow()
         {
             InitializeComponent();
+        }
+
+        public void Show(ViewModel viewModel)
+        {
+            dataContextContainer.DataContext = viewModel;
+            Show();
         }
     }
 }

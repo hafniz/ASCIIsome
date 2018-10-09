@@ -98,15 +98,6 @@ namespace ASCIIsome.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Character set:.
-        /// </summary>
-        public static string CharSet {
-            get {
-                return ResourceManager.GetString("CharSet", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Use dynamic grayscale range.
         /// </summary>
         public static string DynamicGrayscaleRange {

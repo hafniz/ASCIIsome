@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using ASCIIsome.Windows;
 
 namespace ASCIIsome.Commands
 {
@@ -20,7 +21,7 @@ namespace ASCIIsome.Commands
         {
             if (!Application.Current.Windows.OfType<ChangeLanguage>().Any())
             {
-                new ChangeLanguage().Show(CurrentViewModel);
+                new ChangeLanguage().Show((parameter as MainWindow).dataContextContainer.DataContext as ViewModel);
             }
             else
             {

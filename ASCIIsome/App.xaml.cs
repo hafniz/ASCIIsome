@@ -18,6 +18,7 @@ namespace ASCIIsome
         {
             base.OnStartup(e);
             //System.Threading.Thread.CurrentThread.CurrentUICulture = new CultureInfo("ru-RU"); // Override CultureInfo to display corresponding display language in UI
+            ShutdownMode = ShutdownMode.OnMainWindowClose;
         }
     }
 }

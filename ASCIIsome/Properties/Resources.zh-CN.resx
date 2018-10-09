@@ -129,9 +129,6 @@
   <data name="ChangeLanguage" xml:space="preserve">
     <value>选择显示语言</value>
   </data>
-  <data name="CharSet" xml:space="preserve">
-    <value>字符集：</value>
-  </data>
   <data name="DynamicGrayscaleRange" xml:space="preserve">
     <value>动态灰度范围</value>
   </data>
@@ -139,10 +136,10 @@
     <value>导出到剪贴板</value>
   </data>
   <data name="ImgHeight" xml:space="preserve">
-    <value>图片高度</value>
+    <value>字符画高度</value>
   </data>
   <data name="ImgWidth" xml:space="preserve">
-    <value>图片宽度</value>
+    <value>字符画宽度</value>
   </data>
   <data name="ImportFromClipboard" xml:space="preserve">
     <value>导入自剪贴板</value>

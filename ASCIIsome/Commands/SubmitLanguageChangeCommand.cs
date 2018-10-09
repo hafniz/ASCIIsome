@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
+using ASCIIsome.Windows;
 
 namespace ASCIIsome.Commands
 {
@@ -14,7 +16,6 @@ namespace ASCIIsome.Commands
 
         public event EventHandler CanExecuteChanged;
         public bool CanExecute(object parameter) => true;
-
-        public void Execute(object parameter) => DisplayLanguage.ChangeDisplayLanguage(CurrentViewModel); 
+        public void Execute(object parameter) => DisplayLanguage.ChangeDisplayLanguage((parameter as ChangeLanguage).dataContextContainer.DataContext as ViewModel);
     }
 }
