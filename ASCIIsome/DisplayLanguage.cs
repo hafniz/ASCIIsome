@@ -15,6 +15,11 @@ namespace ASCIIsome
         public string DisplayName { get; set; }
         public string CultureSymbol { get; set; }
         public int Index { get; set; }
+
+        public static DisplayLanguage GetDisplayLanguageFromSymbol(string symbol) => SupportedLanguage.Find(x => x.CultureSymbol == symbol);
+        public static DisplayLanguage GetDisplayLanguageFromIndex(int index) => SupportedLanguage.Find(x => x.Index == index);
+        public override string ToString() => DisplayName;
+
         public static List<DisplayLanguage> SupportedLanguage { get; } = new List<DisplayLanguage>
         {
             new DisplayLanguage("English", "en-US", 0),
@@ -32,14 +37,16 @@ namespace ASCIIsome
         public static void ChangeDisplayLanguage(ViewModel senderViewModel)
         {
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(senderViewModel.DisplayLanguage.CultureSymbol);
-            (Application.Current.MainWindow as MainWindow)?.Close();
+            Window oldMainWindow = Application.Current.MainWindow;
+            foreach (object window in Application.Current.Windows)
+            {
+                if (window as Window != Application.Current.MainWindow)
+                {
+                    (window as Window).Close();
+                }
+            }
             new MainWindow().Show(senderViewModel);
-            Application.Current.Windows.OfType<ChangeLanguage>().Single().Close();
+            oldMainWindow.Close();
         }
-
-        public static DisplayLanguage GetDisplayLanguageFromSymbol(string symbol) => SupportedLanguage.Find(x => x.CultureSymbol == symbol);
-        public static DisplayLanguage GetDisplayLanguageFromIndex(int index) => SupportedLanguage.Find(x => x.Index == index);
-
-        public override string ToString() => DisplayName;
     }
 }

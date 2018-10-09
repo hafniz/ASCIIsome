@@ -17,8 +17,7 @@ namespace ASCIIsome
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-            //System.Threading.Thread.CurrentThread.CurrentUICulture = new CultureInfo("ru-RU");
-            ShutdownMode = ShutdownMode.OnLastWindowClose;
+            //System.Threading.Thread.CurrentThread.CurrentUICulture = new CultureInfo("ru-RU"); // Override CultureInfo to display corresponding display language in UI
         }
     }
 }

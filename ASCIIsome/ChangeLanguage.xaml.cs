@@ -29,5 +29,10 @@ namespace ASCIIsome
             Resources["viewModel"] = viewModel;
             Show();
         }
+
+        private void TextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
