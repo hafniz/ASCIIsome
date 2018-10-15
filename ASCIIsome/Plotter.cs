@@ -11,14 +11,14 @@ namespace ASCIIsome
     {
         public static void Plot(ViewModel currentConfig)
         {
-            DebugEcho(currentConfig);
+            DebugEnumerateConfig(currentConfig);
             if (currentConfig.ImgSource != null)
             {
-                // (Re)plot the char graph
+                // [HV] (Re)plot the char graph
             }
         }
 
-        private static void DebugEcho(ViewModel currentConfig) => currentConfig.CharOut = "CharImgHeight: " + currentConfig.CharImgHeight + Environment.NewLine +
+        private static void DebugEnumerateConfig(ViewModel currentConfig) => currentConfig.CharOut = "CharImgHeight: " + currentConfig.CharImgHeight + Environment.NewLine +
             "CharImgWidth: " + currentConfig.CharImgWidth + Environment.NewLine +
             "ImgSource: " + currentConfig.ImgSource + Environment.NewLine +
             "IsAspectRatioKept: " + currentConfig.IsAspectRatioKept + Environment.NewLine +

@@ -12,10 +12,32 @@ using ASCIIsome.Commands;
 
 namespace ASCIIsome
 {
-    public class ViewModel : INotifyPropertyChanged
+    public class ViewModel : INotifyPropertyChanged, ICloneable
     {
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
+        private double windowTop = Application.Current.MainWindow.Top;
+        public double WindowTop
+        {
+            get { return windowTop; }
+            set
+            {
+                windowTop = value;
+                OnPropertyChanged(nameof(WindowTop));
+            }
+        }
+
+        private double windowLeft = Application.Current.MainWindow.Left;
+        public double WindowLeft
+        {
+            get { return windowLeft; }
+            set
+            {
+                windowLeft = value;
+                OnPropertyChanged(nameof(WindowLeft));
+            }
+        }
 
         private int charImgWidth;
         public int CharImgWidth
@@ -175,5 +197,22 @@ namespace ASCIIsome
             CancelAndCloseCommand = new CancelAndCloseCommand(this);
             SubmitLanguageChangeCommand = new SubmitLanguageChangeCommand(this);
         }
+
+        public object Clone() => new ViewModel
+        {
+            WindowTop = WindowTop,
+            WindowLeft = WindowLeft,
+            CharImgWidth = CharImgWidth,
+            CharImgHeight = CharImgHeight,
+            IsAspectRatioKept = IsAspectRatioKept,
+            IsDynamicGrayscaleRangeEnabled = IsDynamicGrayscaleRangeEnabled,
+            IsGrayscaleRangeInverted = IsGrayscaleRangeInverted,
+            ImgSource = ImgSource,
+            CharOut = CharOut,
+            RubberDuckText = RubberDuckText,
+            CharSetsAvailable = CharSetsAvailable,
+            CurrentCharSet = CurrentCharSet,
+            DisplayLanguage = DisplayLanguage
+        };
     }
 }

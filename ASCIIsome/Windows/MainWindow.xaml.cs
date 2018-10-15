@@ -26,7 +26,7 @@ namespace ASCIIsome.Windows
 
         public void Show(ViewModel viewModel)
         {
-            dataContextContainer.DataContext = viewModel;
+            DataContext = viewModel;
             Show();
         }
     }

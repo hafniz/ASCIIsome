@@ -17,16 +17,6 @@ namespace ASCIIsome.Commands
 
         public event EventHandler CanExecuteChanged;
         public bool CanExecute(object parameter) => true;
-        public void Execute(object parameter)
-        {
-            if (!Application.Current.Windows.OfType<ChangeLanguage>().Any())
-            {
-                new ChangeLanguage().Show((parameter as MainWindow).dataContextContainer.DataContext as ViewModel);
-            }
-            else
-            {
-                Application.Current.Windows.OfType<ChangeLanguage>().Single().Activate();
-            }
-        }
+        public void Execute(object parameter) => new ChangeLanguage { Owner = Application.Current.MainWindow }.ShowDialog((parameter as MainWindow).DataContext as ViewModel);
     }
 }

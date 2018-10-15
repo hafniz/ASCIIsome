@@ -39,13 +39,6 @@ namespace ASCIIsome
         {
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(viewModel.DisplayLanguage.CultureSymbol);
             Window oldMainWindow = Application.Current.MainWindow;
-            foreach (object window in Application.Current.Windows)
-            {
-                if (window as Window != oldMainWindow)
-                {
-                    (window as Window).Close();
-                }
-            }
             MainWindow newMainWindow = new MainWindow();
             Application.Current.MainWindow = newMainWindow;
             oldMainWindow.Close();

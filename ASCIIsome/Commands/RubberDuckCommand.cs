@@ -11,17 +11,17 @@ using System.Windows.Threading;
 
 namespace ASCIIsome.Commands
 {
-    public class RubberDuckCommand : ICommand // Random seed used at nowhere: \u0049\u0020\u006c\u006f\u0076\u0065\u0020\u0072\u0075\u0062\u0062\u0065\u0072\u0020\u0064\u0075\u0063\u006b\u0020\u006a\u0075\u0073\u0074\u0020\u006c\u0069\u006b\u0065\u0020\u0068\u006f\u0077\u0020\u0049\u0020\u006c\u006f\u0076\u0065\u0020\u0045\u0067\u0067\u0074\u0061\u0072\u0074\u000d\u000a\u0020\u0061\u0073\u0020\u0074\u0068\u0065\u0020\u0072\u0075\u0062\u0062\u0065\u0072\u0020\u0064\u0075\u0063\u006b\u0020\u0069\u0073\u0020\u006a\u0075\u0073\u0074\u0020\u0061\u0073\u0020\u0072\u0061\u006e\u0064\u006f\u006d\u0020\u0061\u0073\u0020\u0045\u0067\u0067\u0074\u0061\u0072\u0074
+    public class RubberDuckCommand : ICommand
     {
         public ViewModel CurrentViewModel { get; set; }
         public RubberDuckCommand(ViewModel currentViewModel) => CurrentViewModel = currentViewModel;
 
+        DispatcherTimer timer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(4) };
+        int count = 0;
+        Random random = new Random((int)(DateTime.Now.Ticks - new DateTime(2002, 9, 18).Ticks));
+
         public event EventHandler CanExecuteChanged;
         public bool CanExecute(object parameter) => true;
-
-        DispatcherTimer timer = new DispatcherTimer { Interval = new TimeSpan(0, 0, 4) };
-        int count = 0;
-        Random random = new Random((int)DateTime.Now.Ticks);
 
         public void Execute(object parameter)
         {
@@ -30,6 +30,7 @@ namespace ASCIIsome.Commands
             {
                 timer.Start();
             }
+            timer.Tick -= Reset; // [HV] to prevent subscribing the event repeatedly
             timer.Tick += Reset;
             count++;
             if (count == 16)

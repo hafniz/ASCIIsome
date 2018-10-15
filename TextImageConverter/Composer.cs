@@ -29,7 +29,7 @@ namespace TextImageConverter
                 WriteLine($"Process completed in {stopWatch.Elapsed}. ");
                 SaveImage(bitmap, currentConfig);
             }
-            File.Delete(currentConfig.WorkingPath); // However, if the user terminates the program before it finishes by itself, the temp file will not be deleted and thus disk space will be unnecessarily occupied in a relatively long term. 
+            File.Delete(currentConfig.WorkingPath); // [HV] However, if the user terminates the program before it finishes by itself, the temp file will not be deleted and thus disk space will be unnecessarily occupied in a relatively long term. 
             WriteLine("Done. ");
         }
 
@@ -58,7 +58,7 @@ namespace TextImageConverter
                 for (int i = 0; i < currentConfig.FileLength; i++)
                 {
                     int originalByte = fileStream.ReadByte();
-                    byte byteWithOffset = (byte)((originalByte + currentConfig.OffsetGenerator.Next(256)) % 256); // Expectation: ((0 + 0) % 256) = 0 to ((255 + 255) % 256) = 254
+                    byte byteWithOffset = (byte)((originalByte + currentConfig.OffsetGenerator.Next(256)) % 256); // [HV] Expectation: ((0 + 0) % 256) = 0 to ((255 + 255) % 256) = 254
                     fileStream.Seek(-1, SeekOrigin.Current);
                     fileStream.WriteByte(byteWithOffset);
                 }
@@ -193,7 +193,7 @@ namespace TextImageConverter
 
         private static void CalculateImageSize(ComposeConfiguration currentConfig)
         {
-            double pixelCount = currentConfig.FileLength / 3; // currentConfig.FileLength can be surely divided by 3 with no remainder, however pixelCount need to be in a non-integral type to prevent force flooring during division operation with an int. 
+            double pixelCount = currentConfig.FileLength / 3; // [HV] currentConfig.FileLength can be surely divided by 3 with no remainder, however pixelCount need to be in a non-integral type to prevent force flooring during division operation with an int. 
             if (currentConfig.ImgHeight.HasValue && !currentConfig.ImgWidth.HasValue)
             {
                 double imgWidth = pixelCount / currentConfig.ImgHeight.Value;
@@ -215,8 +215,8 @@ namespace TextImageConverter
         private static void ProcessFileTail(ComposeConfiguration currentConfig, FileStream fileStream)
         {
             fileStream.Seek(0, SeekOrigin.End);
-            fileStream.WriteByte(23); // Append 'End of Transmission Block' byte at the end of the file. 
-            switch ((currentConfig.FileLength + 1) % 3) // Ensure the length (in bytes) is divisible by 3, which is the number of bytes that a RGB24 pixel may contain. 
+            fileStream.WriteByte(23); // [HV] Append 'End of Transmission Block' byte at the end of the file. 
+            switch ((currentConfig.FileLength + 1) % 3) // [HV] Ensure the length (in bytes) is divisible by 3, which is the number of bytes that a RGB24 pixel may contain. 
             {
                 case 1:
                     fileStream.WriteByte(0);

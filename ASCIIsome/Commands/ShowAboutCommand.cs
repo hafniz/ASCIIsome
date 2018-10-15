@@ -17,16 +17,6 @@ namespace ASCIIsome.Commands
 
         public event EventHandler CanExecuteChanged;
         public bool CanExecute(object parameter) => true;
-        public void Execute(object parameter)
-        {
-            if (!Application.Current.Windows.OfType<About>().Any())
-            {
-                new About().Show();
-            }
-            else
-            {
-                Application.Current.Windows.OfType<About>().Single().Activate();
-            }
-        }
+        public void Execute(object parameter) => new About { Owner = Application.Current.MainWindow }.ShowDialog();
     }
 }

@@ -1,9 +1,12 @@
 ﻿<Application x:Class="ASCIIsome.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:c="clr-namespace:ASCIIsome.ValueConverters"
              xmlns:local="clr-namespace:ASCIIsome"
              StartupUri="Windows\MainWindow.xaml">
     <Application.Resources>
-         
+        <c:DisplayLanguageIndexConverter x:Key="displayLanguageIndexConverter"/>
+        <c:VersionNumberConverter x:Key="versionNumberConverter"/>
+        <local:ViewModel x:Key="viewModel"/>
     </Application.Resources>
 </Application>

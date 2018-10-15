@@ -214,37 +214,62 @@
     <Resource Include="Images\info.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="CharSets\Numerals.xml" />
+    <Resource Include="CharSets\Numerals.xml">
+      <SubType>Designer</SubType>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="CharSets\LowercaseEnglishAlphabets.xml" />
+    <Resource Include="CharSets\LowercaseEnglishAlphabets.xml">
+      <SubType>Designer</SubType>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="CharSets\UppercaseEnglishAlphabets.xml" />
+    <Resource Include="CharSets\UppercaseEnglishAlphabets.xml">
+      <SubType>Designer</SubType>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="CharSets\ASCIISymbols.xml" />
+    <Resource Include="CharSets\ASCIISymbols.xml">
+      <SubType>Designer</SubType>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="CharSets\UppercaseRussianAlphabets.xml" />
+    <Resource Include="CharSets\UppercaseRussianAlphabets.xml">
+      <SubType>Designer</SubType>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="CharSets\LowercaseRussianAlphabets.xml" />
+    <Resource Include="CharSets\LowercaseRussianAlphabets.xml">
+      <SubType>Designer</SubType>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="CharSets\OtherUppercaseCyrillicAlphabets.xml" />
+    <Resource Include="CharSets\OtherUppercaseCyrillicAlphabets.xml">
+      <SubType>Designer</SubType>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="CharSets\OtherLowercaseCyrillicAlphabets.xml" />
+    <Resource Include="CharSets\OtherLowercaseCyrillicAlphabets.xml">
+      <SubType>Designer</SubType>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="CharSets\OtherSymbols.xml" />
+    <Resource Include="CharSets\Other8859-5Symbols.xml">
+      <SubType>Designer</SubType>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="CharSets\SpaceAndFullBlock.xml" />
+    <Resource Include="CharSets\SpaceAndFullBlock.xml">
+      <SubType>Designer</SubType>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="CharSets\Shades.xml" />
+    <Resource Include="CharSets\Shades.xml">
+      <SubType>Designer</SubType>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="CharSets\CharSetPresetsConcated.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

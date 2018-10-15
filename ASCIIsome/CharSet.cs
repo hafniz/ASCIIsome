@@ -10,8 +10,9 @@ using System.Xml.Serialization;
 
 namespace ASCIIsome
 {
-    public class CharSet : Dictionary<double, char>
+    public class CharSet : Dictionary<double, char>, IEquatable<CharSet>
     {
+        public const double minimalGrayscaleDivision = 1E-5;
         public string DisplayName { get; set; }
         public override string ToString() => DisplayName;
 
@@ -32,16 +33,43 @@ namespace ASCIIsome
         private static CharSet MakeOrderedDistinct(CharSet charSet)
         {
             IEnumerable<KeyValuePair<double, char>> orderedDistinctKeyValuePairs = charSet.Distinct().OrderBy(x => x.Key);
-            CharSet orderedDistinctCharSet = new CharSet();
-            foreach (KeyValuePair<double, char> keyValuePair in orderedDistinctKeyValuePairs)
+            if (charSet.SequenceEqual(orderedDistinctKeyValuePairs))
             {
-                orderedDistinctCharSet.Add(keyValuePair.Key, keyValuePair.Value);
+                return charSet;
             }
-            orderedDistinctCharSet.DisplayName = charSet.DisplayName;
-            return orderedDistinctCharSet;
+            else
+            {
+                CharSet orderedDistinctCharSet = new CharSet();
+                foreach (KeyValuePair<double, char> keyValuePair in orderedDistinctKeyValuePairs)
+                {
+                    orderedDistinctCharSet.Add(keyValuePair.Key, keyValuePair.Value);
+                }
+                orderedDistinctCharSet.DisplayName = charSet.DisplayName;
+                return orderedDistinctCharSet;
+            }
         }
 
-        public static CharSet ParseFromXMLFile(string filePath) // Validation/Exception handling needed (in external code)
+        public new void Add(double key, char value)
+        {
+            if (ContainsValue(value))
+            {
+                return;
+            }
+            while (true)
+            {
+                try
+                {
+                    base.Add(key, value);
+                    break;
+                }
+                catch (ArgumentException)
+                {
+                    key += minimalGrayscaleDivision;
+                }
+            }
+        }
+
+        public static CharSet ParseFromXMLFile(string filePath) // [HV] Validation/Exception handling needed (in external code)
         {
             CharSet parsedCharSet = new CharSet();
             XmlDocument document = new XmlDocument();
@@ -87,5 +115,11 @@ namespace ASCIIsome
                 Debug.WriteLine(keyValuePair.Key + ", " + keyValuePair.Value);
             }
         }
+
+        public static bool operator ==(CharSet charSet1, CharSet charSet2) => charSet1.SequenceEqual(charSet2) && charSet1.DisplayName == charSet2.DisplayName; // [HV] Test for identicality (both identical DisplayName and contents required)
+        public static bool operator !=(CharSet charSet1, CharSet charSet2) => !(charSet1 == charSet2);
+        public override bool Equals(object obj) => Equals(obj as CharSet);
+        public bool Equals(CharSet other) => other != null && this.SequenceEqual(other); // [HV] Test for equivalence (only identical contents required)
+        public override int GetHashCode() => 1862586150 + EqualityComparer<string>.Default.GetHashCode(DisplayName);
     }
 }

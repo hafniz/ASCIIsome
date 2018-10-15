@@ -36,7 +36,7 @@ namespace TextImageConverter
                 case "-?":
                 case "/?":
                 case "-help":
-                case "--help": // Taking Linux users' usage habit into consideration.
+                case "--help": // [HV] Taking Linux users' usage habit into consideration.
                 case "/help":
                     ShowHelp();
                     break;

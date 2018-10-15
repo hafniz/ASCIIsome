@@ -16,6 +16,10 @@ namespace ASCIIsome.Commands
 
         public event EventHandler CanExecuteChanged;
         public bool CanExecute(object parameter) => true;
-        public void Execute(object parameter) => DisplayLanguage.ChangeDisplayLanguage((parameter as ChangeLanguage).dataContextContainer.DataContext as ViewModel);
+        public void Execute(object parameter)
+        {
+            (parameter as Window).DialogResult = true;
+            DisplayLanguage.ChangeDisplayLanguage((parameter as ChangeLanguage).DataContext as ViewModel);
+        }
     }
 }

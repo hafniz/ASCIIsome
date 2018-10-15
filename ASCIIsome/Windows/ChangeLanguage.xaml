@@ -4,25 +4,21 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:p="clr-namespace:ASCIIsome.Properties"
-        xmlns:c="clr-namespace:ASCIIsome.ValueConverters"
         xmlns:r="clr-namespace:ASCIIsome"
         xmlns:local="clr-namespace:ASCIIsome.Windows"
         mc:Ignorable="d"
         x:Name="window"
-        Title="{x:Static p:Resources.ChangeLanguage}" Height="130" Width="200" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" Icon="..\Images\locale.png">
-    <Window.Resources>
-        <c:DisplayLanguageIndexConverter x:Key="displayLanguageIndexConverter"/>
-        <r:ViewModel x:Key="viewModel"/>
-    </Window.Resources>
-    <DockPanel Margin="20,20,20,20" DataContext="{Binding Source={StaticResource viewModel}}" x:Name="dataContextContainer">
+        Title="{x:Static p:Resources.ChangeLanguage}" Height="130" Width="200" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" Icon="..\Images\locale.png"
+        DataContext="{Binding Source={StaticResource viewModel}}">
+    <DockPanel Margin="20,20,20,20">
         <ComboBox DockPanel.Dock="Top" ItemsSource="{Binding Source={x:Static r:DisplayLanguage.SupportedLanguage}}" SelectedIndex="{Binding DisplayLanguage, Mode=TwoWay, Converter={StaticResource displayLanguageIndexConverter}}" />
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Content="{x:Static p:Resources.OK}" Grid.Column="0" Margin="0,10,5,0" Command="{Binding SubmitLanguageChangeCommand}" CommandParameter="{Binding ElementName=window}" />
-            <Button Content="{x:Static p:Resources.Cancel}" Grid.Column="1" Margin="5,10,0,0" Command="{Binding CancelAndCloseCommand}" CommandParameter="{Binding ElementName=window}" />
+            <Button Content="{x:Static p:Resources.OK}" Grid.Column="0" Margin="0,10,5,0" Command="{Binding SubmitLanguageChangeCommand}" CommandParameter="{Binding ElementName=window}" IsDefault="True"/>
+            <Button Content="{x:Static p:Resources.Cancel}" Grid.Column="1" Margin="5,10,0,0" Command="{Binding CancelAndCloseCommand}" CommandParameter="{Binding ElementName=window}" IsCancel="True"/>
         </Grid>
     </DockPanel>
 </Window>

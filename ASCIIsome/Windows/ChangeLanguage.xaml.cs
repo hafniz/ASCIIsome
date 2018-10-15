@@ -24,10 +24,10 @@ namespace ASCIIsome.Windows
             InitializeComponent();
         }
 
-        public void Show(ViewModel viewModel)
+        public void ShowDialog(ViewModel viewModel)
         {
-            dataContextContainer.DataContext = viewModel;
-            Show();
+            DataContext = viewModel.Clone();
+            ShowDialog();
         }
     }
 }
