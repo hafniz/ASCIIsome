@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
-using System.Xml.Serialization;
 
 namespace ASCIIsome
 {
@@ -69,7 +65,7 @@ namespace ASCIIsome
             }
         }
 
-        public static CharSet ParseFromXMLFile(string filePath) // [HV] Validation/Exception handling needed (in external code)
+        public static CharSet ParseFromXMLFile(string filePath) // TODO: [HV] Validation/Exception handling needed (in external code)
         {
             CharSet parsedCharSet = new CharSet();
             XmlDocument document = new XmlDocument();
@@ -108,7 +104,7 @@ namespace ASCIIsome
             }
         }
 
-        public void DebugEnumerateKeyValuePairs()
+        public void DebugEnumerateKeyValuePairs() // TODO: [HV] Make built assembly bypass all Debug-related methods in release build(s)
         {
             foreach (KeyValuePair<double, char> keyValuePair in this)
             {

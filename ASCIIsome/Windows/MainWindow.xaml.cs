@@ -1,16 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
 
 namespace ASCIIsome.Windows
 {
@@ -19,12 +7,9 @@ namespace ASCIIsome.Windows
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
-        {
-            InitializeComponent();
-        }
+        public MainWindow() => InitializeComponent();
 
-        public void Show(ViewModel viewModel)
+        public void Show(ViewModel viewModel) // TODO: [HV] Decide (Min)height/width of MainWindow in initializing depend on current culture info
         {
             DataContext = viewModel;
             Show();

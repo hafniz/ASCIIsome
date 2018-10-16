@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using ASCIIsome.Commands;
+using System;
 using System.ComponentModel;
-using System.Diagnostics;
-using System.Globalization;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
-using ASCIIsome.Commands;
 
 namespace ASCIIsome
 {
@@ -17,10 +11,12 @@ namespace ASCIIsome
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
+
+        // TODO: [HV] Implement DependencyProperty/AttachedProperty if possible
         private double windowTop = Application.Current.MainWindow.Top;
         public double WindowTop
         {
-            get { return windowTop; }
+            get => windowTop;
             set
             {
                 windowTop = value;
@@ -31,7 +27,7 @@ namespace ASCIIsome
         private double windowLeft = Application.Current.MainWindow.Left;
         public double WindowLeft
         {
-            get { return windowLeft; }
+            get => windowLeft;
             set
             {
                 windowLeft = value;
@@ -42,7 +38,7 @@ namespace ASCIIsome
         private int charImgWidth;
         public int CharImgWidth
         {
-            get { return charImgWidth; }
+            get => charImgWidth;
             set
             {
                 if (value > 0)
@@ -57,7 +53,7 @@ namespace ASCIIsome
         private int charImgHeight;
         public int CharImgHeight
         {
-            get { return charImgHeight; }
+            get => charImgHeight;
             set
             {
                 if (value > 0)
@@ -72,7 +68,7 @@ namespace ASCIIsome
         private bool isAspectRatioKept;
         public bool IsAspectRatioKept
         {
-            get { return isAspectRatioKept; }
+            get => isAspectRatioKept;
             set
             {
                 isAspectRatioKept = value;
@@ -84,7 +80,7 @@ namespace ASCIIsome
         private bool isDynamicGrayscaleRangeEnabled;
         public bool IsDynamicGrayscaleRangeEnabled
         {
-            get { return isDynamicGrayscaleRangeEnabled; }
+            get => isDynamicGrayscaleRangeEnabled;
             set
             {
                 isDynamicGrayscaleRangeEnabled = value;
@@ -96,7 +92,7 @@ namespace ASCIIsome
         private bool isGrayscaleRangeInverted;
         public bool IsGrayscaleRangeInverted
         {
-            get { return isGrayscaleRangeInverted; }
+            get => isGrayscaleRangeInverted;
             set
             {
                 isGrayscaleRangeInverted = value;
@@ -108,7 +104,7 @@ namespace ASCIIsome
         private string imgSource;
         public string ImgSource
         {
-            get { return imgSource; }
+            get => imgSource;
             set
             {
                 imgSource = value;
@@ -120,7 +116,7 @@ namespace ASCIIsome
         private string charOut;
         public string CharOut
         {
-            get { return charOut; }
+            get => charOut;
             set
             {
                 charOut = value;
@@ -131,7 +127,7 @@ namespace ASCIIsome
         private string rubberDuckText = "¿¿¿";
         public string RubberDuckText
         {
-            get { return rubberDuckText; }
+            get => rubberDuckText;
             set
             {
                 rubberDuckText = value;
@@ -142,7 +138,7 @@ namespace ASCIIsome
         private CharSetCollection charSetsAvailable;
         public CharSetCollection CharSetsAvailable
         {
-            get { return charSetsAvailable; }
+            get => charSetsAvailable;
             set
             {
                 charSetsAvailable = value;
@@ -153,7 +149,7 @@ namespace ASCIIsome
         private CharSet currentCharSet;
         public CharSet CurrentCharSet
         {
-            get { return currentCharSet; }
+            get => currentCharSet;
             set
             {
                 currentCharSet = value;
@@ -165,7 +161,7 @@ namespace ASCIIsome
         private DisplayLanguage displayLanguage = DisplayLanguage.GetDisplayLanguageFromSymbol(Thread.CurrentThread.CurrentUICulture.Name);
         public DisplayLanguage DisplayLanguage
         {
-            get { return displayLanguage; }
+            get => displayLanguage;
             set
             {
                 displayLanguage = value;
@@ -173,6 +169,7 @@ namespace ASCIIsome
             }
         }
 
+        // TODO: [HV] Remove unnecessary ViewModel props in Commands types and corresponding Commands types initialization in ViewModel constructor if possible
         public ImportFromClipboardCommand ImportFromClipboardCommand { get; set; }
         public OpenFileCommand OpenFileCommand { get; set; }
         public ExportToClipboardCommand ExportToClipboardCommand { get; set; }

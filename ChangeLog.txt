@@ -1,10 +1,6 @@
-Planned modification in future
-	- Remove unnecessary ViewModel props in Commands types and corresponding Commands types initialization in ViewModel constructor if possible
-	+ Decide (Min)height/width of MainWindow in initializing depend on current culture info
-	+ Automatically generate (and format) version info in ApplicationInfo and AssenblyInfo class on building/publishing 
-	+ Implement DependencyProperty/AttachedProperty if possible
-	+ Check access modifiers for all methods
-	+ Make built assembly bypass all Debug-related methods in release build(s)
+Change(s) in alpha 0.0.28.27
+	* Replaced Planned Modification section in change log file into TODO comments
+	* Refactored type files
 
 Change(s) in alpha 0.0.24.20
 	+ Created CommonCommandBase type and made all other command types inherited from CommonCommandBase

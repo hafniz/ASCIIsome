@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Globalization;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 
 namespace ASCIIsome
 {
@@ -16,6 +9,7 @@ namespace ASCIIsome
     {
         protected override void OnStartup(StartupEventArgs e)
         {
+            // TODO: [HV] Check access modifiers for methods in the whold solution
             base.OnStartup(e);
             //System.Threading.Thread.CurrentThread.CurrentUICulture = new CultureInfo("ru-RU"); // [HV] Override CultureInfo to display corresponding display language in UI
             ShutdownMode = ShutdownMode.OnMainWindowClose;

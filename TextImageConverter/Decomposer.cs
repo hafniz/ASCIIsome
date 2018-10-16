@@ -1,8 +1,8 @@
 ﻿using System;
-using static System.Console;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using static System.Console;
 
 namespace TextImageConverter
 {

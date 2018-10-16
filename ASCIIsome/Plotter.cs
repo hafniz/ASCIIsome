@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ASCIIsome
 {
@@ -14,7 +9,7 @@ namespace ASCIIsome
             DebugEnumerateConfig(currentConfig);
             if (currentConfig.ImgSource != null)
             {
-                // [HV] (Re)plot the char graph
+                // TODO: [HV] (Re)plot the char graph
             }
         }
 
