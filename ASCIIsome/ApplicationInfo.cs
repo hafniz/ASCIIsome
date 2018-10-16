@@ -10,9 +10,9 @@ namespace ASCIIsome
     public static class ApplicationInfo
     {
         public static string ApplicationName { get; } = "ASCIIsome";
-        public static Version ApplicationVersion { get; } = new Version(0, 0, 24, 18);
+        public static Version ApplicationVersion { get; } = new Version(0, 0, 24, 20);
         public static string VersionPrefix { get; } = "a";
-        public static string VersionSuffix { get; } = "_181016-1428";
+        public static string VersionSuffix { get; } = "_181016-1432";
         public static SolidColorBrush ApplicationTitleBrush { get; } = new SolidColorBrush(Color.FromRgb(43, 87, 151));
     }
 }
