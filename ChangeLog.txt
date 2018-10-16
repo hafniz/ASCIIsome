@@ -6,7 +6,7 @@ Planned modification in future
 	+ Check access modifiers for all methods
 	+ Make built assembly bypass all Debug-related methods in release build(s)
 
-Change(s) in alpha 0.0.24.16
+Change(s) in alpha 0.0.24.18
 	+ Created CommonCommandBase type and made all other command types inherited from CommonCommandBase
 
 Change(s) in alpha 0.0.23.29
