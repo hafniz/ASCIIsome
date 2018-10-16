@@ -9,13 +9,9 @@ using System.Windows.Input;
 
 namespace ASCIIsome.Commands
 {
-    public class CancelAndCloseCommand : ICommand
+    public class CancelAndCloseCommand : CommonCommandBase
     {
-        public ViewModel CurrentViewModel { get; set; }
-        public CancelAndCloseCommand(ViewModel currentViewModel) => CurrentViewModel = currentViewModel;
-
-        public event EventHandler CanExecuteChanged;
-        public bool CanExecute(object parameter) => true;
-        public void Execute(object parameter) => (parameter as Window).Close();
+        public CancelAndCloseCommand(ViewModel viewModel) : base(viewModel) { }
+        public override void Execute(object parameter) => (parameter as Window).Close();
     }
 }

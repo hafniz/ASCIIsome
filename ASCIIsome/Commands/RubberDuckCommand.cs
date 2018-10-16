@@ -11,19 +11,15 @@ using System.Windows.Threading;
 
 namespace ASCIIsome.Commands
 {
-    public class RubberDuckCommand : ICommand
+    public class RubberDuckCommand : CommonCommandBase
     {
-        public ViewModel CurrentViewModel { get; set; }
-        public RubberDuckCommand(ViewModel currentViewModel) => CurrentViewModel = currentViewModel;
+        public RubberDuckCommand(ViewModel viewModel) : base(viewModel) { }
 
         DispatcherTimer timer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(4) };
         int count = 0;
         Random random = new Random((int)(DateTime.Now.Ticks - new DateTime(2002, 9, 18).Ticks));
 
-        public event EventHandler CanExecuteChanged;
-        public bool CanExecute(object parameter) => true;
-
-        public void Execute(object parameter)
+        public override void Execute(object parameter)
         {
             CurrentViewModel.RubberDuckText = CurrentViewModel.RubberDuckText == "???" ? "¿¿¿" : "???";
             if (!timer.IsEnabled)

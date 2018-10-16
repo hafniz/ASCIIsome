@@ -10,13 +10,9 @@ using ASCIIsome.Windows;
 
 namespace ASCIIsome.Commands
 {
-    public class ShowAboutCommand : ICommand
+    public class ShowAboutCommand : CommonCommandBase
     {
-        public ViewModel CurrentViewModel { get; set; }
-        public ShowAboutCommand(ViewModel currentViewModel) => CurrentViewModel = currentViewModel;
-
-        public event EventHandler CanExecuteChanged;
-        public bool CanExecute(object parameter) => true;
-        public void Execute(object parameter) => new About { Owner = Application.Current.MainWindow }.ShowDialog();
+        public ShowAboutCommand(ViewModel viewModel) : base(viewModel) { }
+        public override void Execute(object parameter) => new About { Owner = Application.Current.MainWindow }.ShowDialog();
     }
 }

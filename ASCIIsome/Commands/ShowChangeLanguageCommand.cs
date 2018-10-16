@@ -10,13 +10,9 @@ using ASCIIsome.Windows;
 
 namespace ASCIIsome.Commands
 {
-    public class ShowChangeLanguageCommand : ICommand
+    public class ShowChangeLanguageCommand : CommonCommandBase
     {
-        public ViewModel CurrentViewModel { get; set; }
-        public ShowChangeLanguageCommand(ViewModel currentViewModel) => CurrentViewModel = currentViewModel;
-
-        public event EventHandler CanExecuteChanged;
-        public bool CanExecute(object parameter) => true;
-        public void Execute(object parameter) => new ChangeLanguage { Owner = Application.Current.MainWindow }.ShowDialog((parameter as MainWindow).DataContext as ViewModel);
+        public ShowChangeLanguageCommand(ViewModel viewModel) : base(viewModel) { }
+        public override void Execute(object parameter) => new ChangeLanguage { Owner = Application.Current.MainWindow }.ShowDialog((parameter as MainWindow).DataContext as ViewModel);
     }
 }

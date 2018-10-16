@@ -8,15 +8,10 @@ using System.Windows.Input;
 
 namespace ASCIIsome.Commands
 {
-    public class SaveAsCommand : ICommand
+    public class SaveAsCommand : CommonCommandBase
     {
-        public ViewModel CurrentViewModel { get; set; }
-        public SaveAsCommand(ViewModel currentViewModel) => CurrentViewModel = currentViewModel;
-
-        public event EventHandler CanExecuteChanged;
-        public bool CanExecute(object parameter) => true;
-
-        public void Execute(object parameter)
+        public SaveAsCommand(ViewModel viewModel) : base(viewModel) { }
+        public override void Execute(object parameter)
         {
             Debug.WriteLine("SaveAs command executed. ");
         }

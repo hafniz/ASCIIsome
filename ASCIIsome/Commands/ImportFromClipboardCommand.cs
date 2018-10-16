@@ -8,15 +8,10 @@ using System.Windows.Input;
 
 namespace ASCIIsome.Commands
 {
-    public class ImportFromClipboardCommand : ICommand
+    public class ImportFromClipboardCommand : CommonCommandBase
     {
-        public ViewModel CurrentViewModel { get; set; }
-        public ImportFromClipboardCommand(ViewModel currentViewModel) => CurrentViewModel = currentViewModel;
-
-        public event EventHandler CanExecuteChanged;
-        public bool CanExecute(object parameter) => true;
-
-        public void Execute(object parameter)
+        public ImportFromClipboardCommand(ViewModel viewModel) : base(viewModel) { }
+        public override void Execute(object parameter)
         {
             Debug.WriteLine("ImportFromClipboard command executed. ");
         }
