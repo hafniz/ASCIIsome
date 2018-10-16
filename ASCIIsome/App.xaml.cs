@@ -9,7 +9,6 @@ namespace ASCIIsome
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            // TODO: [HV] Check access modifiers for methods in the whold solution
             base.OnStartup(e);
             //System.Threading.Thread.CurrentThread.CurrentUICulture = new CultureInfo("ru-RU"); // [HV] Override CultureInfo to display corresponding display language in UI
             ShutdownMode = ShutdownMode.OnMainWindowClose;
