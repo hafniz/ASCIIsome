@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
-using System.Xml.Serialization;
 
 namespace ASCIIsome
 {
@@ -69,7 +65,7 @@ namespace ASCIIsome
             }
         }
 
-        public static CharSet ParseFromXMLFile(string filePath) // [HV] Validation/Exception handling needed (in external code)
+        public static CharSet ParseFromXMLFile(string filePath) // TODO: [HV] Validation/Exception handling needed (in external code)
         {
             CharSet parsedCharSet = new CharSet();
             XmlDocument document = new XmlDocument();
@@ -108,7 +104,7 @@ namespace ASCIIsome
             }
         }
 
-        public void DebugEnumerateKeyValuePairs()
+        public void DebugEnumerateKeyValuePairs() // TODO: [HV] Make built assembly bypass all Debug-related methods in release build(s)
         {
             foreach (KeyValuePair<double, char> keyValuePair in this)
             {
@@ -120,6 +116,6 @@ namespace ASCIIsome
         public static bool operator !=(CharSet charSet1, CharSet charSet2) => !(charSet1 == charSet2);
         public override bool Equals(object obj) => Equals(obj as CharSet);
         public bool Equals(CharSet other) => other != null && this.SequenceEqual(other); // [HV] Test for equivalence (only identical contents required)
-        public override int GetHashCode() => 1862586150 + EqualityComparer<string>.Default.GetHashCode(DisplayName);
+        public override int GetHashCode() => 1862586150 + EqualityComparer<string>.Default.GetHashCode(DisplayName); // TODO: [HV] Find a way to make equal (equivalent or identical?) CharSet instances return same hashcodes
     }
 }

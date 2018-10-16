@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using ASCIIsome.Commands;
+using System;
 using System.ComponentModel;
-using System.Diagnostics;
-using System.Globalization;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
-using ASCIIsome.Commands;
 
 namespace ASCIIsome
 {
@@ -17,39 +11,40 @@ namespace ASCIIsome
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
-        private double windowTop = Application.Current.MainWindow.Top;
-        public double WindowTop
+        // TODO: [HV] Implement DependencyProperty/AttachedProperty if possible
+        private double mainWindowTop = Application.Current.MainWindow.Top;
+        public double MainWindowTop
         {
-            get { return windowTop; }
+            get => mainWindowTop;
             set
             {
-                windowTop = value;
-                OnPropertyChanged(nameof(WindowTop));
+                mainWindowTop = value;
+                OnPropertyChanged(nameof(MainWindowTop));
             }
         }
 
-        private double windowLeft = Application.Current.MainWindow.Left;
-        public double WindowLeft
+        private double mainWindowLeft = Application.Current.MainWindow.Left;
+        public double MainWindowLeft
         {
-            get { return windowLeft; }
+            get => mainWindowLeft;
             set
             {
-                windowLeft = value;
-                OnPropertyChanged(nameof(WindowLeft));
+                mainWindowLeft = value;
+                OnPropertyChanged(nameof(MainWindowLeft));
             }
         }
 
         private int charImgWidth;
         public int CharImgWidth
         {
-            get { return charImgWidth; }
+            get => charImgWidth;
             set
             {
                 if (value > 0)
                 {
                     charImgWidth = value;
                     OnPropertyChanged(nameof(CharImgWidth));
-                    Plotter.Plot(this);
+                    Plotter.Plot(this); // TODO: [HV] Use other way of call instead of passing the whole ViewModel instance only in order to improve performance. See notebook for ideas
                 }
             }
         }
@@ -57,7 +52,7 @@ namespace ASCIIsome
         private int charImgHeight;
         public int CharImgHeight
         {
-            get { return charImgHeight; }
+            get => charImgHeight;
             set
             {
                 if (value > 0)
@@ -72,7 +67,7 @@ namespace ASCIIsome
         private bool isAspectRatioKept;
         public bool IsAspectRatioKept
         {
-            get { return isAspectRatioKept; }
+            get => isAspectRatioKept;
             set
             {
                 isAspectRatioKept = value;
@@ -84,7 +79,7 @@ namespace ASCIIsome
         private bool isDynamicGrayscaleRangeEnabled;
         public bool IsDynamicGrayscaleRangeEnabled
         {
-            get { return isDynamicGrayscaleRangeEnabled; }
+            get => isDynamicGrayscaleRangeEnabled;
             set
             {
                 isDynamicGrayscaleRangeEnabled = value;
@@ -96,7 +91,7 @@ namespace ASCIIsome
         private bool isGrayscaleRangeInverted;
         public bool IsGrayscaleRangeInverted
         {
-            get { return isGrayscaleRangeInverted; }
+            get => isGrayscaleRangeInverted;
             set
             {
                 isGrayscaleRangeInverted = value;
@@ -108,7 +103,7 @@ namespace ASCIIsome
         private string imgSource;
         public string ImgSource
         {
-            get { return imgSource; }
+            get => imgSource;
             set
             {
                 imgSource = value;
@@ -120,7 +115,7 @@ namespace ASCIIsome
         private string charOut;
         public string CharOut
         {
-            get { return charOut; }
+            get => charOut;
             set
             {
                 charOut = value;
@@ -131,7 +126,7 @@ namespace ASCIIsome
         private string rubberDuckText = "¿¿¿";
         public string RubberDuckText
         {
-            get { return rubberDuckText; }
+            get => rubberDuckText;
             set
             {
                 rubberDuckText = value;
@@ -142,7 +137,7 @@ namespace ASCIIsome
         private CharSetCollection charSetsAvailable;
         public CharSetCollection CharSetsAvailable
         {
-            get { return charSetsAvailable; }
+            get => charSetsAvailable;
             set
             {
                 charSetsAvailable = value;
@@ -153,7 +148,7 @@ namespace ASCIIsome
         private CharSet currentCharSet;
         public CharSet CurrentCharSet
         {
-            get { return currentCharSet; }
+            get => currentCharSet;
             set
             {
                 currentCharSet = value;
@@ -165,7 +160,7 @@ namespace ASCIIsome
         private DisplayLanguage displayLanguage = DisplayLanguage.GetDisplayLanguageFromSymbol(Thread.CurrentThread.CurrentUICulture.Name);
         public DisplayLanguage DisplayLanguage
         {
-            get { return displayLanguage; }
+            get => displayLanguage;
             set
             {
                 displayLanguage = value;
@@ -173,6 +168,7 @@ namespace ASCIIsome
             }
         }
 
+        // TODO: [HV] Remove unnecessary ViewModel props in Commands types and corresponding Commands types initialization in ViewModel constructor if possible
         public ImportFromClipboardCommand ImportFromClipboardCommand { get; set; }
         public OpenFileCommand OpenFileCommand { get; set; }
         public ExportToClipboardCommand ExportToClipboardCommand { get; set; }
@@ -200,8 +196,8 @@ namespace ASCIIsome
 
         public object Clone() => new ViewModel
         {
-            WindowTop = WindowTop,
-            WindowLeft = WindowLeft,
+            MainWindowTop = MainWindowTop,
+            MainWindowLeft = MainWindowLeft,
             CharImgWidth = CharImgWidth,
             CharImgHeight = CharImgHeight,
             IsAspectRatioKept = IsAspectRatioKept,

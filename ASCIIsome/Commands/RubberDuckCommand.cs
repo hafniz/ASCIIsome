@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Media;
-using System.Text;
-using System.Threading.Tasks;
-using System.Timers;
-using System.Windows.Input;
 using System.Windows.Threading;
 
 namespace ASCIIsome.Commands
@@ -15,9 +9,10 @@ namespace ASCIIsome.Commands
     {
         public RubberDuckCommand(ViewModel viewModel) : base(viewModel) { }
 
-        DispatcherTimer timer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(4) };
-        int count = 0;
-        Random random = new Random((int)(DateTime.Now.Ticks - new DateTime(2002, 9, 18).Ticks));
+        private static readonly DateTime dateTimeOffset = new DateTime(2002, 9, 18);
+        private readonly DispatcherTimer timer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(4) };
+        private readonly Random random = new Random((int)(DateTime.Now.Ticks - dateTimeOffset.Ticks));
+        private int count = 0;
 
         public override void Execute(object parameter)
         {
@@ -26,7 +21,7 @@ namespace ASCIIsome.Commands
             {
                 timer.Start();
             }
-            timer.Tick -= Reset; // [HV] to prevent subscribing the event repeatedly
+            timer.Tick -= Reset; // [HV] To prevent subscribing the event repeatedly
             timer.Tick += Reset;
             count++;
             if (count == 16)

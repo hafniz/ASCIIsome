@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ASCIIsome
 {
@@ -11,14 +6,14 @@ namespace ASCIIsome
     {
         public static void Plot(ViewModel currentConfig)
         {
-            DebugEnumerateConfig(currentConfig);
+            OutputEnumerateConfig(currentConfig);
             if (currentConfig.ImgSource != null)
             {
-                // [HV] (Re)plot the char graph
+                // TODO: [HV] (Re)plot the char graph. See notebook for ideas
             }
         }
 
-        private static void DebugEnumerateConfig(ViewModel currentConfig) => currentConfig.CharOut = "CharImgHeight: " + currentConfig.CharImgHeight + Environment.NewLine +
+        private static void OutputEnumerateConfig(ViewModel currentConfig) => currentConfig.CharOut = "CharImgHeight: " + currentConfig.CharImgHeight + Environment.NewLine +
             "CharImgWidth: " + currentConfig.CharImgWidth + Environment.NewLine +
             "ImgSource: " + currentConfig.ImgSource + Environment.NewLine +
             "IsAspectRatioKept: " + currentConfig.IsAspectRatioKept + Environment.NewLine +

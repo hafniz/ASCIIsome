@@ -8,7 +8,7 @@
         xmlns:local="clr-namespace:ASCIIsome.Windows"
         mc:Ignorable="d"
         x:Name="window"
-        Title="{x:Static p:Resources.Title}" Height="540" Width="820" WindowStartupLocation="CenterScreen" Top="{Binding WindowTop, Mode=TwoWay}" Left="{Binding WindowLeft, Mode=TwoWay}"
+        Title="{x:Static p:Resources.Title}" Height="540" Width="820" WindowStartupLocation="CenterScreen" Top="{Binding MainWindowTop, Mode=TwoWay}" Left="{Binding MainWindowLeft, Mode=TwoWay}"
         DataContext="{Binding Source={StaticResource viewModel}}">
     <DockPanel>
         <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
