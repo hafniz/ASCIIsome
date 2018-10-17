@@ -88,7 +88,7 @@
                 <ColumnDefinition Width="2*"/>
                 <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
-            <Image Grid.Column="0" Margin="0,0,10,0" Source="{Binding ImgSource, Mode=TwoWay}"/>
+            <Image Grid.Column="0" Margin="0,0,10,0" Source="{Binding ImgSourcePath, Mode=TwoWay}"/>
             <GridSplitter Width="5"/>
             <TextBox Grid.Column="1" Margin="5,0,0,0" FontFamily="Lucida Console" IsReadOnly="True" Text="{Binding CharOut}"/>
         </Grid>

@@ -107,6 +107,8 @@
     <Compile Include="Commands\ShowAboutCommand.cs" />
     <Compile Include="Commands\SubmitLanguageChangeCommand.cs" />
     <Compile Include="DisplayLanguage.cs" />
+    <Compile Include="PlottingStage.cs" />
+    <Compile Include="Range.cs" />
     <Compile Include="ValueConverters\DisplayLanguageIndexConverter.cs" />
     <Compile Include="ApplicationInfo.cs" />
     <Compile Include="Plotter.cs" />

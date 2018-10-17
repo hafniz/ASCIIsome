@@ -1,3 +1,8 @@
+Change(s) in alpha 0.0.32.8
+	+ Outlined workflow of Plotter class
+	+ Added PlottingStage enum for clearity
+	+ Adopted Range<T> class from StackOverflow
+
 Change(s) in alpha 0.0.29.30
 	* Checked all member modifiers
 	* Made comment style consistent

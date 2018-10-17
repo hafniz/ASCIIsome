@@ -34,7 +34,7 @@ namespace ASCIIsome
             }
         }
 
-        private int charImgWidth;
+        private int charImgWidth = 1;
         public int CharImgWidth
         {
             get => charImgWidth;
@@ -44,12 +44,12 @@ namespace ASCIIsome
                 {
                     charImgWidth = value;
                     OnPropertyChanged(nameof(CharImgWidth));
-                    Plotter.Plot(this); // TODO: [HV] Use other way of call instead of passing the whole ViewModel instance only in order to improve performance. See notebook for ideas
+                    Plotter.OutputEnumerateConfig(this); // TODO: [HV] Use other way of call instead of passing the whole ViewModel instance only in order to improve performance. See notebook for ideas
                 }
             }
         }
 
-        private int charImgHeight;
+        private int charImgHeight = 1;
         public int CharImgHeight
         {
             get => charImgHeight;
@@ -59,7 +59,7 @@ namespace ASCIIsome
                 {
                     charImgHeight = value;
                     OnPropertyChanged(nameof(CharImgHeight));
-                    Plotter.Plot(this);
+                    Plotter.OutputEnumerateConfig(this);
                 }
             }
         }
@@ -72,7 +72,7 @@ namespace ASCIIsome
             {
                 isAspectRatioKept = value;
                 OnPropertyChanged(nameof(IsAspectRatioKept));
-                Plotter.Plot(this);
+                Plotter.OutputEnumerateConfig(this);
             }
         }
 
@@ -84,7 +84,7 @@ namespace ASCIIsome
             {
                 isDynamicGrayscaleRangeEnabled = value;
                 OnPropertyChanged(nameof(IsDynamicGrayscaleRangeEnabled));
-                Plotter.Plot(this);
+                Plotter.OutputEnumerateConfig(this);
             }
         }
 
@@ -96,19 +96,19 @@ namespace ASCIIsome
             {
                 isGrayscaleRangeInverted = value;
                 OnPropertyChanged(nameof(IsGrayscaleRangeInverted));
-                Plotter.Plot(this);
+                Plotter.OutputEnumerateConfig(this);
             }
         }
 
-        private string imgSource;
-        public string ImgSource
+        private string imgSourcePath;
+        public string ImgSourcePath
         {
-            get => imgSource;
+            get => imgSourcePath;
             set
             {
-                imgSource = value;
+                imgSourcePath = value;
                 OnPropertyChanged(nameof(IsGrayscaleRangeInverted));
-                Plotter.Plot(this);
+                Plotter.OutputEnumerateConfig(this);
             }
         }
 
@@ -153,7 +153,7 @@ namespace ASCIIsome
             {
                 currentCharSet = value;
                 OnPropertyChanged(nameof(CurrentCharSet));
-                Plotter.Plot(this);
+                Plotter.OutputEnumerateConfig(this);
             }
         }
 
@@ -203,7 +203,7 @@ namespace ASCIIsome
             IsAspectRatioKept = IsAspectRatioKept,
             IsDynamicGrayscaleRangeEnabled = IsDynamicGrayscaleRangeEnabled,
             IsGrayscaleRangeInverted = IsGrayscaleRangeInverted,
-            ImgSource = ImgSource,
+            ImgSourcePath = ImgSourcePath,
             CharOut = CharOut,
             RubberDuckText = RubberDuckText,
             CharSetsAvailable = CharSetsAvailable,

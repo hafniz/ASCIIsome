@@ -1,24 +1,97 @@
 ﻿using System;
+using System.Drawing;
 
 namespace ASCIIsome
 {
     public static class Plotter
     {
-        public static void Plot(ViewModel currentConfig)
+        // TODO: [HV] Build ConfigChanged event and relative types
+
+        private static ViewModel currentViewModel;
+        private static Bitmap originalBitmap;
+        private static Bitmap resizedBitmap;
+        private static Range<double> grayscaleRange;
+        private static double[][] grayscaleIndexArray;
+        private static char[][] characterMatchedArray;
+
+        private static void OnConfigChanged(ViewModel inputViewModel, string configPropertyName) // [HV] Is the subscriber of ConfigChanged event
         {
-            OutputEnumerateConfig(currentConfig);
-            if (currentConfig.ImgSource != null)
+            currentViewModel = inputViewModel;
+            switch (configPropertyName)
             {
-                // TODO: [HV] (Re)plot the char graph. See notebook for ideas
+                case nameof(ViewModel.ImgSourcePath):
+                    Plot(PlottingStage.AccessImageFromFilePath);
+                    break;
+
+                case nameof(ViewModel.IsAspectRatioKept): // TODO: [HV] Need to do more on this case regarding CharImgHeight and CharImgWidth properties and their corresponding UI controls
+                case nameof(ViewModel.CharImgHeight):
+                case nameof(ViewModel.CharImgWidth):
+                    Plot(PlottingStage.ResizeImage);
+                    break;
+
+                case nameof(ViewModel.IsDynamicGrayscaleRangeEnabled): // TODO: [HV] Use when clause for basic conditional decision when necessary
+                    Plot(PlottingStage.CalculateGrayscaleRange);
+                    break;
+
+                case nameof(ViewModel.IsGrayscaleRangeInverted):
+                    Plot(PlottingStage.InvertGrayscaleIndex);
+                    break;
+
+                case nameof(ViewModel.CurrentCharSet):
+                    Plot(PlottingStage.MatchCharacter);
+                    break;
             }
         }
 
-        private static void OutputEnumerateConfig(ViewModel currentConfig) => currentConfig.CharOut = "CharImgHeight: " + currentConfig.CharImgHeight + Environment.NewLine +
-            "CharImgWidth: " + currentConfig.CharImgWidth + Environment.NewLine +
-            "ImgSource: " + currentConfig.ImgSource + Environment.NewLine +
-            "IsAspectRatioKept: " + currentConfig.IsAspectRatioKept + Environment.NewLine +
-            "IsDynamicGrayscaleRangeEnabled: " + currentConfig.IsDynamicGrayscaleRangeEnabled + Environment.NewLine +
-            "IsGrayscaleRangeInverted: " + currentConfig.IsGrayscaleRangeInverted + Environment.NewLine +
-            "CurrentCharSet: " + currentConfig.CurrentCharSet;
+        private static void Plot(PlottingStage startingStage)
+        {
+            switch (startingStage)
+            {
+                case PlottingStage.AccessImageFromFilePath:
+                    AccessImageFromFilePath();
+                    goto case PlottingStage.ResizeImage;
+
+                case PlottingStage.ResizeImage:
+                    ResizeImage();
+                    goto case PlottingStage.CalculateGrayscaleRange;
+
+                case PlottingStage.CalculateGrayscaleRange:
+                    CalculateGrayscaleRange();
+                    goto case PlottingStage.AssignGrayscaleIndex; // TODO: [HV] Use if/else or when clause checking to decide whether goto 0x30 or 0x31
+
+                case PlottingStage.AssignGrayscaleIndex:
+                    AssignGrayscaleIndex();
+                    goto case PlottingStage.MatchCharacter;
+
+                case PlottingStage.InvertGrayscaleIndex:
+                    InvertGrayscaleIndex();
+                    goto case PlottingStage.MatchCharacter;
+
+                case PlottingStage.MatchCharacter:
+                    MatchCharacter();
+                    goto case PlottingStage.OutputCharacter;
+
+                case PlottingStage.OutputCharacter:
+                    OutputCharacter();
+                    break;
+            }
+        }
+
+        private static void OutputCharacter() => throw new NotImplementedException();
+        private static void MatchCharacter() => throw new NotImplementedException();
+        private static void InvertGrayscaleIndex() => throw new NotImplementedException();
+        private static void AssignGrayscaleIndex() => throw new NotImplementedException();
+        private static void CalculateGrayscaleRange() => throw new NotImplementedException();
+        private static void ResizeImage() => throw new NotImplementedException();
+        private static void AccessImageFromFilePath() => throw new NotImplementedException();
+
+        public static void OutputEnumerateConfig(ViewModel inputViewModel) => inputViewModel.CharOut =
+            "CharImgHeight: " + (inputViewModel.CharImgHeight.ToString() ?? "(null)") + Environment.NewLine +
+            "CharImgWidth: " + (inputViewModel.CharImgWidth.ToString() ?? "(null)") + Environment.NewLine +
+            "ImgSource: " + (inputViewModel.ImgSourcePath ?? "(null)") + Environment.NewLine +
+            "IsAspectRatioKept: " + (inputViewModel.IsAspectRatioKept.ToString() ?? "(null)") + Environment.NewLine +
+            "IsDynamicGrayscaleRangeEnabled: " + (inputViewModel.IsDynamicGrayscaleRangeEnabled.ToString() ?? "(null)") + Environment.NewLine +
+            "IsGrayscaleRangeInverted: " + (inputViewModel.IsGrayscaleRangeInverted.ToString() ?? "(null)") + Environment.NewLine +
+            "CurrentCharSet: " + inputViewModel.CurrentCharSet + Environment.NewLine;
     }
 }
