@@ -1,4 +1,5 @@
 ﻿using ASCIIsome.Commands;
+using ASCIIsome.Plotting;
 using System;
 using System.ComponentModel;
 using System.Threading;
@@ -44,7 +45,7 @@ namespace ASCIIsome
                 {
                     charImgWidth = value;
                     OnPropertyChanged(nameof(CharImgWidth));
-                    Plotter.OutputEnumerateConfig(this); // TODO: [HV] Use other way of call instead of passing the whole ViewModel instance only in order to improve performance. See notebook for ideas
+                    Plotter.OutputEnumerateConfig(this); // TODO: [HV] Use ConfigChanged event on actual calling instaed
                 }
             }
         }

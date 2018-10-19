@@ -1,3 +1,9 @@
+Change(s) in alpha 0.0.33.29
+	+ Added constructor and modified some XML documentation comments for Range<T> class
+	* Further member accessor modifier checking and modification for types
+	* Made windows, commands and some other classes sealed for security
+	* Other minor maintenance
+
 Change(s) in alpha 0.0.32.8
 	+ Outlined workflow of Plotter class
 	+ Added PlottingStage enum for clearity

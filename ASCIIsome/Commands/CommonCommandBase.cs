@@ -5,7 +5,7 @@ namespace ASCIIsome.Commands
 {
     public abstract class CommonCommandBase : ICommand
     {
-        public ViewModel CurrentViewModel { get; set; }
+        protected ViewModel CurrentViewModel { get; set; }
         public CommonCommandBase(ViewModel viewModel) => CurrentViewModel = viewModel;
 
         public event EventHandler CanExecuteChanged;

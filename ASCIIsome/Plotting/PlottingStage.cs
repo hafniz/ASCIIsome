@@ -1,4 +1,4 @@
-﻿namespace ASCIIsome
+﻿namespace ASCIIsome.Plotting
 {
     public enum PlottingStage
     {

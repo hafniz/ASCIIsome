@@ -5,7 +5,7 @@ using System.Windows.Threading;
 
 namespace ASCIIsome.Commands
 {
-    public class RubberDuckCommand : CommonCommandBase
+    public sealed class RubberDuckCommand : CommonCommandBase
     {
         public RubberDuckCommand(ViewModel viewModel) : base(viewModel) { }
 

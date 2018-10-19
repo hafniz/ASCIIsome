@@ -8,7 +8,7 @@
         xmlns:local="clr-namespace:ASCIIsome.Windows"
         mc:Ignorable="d"
         x:Name="window"
-        Title="{x:Static p:Resources.ChangeLanguage}" Height="130" Width="200" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" Icon="..\Images\locale.png"
+        Title="{x:Static p:Resources.ChangeLanguage}" Height="130" Width="200" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="..\Images\locale.png"
         DataContext="{Binding Source={StaticResource viewModel}}">
     <DockPanel Margin="20,20,20,20">
         <ComboBox DockPanel.Dock="Top" ItemsSource="{Binding Source={x:Static r:DisplayLanguage.SupportedLanguage}}" SelectedIndex="{Binding DisplayLanguage, Mode=TwoWay, Converter={StaticResource displayLanguageIndexConverter}}" />

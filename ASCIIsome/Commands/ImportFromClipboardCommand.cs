@@ -2,7 +2,7 @@
 
 namespace ASCIIsome.Commands
 {
-    public class ImportFromClipboardCommand : CommonCommandBase
+    public sealed class ImportFromClipboardCommand : CommonCommandBase
     {
         public ImportFromClipboardCommand(ViewModel viewModel) : base(viewModel) { }
         public override void Execute(object parameter) => Debug.WriteLine("ImportFromClipboard command executed. ");

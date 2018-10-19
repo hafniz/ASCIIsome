@@ -5,7 +5,7 @@ namespace ASCIIsome.Windows
     /// <summary>
     /// Interaction logic for ChangeLanguage.xaml
     /// </summary>
-    public partial class ChangeLanguage : Window
+    public sealed partial class ChangeLanguage : Window
     {
         public ChangeLanguage() => InitializeComponent();
 

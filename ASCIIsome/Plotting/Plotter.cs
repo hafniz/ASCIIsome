@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Drawing;
 
-namespace ASCIIsome
+namespace ASCIIsome.Plotting
 {
     public static class Plotter
     {

@@ -6,7 +6,7 @@ using System.Windows;
 
 namespace ASCIIsome
 {
-    public class DisplayLanguage
+    public sealed class DisplayLanguage
     {
         public string DisplayName { get; set; }
         public string CultureSymbol { get; set; }
@@ -23,7 +23,7 @@ namespace ASCIIsome
             new DisplayLanguage("русский", "ru-RU", 2)
         };
 
-        public DisplayLanguage(string displayName, string cultureSymbol, int index)
+        private DisplayLanguage(string displayName, string cultureSymbol, int index)
         {
             DisplayName = displayName;
             CultureSymbol = cultureSymbol;

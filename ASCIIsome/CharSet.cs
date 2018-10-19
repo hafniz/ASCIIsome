@@ -8,7 +8,8 @@ namespace ASCIIsome
 {
     public class CharSet : Dictionary<double, char>, IEquatable<CharSet>
     {
-        public const double minimalGrayscaleDivision = 1E-5;
+        private static readonly double minimalGrayscaleDivision = 1E-5;
+        private static readonly Range<double> defaultGrayscaleRange = new Range<double>(0.00000, 1.00000);
         public string DisplayName { get; set; }
         public override string ToString() => DisplayName;
 
@@ -45,13 +46,13 @@ namespace ASCIIsome
             }
         }
 
-        public new void Add(double key, char value)
+        private new void Add(double key, char value)
         {
             if (ContainsValue(value))
             {
                 return;
             }
-            while (true)
+            while (key <= defaultGrayscaleRange.Maximum)
             {
                 try
                 {
@@ -60,11 +61,13 @@ namespace ASCIIsome
                 }
                 catch (ArgumentException)
                 {
-                    key += minimalGrayscaleDivision;
+                    key += minimalGrayscaleDivision; // WARNING: [HV] This particular approach can theoretically cause significant difference between the actual value of grayscale index of a character and the value assigned when being added into a charset,
+                                                     // in case that all neighboring keys have been occupied. OR, if all possible values of key between it's original grayscale index and DefaultGrayscaleRange.Maximum have already been occupied, 
+                                                     // the character will be discarded instead of being added to the charset, which may be unexpected to the end user
                 }
             }
         }
-
+        
         public static CharSet ParseFromXMLFile(string filePath) // TODO: [HV] Validation/Exception handling needed (in external code)
         {
             CharSet parsedCharSet = new CharSet();
