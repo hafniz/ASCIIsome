@@ -5,11 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:p="clr-namespace:ASCIIsome.Properties"
-        xmlns:local="clr-namespace:ASCIIsome.Windows"
         mc:Ignorable="d"
         x:Name="window"
         Title="{x:Static p:Resources.Title}" Height="540" Width="820" WindowStartupLocation="CenterScreen" Top="{Binding MainWindowTop, Mode=TwoWay}" Left="{Binding MainWindowLeft, Mode=TwoWay}"
-        DataContext="{Binding Source={StaticResource viewModel}}">
+        DataContext="{Binding Source={StaticResource ViewModel}}">
     <DockPanel>
         <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
             <Button Margin="10,10,0,5" VerticalAlignment="Center" Command="{Binding ImportFromClipboardCommand}">
@@ -89,7 +88,7 @@
                 <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
             <Image Grid.Column="0" Margin="0,0,10,0" Source="{Binding ImgSourcePath, Mode=TwoWay}"/>
-            <GridSplitter Width="5"/>
+            <GridSplitter Grid.Column="0" Width="5"/>
             <TextBox Grid.Column="1" Margin="5,0,0,0" FontFamily="Lucida Console" IsReadOnly="True" Text="{Binding CharOut}"/>
         </Grid>
     </DockPanel>

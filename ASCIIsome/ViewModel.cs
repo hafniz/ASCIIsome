@@ -1,6 +1,7 @@
 ﻿using ASCIIsome.Commands;
 using ASCIIsome.Plotting;
 using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Threading;
 using System.Windows;
@@ -45,7 +46,7 @@ namespace ASCIIsome
                 {
                     charImgWidth = value;
                     OnPropertyChanged(nameof(CharImgWidth));
-                    Plotter.OutputEnumerateConfig(this); // TODO: [HV] Use ConfigChanged event on actual calling instaed
+                    Plotter.OutputEnumerateConfig(this); // TODO: [HV] Use ConfigChanged event on actual calling instead
                 }
             }
         }
@@ -135,8 +136,8 @@ namespace ASCIIsome
             }
         }
 
-        private CharSetCollection charSetsAvailable;
-        public CharSetCollection CharSetsAvailable
+        private ObservableCollection<CharSet> charSetsAvailable;
+        public ObservableCollection<CharSet> CharSetsAvailable
         {
             get => charSetsAvailable;
             set

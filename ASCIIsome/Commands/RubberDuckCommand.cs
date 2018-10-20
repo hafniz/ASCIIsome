@@ -12,7 +12,7 @@ namespace ASCIIsome.Commands
         private static readonly DateTime dateTimeOffset = new DateTime(2002, 9, 18);
         private readonly DispatcherTimer timer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(4) };
         private readonly Random random = new Random((int)(DateTime.Now.Ticks - dateTimeOffset.Ticks));
-        private int count = 0;
+        private int count;
 
         public override void Execute(object parameter)
         {

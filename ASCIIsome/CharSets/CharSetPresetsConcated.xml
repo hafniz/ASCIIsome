@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<CharSet DisplayName="All 11 charset presets concated" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="ASCIIsome.CharSets CharSetSchema.xsd">
+<CharSet DisplayName="All 11 charset presets concatenated" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="ASCIIsome.CharSets CharSetSchema.xsd">
   <KeyValuePair GrayscaleIndex="0" Character=" " />
   <KeyValuePair GrayscaleIndex="0.01924" Character="`" />
   <KeyValuePair GrayscaleIndex="0.03526" Character="." />

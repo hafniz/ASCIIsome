@@ -5,8 +5,8 @@
              xmlns:local="clr-namespace:ASCIIsome"
              StartupUri="Windows\MainWindow.xaml">
     <Application.Resources>
-        <c:DisplayLanguageIndexConverter x:Key="displayLanguageIndexConverter"/>
-        <c:VersionNumberConverter x:Key="versionNumberConverter"/>
-        <local:ViewModel x:Key="viewModel"/>
+        <c:DisplayLanguageIndexConverter x:Key="DisplayLanguageIndexConverter"/>
+        <c:VersionNumberConverter x:Key="VersionNumberConverter"/>
+        <local:ViewModel x:Key="ViewModel"/>
     </Application.Resources>
 </Application>

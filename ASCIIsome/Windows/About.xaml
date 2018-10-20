@@ -5,13 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:p="clr-namespace:ASCIIsome.Properties"
         xmlns:r="clr-namespace:ASCIIsome"
-        xmlns:local="clr-namespace:ASCIIsome.Windows"
         mc:Ignorable="d"
         Title="{x:Static p:Resources.About}" Height="400" Width="400" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="..\Images\info.png">
     <DockPanel Margin="20,20,20,20">
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
             <TextBlock Text="{Binding Source={x:Static r:ApplicationInfo.ApplicationName}}" Foreground="{Binding Source={x:Static r:ApplicationInfo.ApplicationTitleBrush}}" FontSize="24" FontFamily="Segoe UI" VerticalAlignment="Bottom"/>
-            <TextBlock Text="{Binding Source={x:Static r:ApplicationInfo.ApplicationVersion}, Converter={StaticResource versionNumberConverter}}" Margin="10,0,0,4" VerticalAlignment="Bottom"/>
+            <TextBlock Text="{Binding Source={x:Static r:ApplicationInfo.ApplicationVersion}, Converter={StaticResource VersionNumberConverter}}" Margin="10,0,0,4" VerticalAlignment="Bottom"/>
         </StackPanel>
         <TextBox IsReadOnly="True" Margin="0,10,0,0" Text="{x:Static p:Resources.AboutDetails}"/>
     </DockPanel>

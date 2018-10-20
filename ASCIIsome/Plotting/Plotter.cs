@@ -8,11 +8,13 @@ namespace ASCIIsome.Plotting
         // TODO: [HV] Build ConfigChanged event and relative types
 
         private static ViewModel currentViewModel;
+#pragma warning disable 169
         private static Bitmap originalBitmap;
         private static Bitmap resizedBitmap;
         private static Range<double> grayscaleRange;
         private static double[][] grayscaleIndexArray;
         private static char[][] characterMatchedArray;
+#pragma warning restore 169
 
         private static void OnConfigChanged(ViewModel inputViewModel, string configPropertyName) // [HV] Is the subscriber of ConfigChanged event
         {
@@ -86,12 +88,12 @@ namespace ASCIIsome.Plotting
         private static void AccessImageFromFilePath() => throw new NotImplementedException();
 
         public static void OutputEnumerateConfig(ViewModel inputViewModel) => inputViewModel.CharOut =
-            "CharImgHeight: " + (inputViewModel.CharImgHeight.ToString() ?? "(null)") + Environment.NewLine +
-            "CharImgWidth: " + (inputViewModel.CharImgWidth.ToString() ?? "(null)") + Environment.NewLine +
+            "CharImgHeight: " + inputViewModel.CharImgHeight + Environment.NewLine +
+            "CharImgWidth: " + inputViewModel.CharImgWidth + Environment.NewLine +
             "ImgSource: " + (inputViewModel.ImgSourcePath ?? "(null)") + Environment.NewLine +
-            "IsAspectRatioKept: " + (inputViewModel.IsAspectRatioKept.ToString() ?? "(null)") + Environment.NewLine +
-            "IsDynamicGrayscaleRangeEnabled: " + (inputViewModel.IsDynamicGrayscaleRangeEnabled.ToString() ?? "(null)") + Environment.NewLine +
-            "IsGrayscaleRangeInverted: " + (inputViewModel.IsGrayscaleRangeInverted.ToString() ?? "(null)") + Environment.NewLine +
+            "IsAspectRatioKept: " + inputViewModel.IsAspectRatioKept + Environment.NewLine +
+            "IsDynamicGrayscaleRangeEnabled: " + inputViewModel.IsDynamicGrayscaleRangeEnabled + Environment.NewLine +
+            "IsGrayscaleRangeInverted: " + inputViewModel.IsGrayscaleRangeInverted + Environment.NewLine +
             "CurrentCharSet: " + inputViewModel.CurrentCharSet + Environment.NewLine;
     }
 }

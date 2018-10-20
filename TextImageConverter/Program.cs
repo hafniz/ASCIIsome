@@ -7,7 +7,7 @@ namespace TextImageConverter
 {
     public static class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             if (string.IsNullOrWhiteSpace(string.Concat(args)))
             {
@@ -60,7 +60,7 @@ namespace TextImageConverter
 
         private static void ParseForDecompose(string[] args)
         {
-            switch (args.Count())
+            switch (args.Length)
             {
                 case 1:
                     Decomposer.Decompose();
@@ -81,7 +81,7 @@ namespace TextImageConverter
                     break;
                 case 5:
                     Dictionary<int, string> inputArgs = new Dictionary<int, string>();
-                    for (int i = 0; i < args.Count(); i++)
+                    for (int i = 0; i < args.Length; i++)
                     {
                         inputArgs.Add(i, args[i]);
                     }
@@ -108,7 +108,7 @@ namespace TextImageConverter
 
         private static void ParseForCompose(string[] args)
         {
-            switch (args.Count())
+            switch (args.Length)
             {
                 case 1:
                     Composer.Compose();
@@ -131,7 +131,7 @@ namespace TextImageConverter
                 case 7:
                 case 9:
                     Dictionary<int, string> inputArgs = new Dictionary<int, string>();
-                    for (int i = 0; i < args.Count(); i++)
+                    for (int i = 0; i < args.Length; i++)
                     {
                         inputArgs.Add(i, args[i]);
                     }
@@ -160,15 +160,15 @@ namespace TextImageConverter
 
         private static void ParseSeedArg(Dictionary<int, string> inputArgs, ConfigurationBase parsedConfig)
         {
-            Func<KeyValuePair<int, string>, bool> isSeedArg = x => x.Value == "-s" || x.Value == "/s";
-            switch (inputArgs.Count(isSeedArg))
+            bool IsSeedArg(KeyValuePair<int, string> keyValuePair) => keyValuePair.Value == "-s" || keyValuePair.Value == "/s";
+            switch (inputArgs.Count(IsSeedArg))
             {
                 case 0:
                     break;
                 case 1:
                     try
                     {
-                        parsedConfig.OffsetSeed = int.Parse(inputArgs[inputArgs.First(isSeedArg).Key + 1]);
+                        parsedConfig.OffsetSeed = int.Parse(inputArgs[inputArgs.First(IsSeedArg).Key + 1]);
                         parsedConfig.OffsetGenerator = new Random(parsedConfig.OffsetSeed.Value);
                     }
                     catch (Exception e)
@@ -184,15 +184,15 @@ namespace TextImageConverter
 
         private static void ParseHeightArg(Dictionary<int, string> inputArgs, ComposeConfiguration parsedConfig)
         {
-            Func<KeyValuePair<int, string>, bool> isHeightArg = x => x.Value == "-h" || x.Value == "/h";
-            switch (inputArgs.Count(isHeightArg))
+            bool IsHeightArg(KeyValuePair<int, string> keyValuePair) => keyValuePair.Value == "-h" || keyValuePair.Value == "/h";
+            switch (inputArgs.Count(IsHeightArg))
             {
                 case 0:
                     break;
                 case 1:
                     try
                     {
-                        parsedConfig.ImgHeight = int.Parse(inputArgs[inputArgs.First(isHeightArg).Key + 1]);
+                        parsedConfig.ImgHeight = int.Parse(inputArgs[inputArgs.First(IsHeightArg).Key + 1]);
                     }
                     catch (Exception e)
                     {
@@ -207,15 +207,15 @@ namespace TextImageConverter
 
         private static void ParseWidthArg(Dictionary<int, string> inputArgs, ComposeConfiguration parsedConfig)
         {
-            Func<KeyValuePair<int, string>, bool> isWidthArg = x => x.Value == "-w" || x.Value == "/w";
-            switch (inputArgs.Count(isWidthArg))
+            bool IsWidthArg(KeyValuePair<int, string> keyValuePair) => keyValuePair.Value == "-w" || keyValuePair.Value == "/w";
+            switch (inputArgs.Count(IsWidthArg))
             {
                 case 0:
                     break;
                 case 1:
                     try
                     {
-                        parsedConfig.ImgWidth = int.Parse(inputArgs[inputArgs.First(isWidthArg).Key + 1]);
+                        parsedConfig.ImgWidth = int.Parse(inputArgs[inputArgs.First(IsWidthArg).Key + 1]);
                     }
                     catch (Exception e)
                     {

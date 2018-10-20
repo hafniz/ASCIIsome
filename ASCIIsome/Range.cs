@@ -25,10 +25,10 @@ namespace ASCIIsome
         }
 
         /// <summary>Minimum value of the range. </summary>
-        public T Minimum { get; set; }
+        public T Minimum { get; }
 
         /// <summary>Maximum value of the range. </summary>
-        public T Maximum { get; set; }
+        public T Maximum { get; }
 
         /// <summary>Presents the Range in readable format. </summary>
         /// <returns>String representation of the Range instance. </returns>
@@ -44,12 +44,12 @@ namespace ASCIIsome
         public bool ContainsValue(T value) => Minimum.CompareTo(value) <= 0 && value.CompareTo(Maximum) <= 0;
 
         /// <summary>Determines if this Range is inside the bounds of another range. </summary>
-        /// <param name="Range">The parent range to test on. </param>
+        /// <param name="range">The parent range to test on. </param>
         /// <returns>True if range is inclusive, otherwise, false. </returns>
         public bool IsInsideRange(Range<T> range) => IsValid() && range.IsValid() && range.ContainsValue(Minimum) && range.ContainsValue(Maximum);
 
         /// <summary>Determines if another range is inside the bounds of this range. </summary>
-        /// <param name="Range">The child range to test. </param>
+        /// <param name="range">The child range to test. </param>
         /// <returns>True if range is inside, otherwise, false.</returns>
         public bool ContainsRange(Range<T> range) => IsValid() && range.IsValid() && ContainsValue(range.Minimum) && ContainsValue(range.Maximum);
     }

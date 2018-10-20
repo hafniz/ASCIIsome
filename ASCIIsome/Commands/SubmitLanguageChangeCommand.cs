@@ -8,8 +8,8 @@ namespace ASCIIsome.Commands
         public SubmitLanguageChangeCommand(ViewModel viewModel) : base(viewModel) { }
         public override void Execute(object parameter)
         {
-            (parameter as Window).DialogResult = true;
-            DisplayLanguage.ChangeDisplayLanguage((parameter as ChangeLanguage).DataContext as ViewModel);
+            ((Window)parameter).DialogResult = true;
+            DisplayLanguage.ChangeDisplayLanguage((parameter as ChangeLanguage)?.DataContext as ViewModel);
         }
     }
 }

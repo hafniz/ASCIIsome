@@ -8,9 +8,9 @@ namespace ASCIIsome
 {
     public sealed class DisplayLanguage
     {
-        public string DisplayName { get; set; }
-        public string CultureSymbol { get; set; }
-        public int Index { get; set; }
+        public string DisplayName { get; }
+        public string CultureSymbol { get; }
+        public int Index { get; }
 
         public static DisplayLanguage GetDisplayLanguageFromSymbol(string symbol) => SupportedLanguage.Find(x => x.CultureSymbol == symbol);
         public static DisplayLanguage GetDisplayLanguageFromIndex(int index) => SupportedLanguage.Find(x => x.Index == index);
@@ -32,12 +32,15 @@ namespace ASCIIsome
 
         public static void ChangeDisplayLanguage(ViewModel viewModel)
         {
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo(viewModel.DisplayLanguage.CultureSymbol);
-            Window oldMainWindow = Application.Current.MainWindow;
-            MainWindow newMainWindow = new MainWindow();
-            Application.Current.MainWindow = newMainWindow;
-            oldMainWindow.Close();
-            newMainWindow.Show(viewModel);
+            if (viewModel.DisplayLanguage.CultureSymbol != Thread.CurrentThread.CurrentUICulture.Name)
+            {
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo(viewModel.DisplayLanguage.CultureSymbol);
+                Window oldMainWindow = Application.Current.MainWindow;
+                MainWindow newMainWindow = new MainWindow();
+                Application.Current.MainWindow = newMainWindow;
+                oldMainWindow?.Close();
+                newMainWindow.Show(viewModel);
+            }
         }
     }
 }
