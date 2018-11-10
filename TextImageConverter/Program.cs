@@ -168,7 +168,7 @@ namespace TextImageConverter
                 case 1:
                     try
                     {
-                        parsedConfig.OffsetSeed = int.Parse(inputArgs[inputArgs.First(IsSeedArg).Key + 1]);
+                        parsedConfig.OffsetSeed = (int)long.Parse(inputArgs[inputArgs.First(IsSeedArg).Key + 1]);
                         parsedConfig.OffsetGenerator = new Random(parsedConfig.OffsetSeed.Value);
                     }
                     catch (Exception e)

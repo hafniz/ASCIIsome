@@ -73,7 +73,7 @@ namespace TextImageConverter
                     string inputSeed = ReadLine();
                     if (!string.IsNullOrWhiteSpace(inputSeed))
                     {
-                        currentConfig.OffsetSeed = int.Parse(inputSeed);
+                        currentConfig.OffsetSeed = (int)long.Parse(inputSeed);
                         currentConfig.OffsetGenerator = new Random(currentConfig.OffsetSeed.Value);
                     }
                     break;
