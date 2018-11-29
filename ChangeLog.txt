@@ -1,3 +1,9 @@
+Change(s) in alpha 0.0.36.5
+	+ Added support for Per-Monitor DPI Awareness v2
+
+Change(s) in alpha 0.0.35.3
+	* Made the seed argument input for TextImageConverter accepts a bigger range of integer of Int64 (long) instead of Int32 (int)
+
 Change(s) in alpha 0.0.33.29
 	+ Added constructor and modified some XML documentation comments for Range<T> class
 	* Further member accessor modifier checking and modification for types

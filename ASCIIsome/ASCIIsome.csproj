@@ -53,6 +53,9 @@
   <PropertyGroup>
     <StartupObject>ASCIIsome.App</StartupObject>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -179,6 +182,7 @@
       <LastGenOutput>Resources.zh-CN.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <None Include="app.manifest" />
     <None Include="CharSets\CharSetSchema.xsd">
       <SubType>Designer</SubType>
     </None>
