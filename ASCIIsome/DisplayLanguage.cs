@@ -1,8 +1,8 @@
-﻿using ASCIIsome.Windows;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Globalization;
 using System.Threading;
 using System.Windows;
+using ASCIIsome.Windows;
 
 namespace ASCIIsome
 {

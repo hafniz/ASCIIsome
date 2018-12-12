@@ -75,7 +75,7 @@ namespace ASCIIsome
             XmlNodeList nodeList = rootNode.ChildNodes;
             foreach (XmlNode keyValuePairNode in nodeList)
             {
-                double parsedGrayscaleIndex = double.Parse(keyValuePairNode.Attributes["GrayscaleIndex"].Value);
+                double parsedGrayscaleIndex = double.Parse(keyValuePairNode.Attributes["GrayscaleIndex"].Value, CultureInfo.InvariantCulture.NumberFormat);
                 char parsedCharacter = char.Parse(keyValuePairNode.Attributes["Character"].Value);
                 parsedCharSet.Add(parsedGrayscaleIndex, parsedCharacter);
             }
@@ -97,7 +97,7 @@ namespace ASCIIsome
                 {
                     xmlWriter.WriteStartElement("KeyValuePair");
                     xmlWriter.WriteAttributeString("GrayscaleIndex", keyValuePair.Key.ToString(CultureInfo.InvariantCulture));
-                    xmlWriter.WriteAttributeString("Character", keyValuePair.Value.ToString());
+                    xmlWriter.WriteAttributeString("Character", keyValuePair.Value.ToString(CultureInfo.InvariantCulture));
                     xmlWriter.WriteEndElement();
                 }
                 xmlWriter.WriteEndElement();
@@ -125,6 +125,6 @@ namespace ASCIIsome
 
         public override bool Equals(object obj) => Equals(obj as CharSet);
         public bool Equals(CharSet other) => other != null && this.SequenceEqual(other); // [HV] Test for equivalence (only identical contents required)
-        public override int GetHashCode() => throw new NotImplementedException(); // TODO: [HV] Find a way to make equal (equivalent or identical?) CharSet instances return same hashcodes
+        public override int GetHashCode() => base.GetHashCode(); // TODO: [HV] Find a way to make equal (equivalent or identical?) CharSet instances return same hashcodes
     }
 }

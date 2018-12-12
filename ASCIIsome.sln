@@ -1,16 +1,20 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28107.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28407.52
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextImageConverter", "TextImageConverter\TextImageConverter.csproj", "{358857AF-64CD-430A-BC7D-D577902A3439}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASCIIsome", "ASCIIsome\ASCIIsome.csproj", "{094A2BCD-D31C-443B-8996-9E6BAE081503}"
+	ProjectSection(ProjectDependencies) = postProject
+		{358857AF-64CD-430A-BC7D-D577902A3439} = {358857AF-64CD-430A-BC7D-D577902A3439}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5308ACBD-DBDB-4D80-B485-84590DA3DBE4}"
 	ProjectSection(SolutionItems) = preProject
-		ChangeLog.txt = ChangeLog.txt
+		DevLog.txt = DevLog.txt
 		readme.md = readme.md
+		ReleaseNotes.txt = ReleaseNotes.txt
 	EndProjectSection
 EndProject
 Global

@@ -8,13 +8,11 @@ namespace ASCIIsome.Plotting
         // TODO: [HV] Build ConfigChanged event and relative types
 
         private static ViewModel currentViewModel;
-#pragma warning disable 169
         private static Bitmap originalBitmap;
         private static Bitmap resizedBitmap;
         private static Range<double> grayscaleRange;
         private static double[][] grayscaleIndexArray;
         private static char[][] characterMatchedArray;
-#pragma warning restore 169
 
         private static void OnConfigChanged(ViewModel inputViewModel, string configPropertyName) // [HV] Is the subscriber of ConfigChanged event
         {
