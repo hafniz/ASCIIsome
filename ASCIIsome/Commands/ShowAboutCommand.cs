@@ -1,5 +1,5 @@
-﻿using ASCIIsome.Windows;
-using System.Windows;
+﻿using System.Windows;
+using ASCIIsome.Windows;
 
 namespace ASCIIsome.Commands
 {

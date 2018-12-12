@@ -1,10 +1,10 @@
-﻿using ASCIIsome.Commands;
-using ASCIIsome.Plotting;
-using System;
+﻿using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Threading;
 using System.Windows;
+using ASCIIsome.Commands;
+using ASCIIsome.Plotting;
 
 namespace ASCIIsome
 {
