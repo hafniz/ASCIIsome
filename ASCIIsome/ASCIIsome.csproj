@@ -40,7 +40,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
-    <Optimize>true</Optimize>
+    <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
@@ -186,7 +186,7 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="app.manifest" />
-    <None Include="CharSets\CharSetSchema.xsd">
+    <None Include="Resources\CharSets\CharSetSchema.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
@@ -211,75 +211,62 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\link.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\linkactivated.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\locale.png" />
-    <Resource Include="Images\rubberduck.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\info.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="CharSets\Numerals.xml">
+    <Resource Include="Resources\CharSets\Numerals.xml">
       <SubType>Designer</SubType>
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="CharSets\LowercaseEnglishAlphabets.xml">
+    <Resource Include="Resources\CharSets\LowercaseEnglishAlphabets.xml">
       <SubType>Designer</SubType>
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="CharSets\UppercaseEnglishAlphabets.xml">
+    <Resource Include="Resources\CharSets\UppercaseEnglishAlphabets.xml">
       <SubType>Designer</SubType>
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="CharSets\ASCIISymbols.xml">
+    <Resource Include="Resources\CharSets\ASCIISymbols.xml">
       <SubType>Designer</SubType>
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="CharSets\UppercaseRussianAlphabets.xml">
+    <Resource Include="Resources\CharSets\UppercaseRussianAlphabets.xml">
       <SubType>Designer</SubType>
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="CharSets\LowercaseRussianAlphabets.xml">
+    <Resource Include="Resources\CharSets\LowercaseRussianAlphabets.xml">
       <SubType>Designer</SubType>
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="CharSets\OtherUppercaseCyrillicAlphabets.xml">
+    <Resource Include="Resources\CharSets\OtherUppercaseCyrillicAlphabets.xml">
       <SubType>Designer</SubType>
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="CharSets\OtherLowercaseCyrillicAlphabets.xml">
+    <Resource Include="Resources\CharSets\OtherLowercaseCyrillicAlphabets.xml">
       <SubType>Designer</SubType>
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="CharSets\Other8859-5Symbols.xml">
+    <Resource Include="Resources\CharSets\Other8859-5Symbols.xml">
       <SubType>Designer</SubType>
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="CharSets\SpaceAndFullBlock.xml">
+    <Resource Include="Resources\CharSets\SpaceAndFullBlock.xml">
       <SubType>Designer</SubType>
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="CharSets\Shades.xml">
+    <Resource Include="Resources\CharSets\Shades.xml">
       <SubType>Designer</SubType>
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="CharSets\CharSetPresetsConcated.xml" />
+    <Resource Include="Resources\CharSets\CharSetPresetsConcated.xml" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\Microsoft.CodeQuality.Analyzers.2.6.2\analyzers\dotnet\cs\Microsoft.CodeQuality.Analyzers.dll" />
@@ -291,6 +278,15 @@
     <Analyzer Include="..\packages\Text.Analyzers.2.6.2\analyzers\dotnet\cs\Text.Analyzers.dll" />
     <Analyzer Include="..\packages\Text.Analyzers.2.6.2\analyzers\dotnet\cs\Text.CSharp.Analyzers.dll" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\info.ico" />
+    <Resource Include="Resources\Icons\link.ico" />
+    <Resource Include="Resources\Icons\linkactivated.ico" />
+    <Resource Include="Resources\Icons\locale.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\rubberduck.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
@@ -301,4 +297,8 @@
     <Error Condition="!Exists('..\packages\Microsoft.NetFramework.Analyzers.2.6.2\build\Microsoft.NetFramework.Analyzers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.NetFramework.Analyzers.2.6.2\build\Microsoft.NetFramework.Analyzers.props'))" />
     <Error Condition="!Exists('..\packages\Text.Analyzers.2.6.2\build\Text.Analyzers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Text.Analyzers.2.6.2\build\Text.Analyzers.props'))" />
   </Target>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
 </Project>

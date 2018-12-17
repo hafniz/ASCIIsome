@@ -121,8 +121,7 @@
     <value>About</value>
   </data>
   <data name="AboutDetails" xml:space="preserve">
-    <value>A hafniz program. 
-Under development</value>
+    <value>(placeholder for English aboutdetails)</value>
   </data>
   <data name="Cancel" xml:space="preserve">
     <value>Cancel</value>
@@ -132,6 +131,9 @@ Under development</value>
   </data>
   <data name="DynamicGrayscaleRange" xml:space="preserve">
     <value>Use dynamic grayscale range</value>
+  </data>
+  <data name="ExportedToClipboard" xml:space="preserve">
+    <value>Text exported to clipboard successfully. </value>
   </data>
   <data name="ExportToClipboard" xml:space="preserve">
     <value>Export to clipboard</value>
@@ -154,6 +156,9 @@ Under development</value>
   <data name="Language" xml:space="preserve">
     <value>Language</value>
   </data>
+  <data name="LanguageChanged" xml:space="preserve">
+    <value>Language changed to English. </value>
+  </data>
   <data name="ManageCharSet" xml:space="preserve">
     <value>Manage character set...</value>
   </data>
@@ -169,7 +174,83 @@ Under development</value>
   <data name="SaveAs" xml:space="preserve">
     <value>Save As...</value>
   </data>
+  <data name="SavedToFile" xml:space="preserve">
+    <value>Text saved successfully. </value>
+  </data>
+  <data name="SaveFileDialogFilter" xml:space="preserve">
+    <value>Text files (*.txt)|*.txt|All files (*.*)|*.*</value>
+  </data>
   <data name="Title" xml:space="preserve">
     <value>Instant view - ASCIIsome</value>
+  </data>
+  <data name="OpenFileDialogFilter" xml:space="preserve">
+    <value>BMP files (*.bmp)|*.bmp|JPEG files (*.jpg; *.jpeg)|*.jpg; *.jpeg|JPEG XR files (*.jxr)|*.jxr|PNG files (*.png)|*.png|TIFF files (*.tif; *.tiff)|*.tif; *.tiff|GIF files (*.gif)|*.gif|Icon files (*.ico)|*.ico|All supported files (*.bmp; *.jpg; *.jpeg; *.jxr; *.png; *.tif; *.tiff; *.gif; *.ico)|*.bmp; *.jpg; *.jpeg; *.jxr; *.png; *.tif; *.tiff; *.gif; *.ico</value>
+  </data>
+  <data name="ImportedFromClipboard" xml:space="preserve">
+    <value>Successfully imported image from clipboard.</value>
+  </data>
+  <data name="InvalidFilePath" xml:space="preserve">
+    <value>Failed to import from clipboard: The text on clipboard is not a valid file path.</value>
+  </data>
+  <data name="UnsupportedType" xml:space="preserve">
+    <value>Failed to import from clipboard: The file on clipboard is of unsupported type. </value>
+  </data>
+  <data name="ImageLoaded" xml:space="preserve">
+    <value>Image loaded. </value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="ASCIISymbols" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CharSets\ASCIISymbols.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CharSetPresetsConcated" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CharSets\CharSetPresetsConcated.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CharSetSchema" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CharSets\CharSetSchema.xsd;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="info" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icons\info.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="link" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icons\link.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="linkactivated" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icons\linkactivated.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="locale" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icons\locale.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LowercaseEnglishAlphabets" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CharSets\LowercaseEnglishAlphabets.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="LowercaseRussianAlphabets" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CharSets\LowercaseRussianAlphabets.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Numerals" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CharSets\Numerals.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Other8859_5Symbols" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CharSets\Other8859-5Symbols.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="OtherLowercaseCyrillicAlphabets" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CharSets\OtherLowercaseCyrillicAlphabets.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="OtherUppercaseCyrillicAlphabets" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CharSets\OtherUppercaseCyrillicAlphabets.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Shades" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CharSets\Shades.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="SpaceAndFullBlock" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CharSets\SpaceAndFullBlock.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="UppercaseEnglishAlphabets" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CharSets\UppercaseEnglishAlphabets.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="UppercaseRussianAlphabets" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CharSets\UppercaseRussianAlphabets.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="rubberduck" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icons\rubberduck.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

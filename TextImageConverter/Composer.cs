@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using static System.Console;
 
@@ -75,7 +76,7 @@ namespace TextImageConverter
                     string inputSeed = ReadLine();
                     if (!string.IsNullOrWhiteSpace(inputSeed))
                     {
-                        currentConfig.OffsetSeed = (int)long.Parse(inputSeed);
+                        currentConfig.OffsetSeed = (int)long.Parse(inputSeed, CultureInfo.InvariantCulture.NumberFormat);
                         currentConfig.OffsetGenerator = new Random(currentConfig.OffsetSeed.Value);
                     }
                     break;
@@ -144,7 +145,7 @@ namespace TextImageConverter
                     string inputWidth = ReadLine();
                     if (!string.IsNullOrWhiteSpace(inputWidth))
                     {
-                        currentConfig.ImgWidth = int.Parse(inputWidth);
+                        currentConfig.ImgWidth = int.Parse(inputWidth, CultureInfo.InvariantCulture.NumberFormat);
                     }
                     break;
                 }
@@ -162,7 +163,7 @@ namespace TextImageConverter
                     string inputHeight = ReadLine();
                     if (!string.IsNullOrWhiteSpace(inputHeight))
                     {
-                        currentConfig.ImgHeight = int.Parse(inputHeight);
+                        currentConfig.ImgHeight = int.Parse(inputHeight, CultureInfo.InvariantCulture.NumberFormat);
                     }
                     break;
                 }

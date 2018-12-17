@@ -13,7 +13,7 @@ namespace ASCIIsome
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
-        // TODO: [HV] Implement DependencyProperty/AttachedProperty if possible
+        #region properties
         private double mainWindowTop = Application.Current.MainWindow.Top;
         public double MainWindowTop
         {
@@ -109,7 +109,7 @@ namespace ASCIIsome
             set
             {
                 imgSourcePath = value;
-                OnPropertyChanged(nameof(IsGrayscaleRangeInverted));
+                OnPropertyChanged(nameof(ImgSourcePath));
                 Plotter.OutputEnumerateConfig(this);
             }
         }
@@ -170,31 +170,17 @@ namespace ASCIIsome
             }
         }
 
-        // TODO: [HV] Remove unnecessary ViewModel props in Commands types and corresponding Commands types initialization in ViewModel constructor if possible
-        public ImportFromClipboardCommand ImportFromClipboardCommand { get; set; }
-        public OpenFileCommand OpenFileCommand { get; set; }
-        public ExportToClipboardCommand ExportToClipboardCommand { get; set; }
-        public SaveAsCommand SaveAsCommand { get; set; }
-        public ManageCharSetCommand ManageCharSetCommand { get; set; }
-        public RubberDuckCommand RubberDuckCommand { get; set; }
-        public ShowChangeLanguageCommand ShowChangeLanguageCommand { get; set; }
-        public ShowAboutCommand ShowAboutCommand { get; set; }
-        public CancelAndCloseCommand CancelAndCloseCommand { get; set; }
-        public SubmitLanguageChangeCommand SubmitLanguageChangeCommand { get; set; }
-
-        public ViewModel()
+        private string statusBarText;
+        public string StatusBarText
         {
-            ImportFromClipboardCommand = new ImportFromClipboardCommand(this);
-            OpenFileCommand = new OpenFileCommand(this);
-            ExportToClipboardCommand = new ExportToClipboardCommand(this);
-            SaveAsCommand = new SaveAsCommand(this);
-            ManageCharSetCommand = new ManageCharSetCommand(this);
-            RubberDuckCommand = new RubberDuckCommand(this);
-            ShowChangeLanguageCommand = new ShowChangeLanguageCommand(this);
-            ShowAboutCommand = new ShowAboutCommand(this);
-            CancelAndCloseCommand = new CancelAndCloseCommand(this);
-            SubmitLanguageChangeCommand = new SubmitLanguageChangeCommand(this);
+            get => statusBarText;
+            set
+            {
+                statusBarText = value;
+                OnPropertyChanged(nameof(StatusBarText));
+            }
         }
+        #endregion
 
         public object Clone() => new ViewModel
         {
@@ -212,5 +198,32 @@ namespace ASCIIsome
             CurrentCharSet = CurrentCharSet,
             DisplayLanguage = DisplayLanguage
         };
+
+        #region command type declaration
+        public ImportFromClipboardCommand ImportFromClipboardCommand { get; set; }
+        public OpenFileCommand OpenFileCommand { get; set; }
+        public ExportToClipboardCommand ExportToClipboardCommand { get; set; }
+        public SaveAsCommand SaveAsCommand { get; set; }
+        public ManageCharSetCommand ManageCharSetCommand { get; set; }
+        public RubberDuckCommand RubberDuckCommand { get; set; }
+        public ShowChangeLanguageCommand ShowChangeLanguageCommand { get; set; }
+        public ShowAboutCommand ShowAboutCommand { get; set; }
+        public CancelAndCloseCommand CancelAndCloseCommand { get; set; }
+        public SubmitLanguageChangeCommand SubmitLanguageChangeCommand { get; set; }
+        #endregion
+
+        public ViewModel()
+        {
+            ImportFromClipboardCommand = new ImportFromClipboardCommand(this);
+            OpenFileCommand = new OpenFileCommand(this);
+            ExportToClipboardCommand = new ExportToClipboardCommand(this);
+            SaveAsCommand = new SaveAsCommand(this);
+            ManageCharSetCommand = new ManageCharSetCommand(this);
+            RubberDuckCommand = new RubberDuckCommand(this);
+            ShowChangeLanguageCommand = new ShowChangeLanguageCommand(this);
+            ShowAboutCommand = new ShowAboutCommand(this);
+            CancelAndCloseCommand = new CancelAndCloseCommand(this);
+            SubmitLanguageChangeCommand = new SubmitLanguageChangeCommand(this);
+        }
     }
 }

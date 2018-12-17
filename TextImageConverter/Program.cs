@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using static System.Console;
 
@@ -168,7 +169,7 @@ namespace TextImageConverter
                 case 1:
                     try
                     {
-                        parsedConfig.OffsetSeed = (int)long.Parse(inputArgs[inputArgs.First(IsSeedArg).Key + 1]);
+                        parsedConfig.OffsetSeed = (int)long.Parse(inputArgs[inputArgs.First(IsSeedArg).Key + 1], CultureInfo.InvariantCulture.NumberFormat);
                         parsedConfig.OffsetGenerator = new Random(parsedConfig.OffsetSeed.Value);
                     }
                     catch (Exception e)
@@ -192,7 +193,7 @@ namespace TextImageConverter
                 case 1:
                     try
                     {
-                        parsedConfig.ImgHeight = int.Parse(inputArgs[inputArgs.First(IsHeightArg).Key + 1]);
+                        parsedConfig.ImgHeight = int.Parse(inputArgs[inputArgs.First(IsHeightArg).Key + 1], CultureInfo.InvariantCulture.NumberFormat);
                     }
                     catch (Exception e)
                     {
@@ -215,7 +216,7 @@ namespace TextImageConverter
                 case 1:
                     try
                     {
-                        parsedConfig.ImgWidth = int.Parse(inputArgs[inputArgs.First(IsWidthArg).Key + 1]);
+                        parsedConfig.ImgWidth = int.Parse(inputArgs[inputArgs.First(IsWidthArg).Key + 1], CultureInfo.InvariantCulture.NumberFormat);
                     }
                     catch (Exception e)
                     {

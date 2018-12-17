@@ -1,5 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<CharSet DisplayName="Other symbols in ISO/IEC 8859-5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="ASCIIsome.CharSets CharSetSchema.xsd">
-  <KeyValuePair GrayscaleIndex="0.31727" Character="№"/>
-  <KeyValuePair GrayscaleIndex="0.26907" Character="§"/>
-</CharSet>

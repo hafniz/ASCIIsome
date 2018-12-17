@@ -132,6 +132,9 @@
   <data name="DynamicGrayscaleRange" xml:space="preserve">
     <value>Использовать динамический диапазон оттенков серого</value>
   </data>
+  <data name="ExportedToClipboard" xml:space="preserve">
+    <value>Текст успешно экспортирован в буфер обмена.</value>
+  </data>
   <data name="ExportToClipboard" xml:space="preserve">
     <value>Экспорт в буфер обмена</value>
   </data>
@@ -153,6 +156,9 @@
   <data name="Language" xml:space="preserve">
     <value>Язык</value>
   </data>
+  <data name="LanguageChanged" xml:space="preserve">
+    <value>Язык изменен на русский.</value>
+  </data>
   <data name="ManageCharSet" xml:space="preserve">
     <value>Управлять наборами символов...</value>
   </data>
@@ -168,7 +174,28 @@
   <data name="SaveAs" xml:space="preserve">
     <value>Сохранить как...</value>
   </data>
+  <data name="SavedToFile" xml:space="preserve">
+    <value>Текст успешно сохранен.</value>
+  </data>
+  <data name="SaveFileDialogFilter" xml:space="preserve">
+    <value>Текстовые файлы (*.txt)|*.txt|Все файлы (*.*)|*.*</value>
+  </data>
   <data name="Title" xml:space="preserve">
     <value>Мгновенный просмотр - ASCIIsome</value>
+  </data>
+  <data name="OpenFileDialogFilter" xml:space="preserve">
+    <value>Файлы BMP (*.bmp)|*.bmp|Файлы JPEG (*.jpg; *.jpeg)|*.jpg; *.jpeg|Файлы JPEG XR (*.jxr)|*.jxr|Файлы PNG (*.png)|*.png|Файлы TIFF (*.tif; *.tiff)|*.tif; *.tiff|Файлы GIF (*.gif)|*.gif|Файлы значков (*.ico)|*.ico|Все поддерживаемые файлы (*.bmp; *.jpg; *.jpeg; *.jxr; *.png; *.tif; *.tiff; *.gif; *.ico)|*.bmp; *.jpg; *.jpeg; *.jxr; *.png; *.tif; *.tiff; *.gif; *.ico</value>
+  </data>
+  <data name="ImportedFromClipboard" xml:space="preserve">
+    <value>Успешно импортировано изображение из буфера обмена.</value>
+  </data>
+  <data name="InvalidFilePath" xml:space="preserve">
+    <value>Не удалось импортировать из буфера обмена: текст в буфере обмена не является допустимым путем к файлу.</value>
+  </data>
+  <data name="UnsupportedType" xml:space="preserve">
+    <value>Не удалось импортировать из буфера обмена: файл в буфере обмена имеет неподдерживаемый тип.</value>
+  </data>
+  <data name="ImageLoaded" xml:space="preserve">
+    <value>Изображение загружено.</value>
   </data>
 </root>

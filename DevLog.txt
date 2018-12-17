@@ -1,3 +1,9 @@
+Change(s) in alpha 0.0.40.60
+    + Implemented open from/save to file and import from/export to clipboard functions
+    + Added status bar prompt for commands/actions
+    * Moved icons and CharSet presets to Resources and associated resource files with ResX file
+    * Other referential amendments
+
 Change(s) in alpha 0.0.38.18
     - Removed Xceed-related NuGet packages for simplification of dependencies
     * Replaced IntegerUpDown control provided by Xceed with newly added user control, NumericUpDown

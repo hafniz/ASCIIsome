@@ -132,6 +132,9 @@
   <data name="DynamicGrayscaleRange" xml:space="preserve">
     <value>动态灰度范围</value>
   </data>
+  <data name="ExportedToClipboard" xml:space="preserve">
+    <value>文本已成功导入至剪贴板。</value>
+  </data>
   <data name="ExportToClipboard" xml:space="preserve">
     <value>导出到剪贴板</value>
   </data>
@@ -153,6 +156,9 @@
   <data name="Language" xml:space="preserve">
     <value>语言</value>
   </data>
+  <data name="LanguageChanged" xml:space="preserve">
+    <value>语言已切换至中文。</value>
+  </data>
   <data name="ManageCharSet" xml:space="preserve">
     <value>管理字符集</value>
   </data>
@@ -168,7 +174,28 @@
   <data name="SaveAs" xml:space="preserve">
     <value>保存为…</value>
   </data>
+  <data name="SavedToFile" xml:space="preserve">
+    <value>文本已成功保存。</value>
+  </data>
+  <data name="SaveFileDialogFilter" xml:space="preserve">
+    <value>文本文档 (*.txt)|*.txt|所有文件 (*.*)|*.*</value>
+  </data>
   <data name="Title" xml:space="preserve">
     <value>即时视图 - ASCIIsome</value>
+  </data>
+  <data name="OpenFileDialogFilter" xml:space="preserve">
+    <value>BMP 文件 (*.bmp)|*.bmp|JPEG 文件 (*.jpg; *.jpeg)|*.jpg; *.jpeg|JPEG XR 文件 (*.jxr)|*.jxr|PNG 文件 (*.png)|*.png|TIFF 文件 (*.tif; *.tiff)|*.tif; *.tiff|GIF 文件 (*.gif)|*.gif|图标文件 (*.ico)|*.ico|所有支持的格式 (*.bmp; *.jpg; *.jpeg; *.jxr; *.png; *.tif; *.tiff; *.gif; *.ico)|*.bmp; *.jpg; *.jpeg; *.jxr; *.png; *.tif; *.tiff; *.gif; *.ico</value>
+  </data>
+  <data name="ImportedFromClipboard" xml:space="preserve">
+    <value>成功从剪贴板导入图像。</value>
+  </data>
+  <data name="InvalidFilePath" xml:space="preserve">
+    <value>从剪贴板导入图像失败：剪贴板上的文字不是有效路径。</value>
+  </data>
+  <data name="UnsupportedType" xml:space="preserve">
+    <value>从剪贴板导入图像失败：剪贴板中的文件类型不受支持。</value>
+  </data>
+  <data name="ImageLoaded" xml:space="preserve">
+    <value>图像已加载。</value>
   </data>
 </root>

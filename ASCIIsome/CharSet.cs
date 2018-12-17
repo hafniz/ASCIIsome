@@ -69,7 +69,7 @@ namespace ASCIIsome
         public static CharSet ParseFromXmlFile(string filePath) // TODO: [HV] Validation/Exception handling needed (in external code)
         {
             CharSet parsedCharSet = new CharSet();
-            XmlDocument document = new XmlDocument();
+            XmlDocument document = new XmlDocument { XmlResolver = new XmlSecureResolver(new XmlUrlResolver(), typeof(CharSet).Assembly.Evidence) };
             document.Load(filePath);
             XmlNode rootNode = document.DocumentElement;
             XmlNodeList nodeList = rootNode.ChildNodes;

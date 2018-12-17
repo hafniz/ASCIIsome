@@ -6,7 +6,7 @@
         xmlns:p="clr-namespace:ASCIIsome.Properties"
         xmlns:r="clr-namespace:ASCIIsome"
         mc:Ignorable="d"
-        Title="{x:Static p:Resources.About}" Height="400" Width="400" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="..\Images\info.png">
+        Title="{x:Static p:Resources.About}" Height="400" Width="400" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="/Resources/Icons/info.ico">
     <DockPanel Margin="20,20,20,20">
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
             <TextBlock Text="{Binding Source={x:Static r:ApplicationInfo.ApplicationName}}" Foreground="{Binding Source={x:Static r:ApplicationInfo.ApplicationTitleBrush}}" FontSize="24" FontFamily="Segoe UI" VerticalAlignment="Bottom"/>

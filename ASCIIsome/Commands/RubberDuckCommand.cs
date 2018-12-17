@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Media;
 using System.Windows.Threading;
 
@@ -26,7 +25,7 @@ namespace ASCIIsome.Commands
             count++;
             if (count == 16)
             {
-                Debug.WriteLine("¿¿¿ activated. ");
+                CurrentViewModel.StatusBarText = "¿¿¿";
                 SystemSounds.Asterisk.Play();
                 FillRandomQuestionMark();
                 Reset(this, new EventArgs());

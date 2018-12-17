@@ -10,6 +10,12 @@
         Title="{x:Static p:Resources.Title}" Height="540" Width="820" WindowStartupLocation="CenterScreen" Top="{Binding MainWindowTop, Mode=TwoWay}" Left="{Binding MainWindowLeft, Mode=TwoWay}"
         DataContext="{Binding Source={StaticResource ViewModel}}">
     <DockPanel>
+        <UserControl>
+            <UserControl.Resources>
+                <ResourceDictionary>
+                </ResourceDictionary>
+            </UserControl.Resources>
+        </UserControl>
         <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
             <Button Margin="10,10,0,5" VerticalAlignment="Center" Command="{Binding ImportFromClipboardCommand}">
                 <TextBlock Text="{x:Static p:Resources.ImportFromClipboard}" Margin="5,5,5,5"/>
@@ -28,19 +34,19 @@
             </Button>
             <Button Margin="10,10,0,5" VerticalAlignment="Center" Command="{Binding RubberDuckCommand}">
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="..\Images\rubberduck.png" Height="16" Margin="5,5,0,5"/>
+                    <Image Source="/Resources/Icons/rubberduck.ico" Height="16" Margin="5,5,0,5"/>
                     <TextBlock Text="{Binding RubberDuckText}" Margin="5,5,5,5"/>
                 </StackPanel>
             </Button>
             <Button Margin="10,10,0,5" VerticalAlignment="Center" Command="{Binding ShowChangeLanguageCommand}" CommandParameter="{Binding ElementName=window}">
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="..\Images\locale.png" Height="16" Margin="5,5,0,5"/>
+                    <Image Source="/Resources/Icons/locale.ico" Height="16" Margin="5,5,0,5"/>
                     <TextBlock Text="{x:Static p:Resources.Language}" Margin="5,5,5,5"/>
                 </StackPanel>
             </Button>
             <Button Margin="10,10,10,5" VerticalAlignment="Center" Command="{Binding ShowAboutCommand}">
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="..\Images\info.png" Height="16" Margin="5,5,0,5"/>
+                    <Image Source="/Resources/Icons/info.ico" Height="16" Margin="5,5,0,5"/>
                     <TextBlock Text="{x:Static p:Resources.About}" Margin="5,5,5,5"/>
                 </StackPanel>
             </Button>
@@ -55,14 +61,14 @@
                             <Trigger Property="IsChecked" Value="True">
                                 <Setter Property="Content">
                                     <Setter.Value>
-                                        <Image Source="..\Images\linkactivated.png"/>
+                                        <Image Source="/Resources/Icons/linkactivated.ico"/>
                                     </Setter.Value>
                                 </Setter>
                             </Trigger>
                             <Trigger Property="IsChecked" Value="False">
                                 <Setter Property="Content">
                                     <Setter.Value>
-                                        <Image Source="..\Images\link.png"/>
+                                        <Image Source="/Resources/Icons/link.ico"/>
                                     </Setter.Value>
                                 </Setter>
                             </Trigger>
@@ -80,14 +86,14 @@
             </CheckBox>
         </StackPanel>
         <StatusBar DockPanel.Dock="Bottom">
-            <TextBlock Margin="10,0,0,0" Text="{x:Static p:Resources.Ready}"/>
+            <TextBlock Margin="10,0,0,0" Text="{Binding StatusBarText}"/>
         </StatusBar>
         <Grid Margin="10,5,10,10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="2*"/>
                 <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
-            <Image Grid.Column="0" Margin="0,0,10,0" Source="{Binding ImgSourcePath, Mode=TwoWay}"/>
+            <Image Grid.Column="0" Margin="0,0,10,0" Source="{Binding ImgSourcePath}"/>
             <GridSplitter Grid.Column="0" Width="5"/>
             <TextBox Grid.Column="1" Margin="5,0,0,0" FontFamily="Lucida Console" IsReadOnly="True" Text="{Binding CharOut}"/>
         </Grid>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using static System.Console;
 
@@ -73,7 +74,7 @@ namespace TextImageConverter
                     string inputSeed = ReadLine();
                     if (!string.IsNullOrWhiteSpace(inputSeed))
                     {
-                        currentConfig.OffsetSeed = (int)long.Parse(inputSeed);
+                        currentConfig.OffsetSeed = (int)long.Parse(inputSeed, CultureInfo.InvariantCulture.NumberFormat);
                         currentConfig.OffsetGenerator = new Random(currentConfig.OffsetSeed.Value);
                     }
                     break;

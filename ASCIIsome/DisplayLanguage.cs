@@ -39,6 +39,7 @@ namespace ASCIIsome
                 MainWindow newMainWindow = new MainWindow();
                 Application.Current.MainWindow = newMainWindow;
                 oldMainWindow?.Close();
+                viewModel.StatusBarText = Properties.Resources.LanguageChanged;
                 newMainWindow.Show(viewModel);
             }
         }
