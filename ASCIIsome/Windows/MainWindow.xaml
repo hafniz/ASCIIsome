@@ -29,8 +29,8 @@
             <Button Margin="10,10,0,5" VerticalAlignment="Center" Command="{Binding SaveAsCommand}">
                 <TextBlock Text="{x:Static p:Resources.SaveAs}" Margin="5,5,5,5"/>
             </Button>
-            <Button Margin="10,10,0,5" VerticalAlignment="Center" Command="{Binding ManageCharSetCommand}">
-                <TextBlock Text="{x:Static p:Resources.ManageCharSet}" Margin="5,5,5,5"/>
+            <Button Margin="10,10,0,5" VerticalAlignment="Center" Command="{Binding ShowChooseCharSetCommand}">
+                <TextBlock Text="{x:Static p:Resources.ChooseCharSet}" Margin="5,5,5,5"/>
             </Button>
             <Button Margin="10,10,0,5" VerticalAlignment="Center" Command="{Binding RubberDuckCommand}">
                 <StackPanel Orientation="Horizontal">

@@ -204,12 +204,13 @@ namespace ASCIIsome
         public OpenFileCommand OpenFileCommand { get; set; }
         public ExportToClipboardCommand ExportToClipboardCommand { get; set; }
         public SaveAsCommand SaveAsCommand { get; set; }
-        public ManageCharSetCommand ManageCharSetCommand { get; set; }
+        public ShowChooseCharSetCommand ShowChooseCharSetCommand { get; set; }
         public RubberDuckCommand RubberDuckCommand { get; set; }
         public ShowChangeLanguageCommand ShowChangeLanguageCommand { get; set; }
         public ShowAboutCommand ShowAboutCommand { get; set; }
         public CancelAndCloseCommand CancelAndCloseCommand { get; set; }
         public SubmitLanguageChangeCommand SubmitLanguageChangeCommand { get; set; }
+        public SubmitCharSetChoiceCommand SubmitCharSetChoiceCommand { get; set; }
         #endregion
 
         public ViewModel()
@@ -218,12 +219,13 @@ namespace ASCIIsome
             OpenFileCommand = new OpenFileCommand(this);
             ExportToClipboardCommand = new ExportToClipboardCommand(this);
             SaveAsCommand = new SaveAsCommand(this);
-            ManageCharSetCommand = new ManageCharSetCommand(this);
+            ShowChooseCharSetCommand = new ShowChooseCharSetCommand(this);
             RubberDuckCommand = new RubberDuckCommand(this);
             ShowChangeLanguageCommand = new ShowChangeLanguageCommand(this);
             ShowAboutCommand = new ShowAboutCommand(this);
             CancelAndCloseCommand = new CancelAndCloseCommand(this);
             SubmitLanguageChangeCommand = new SubmitLanguageChangeCommand(this);
+            SubmitCharSetChoiceCommand = new SubmitCharSetChoiceCommand(this);
         }
     }
 }

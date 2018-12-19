@@ -159,8 +159,8 @@
   <data name="LanguageChanged" xml:space="preserve">
     <value>Язык изменен на русский.</value>
   </data>
-  <data name="ManageCharSet" xml:space="preserve">
-    <value>Управлять наборами символов...</value>
+  <data name="ChooseCharSet" xml:space="preserve">
+    <value>Выбрать набор символов...</value>
   </data>
   <data name="OK" xml:space="preserve">
     <value>ОК</value>
@@ -197,5 +197,8 @@
   </data>
   <data name="ImageLoaded" xml:space="preserve">
     <value>Изображение загружено.</value>
+  </data>
+  <data name="ChooseCharSetWindowTitle" xml:space="preserve">
+    <value>Выбрать набор символов</value>
   </data>
 </root>

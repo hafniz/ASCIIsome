@@ -1,3 +1,7 @@
+Change(s) in alpha 0.0.42.39
+    + Appication now copy CharSet presets to appdata folder on first use (folder not detected)
+    + Added ChooseCharSet window and open/close command
+
 Change(s) in alpha 0.0.40.60
     + Implemented open from/save to file and import from/export to clipboard functions
     + Added status bar prompt for commands/actions

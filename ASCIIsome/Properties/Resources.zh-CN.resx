@@ -159,8 +159,8 @@
   <data name="LanguageChanged" xml:space="preserve">
     <value>语言已切换至中文。</value>
   </data>
-  <data name="ManageCharSet" xml:space="preserve">
-    <value>管理字符集</value>
+  <data name="ChooseCharSet" xml:space="preserve">
+    <value>选择字符集…</value>
   </data>
   <data name="OK" xml:space="preserve">
     <value>确定</value>
@@ -197,5 +197,8 @@
   </data>
   <data name="ImageLoaded" xml:space="preserve">
     <value>图像已加载。</value>
+  </data>
+  <data name="ChooseCharSetWindowTitle" xml:space="preserve">
+    <value>选择字符集</value>
   </data>
 </root>

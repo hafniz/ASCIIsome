@@ -98,12 +98,13 @@
     <Compile Include="Commands\CommonCommandBase.cs" />
     <Compile Include="Commands\ShowChangeLanguageCommand.cs" />
     <Compile Include="Commands\ExportToClipboardCommand.cs" />
-    <Compile Include="Commands\ManageCharSetCommand.cs" />
+    <Compile Include="Commands\ShowChooseCharSetCommand.cs" />
     <Compile Include="Commands\OpenFileCommand.cs" />
     <Compile Include="Commands\ImportFromClipboardCommand.cs" />
     <Compile Include="Commands\RubberDuckCommand.cs" />
     <Compile Include="Commands\SaveAsCommand.cs" />
     <Compile Include="Commands\ShowAboutCommand.cs" />
+    <Compile Include="Commands\SubmitCharSetChoiceCommand.cs" />
     <Compile Include="Commands\SubmitLanguageChangeCommand.cs" />
     <Compile Include="DisplayLanguage.cs" />
     <Compile Include="Plotting\PlottingStage.cs" />
@@ -122,6 +123,9 @@
     <Compile Include="Windows\ChangeLanguage.xaml.cs">
       <DependentUpon>ChangeLanguage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\ChooseCharSet.xaml.cs">
+      <DependentUpon>ChooseCharSet.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
@@ -138,6 +142,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\ChangeLanguage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ChooseCharSet.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -211,62 +219,62 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\CharSets\Numerals.xml">
+    <EmbeddedResource Include="Resources\CharSets\cs_Numerals.xml">
       <SubType>Designer</SubType>
-    </Resource>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\CharSets\LowercaseEnglishAlphabets.xml">
+    <EmbeddedResource Include="Resources\CharSets\cs_LowercaseEnglishAlphabets.xml">
       <SubType>Designer</SubType>
-    </Resource>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\CharSets\UppercaseEnglishAlphabets.xml">
+    <EmbeddedResource Include="Resources\CharSets\cs_UppercaseEnglishAlphabets.xml">
       <SubType>Designer</SubType>
-    </Resource>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\CharSets\ASCIISymbols.xml">
+    <EmbeddedResource Include="Resources\CharSets\cs_ASCIISymbols.xml">
       <SubType>Designer</SubType>
-    </Resource>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\CharSets\UppercaseRussianAlphabets.xml">
+    <EmbeddedResource Include="Resources\CharSets\cs_UppercaseRussianAlphabets.xml">
       <SubType>Designer</SubType>
-    </Resource>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\CharSets\LowercaseRussianAlphabets.xml">
+    <EmbeddedResource Include="Resources\CharSets\cs_LowercaseRussianAlphabets.xml">
       <SubType>Designer</SubType>
-    </Resource>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\CharSets\OtherUppercaseCyrillicAlphabets.xml">
+    <EmbeddedResource Include="Resources\CharSets\cs_OtherUppercaseCyrillicAlphabets.xml">
       <SubType>Designer</SubType>
-    </Resource>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\CharSets\OtherLowercaseCyrillicAlphabets.xml">
+    <EmbeddedResource Include="Resources\CharSets\cs_OtherLowercaseCyrillicAlphabets.xml">
       <SubType>Designer</SubType>
-    </Resource>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\CharSets\Other8859-5Symbols.xml">
+    <EmbeddedResource Include="Resources\CharSets\cs_Other8859_5Symbols.xml">
       <SubType>Designer</SubType>
-    </Resource>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\CharSets\SpaceAndFullBlock.xml">
+    <EmbeddedResource Include="Resources\CharSets\cs_SpaceAndFullBlock.xml">
       <SubType>Designer</SubType>
-    </Resource>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\CharSets\Shades.xml">
+    <EmbeddedResource Include="Resources\CharSets\cs_Shades.xml">
       <SubType>Designer</SubType>
-    </Resource>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\CharSets\CharSetPresetsConcated.xml" />
+    <EmbeddedResource Include="Resources\CharSets\cs_CharSetPresetsConcated.xml" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\Microsoft.CodeQuality.Analyzers.2.6.2\analyzers\dotnet\cs\Microsoft.CodeQuality.Analyzers.dll" />
@@ -298,7 +306,7 @@
     <Error Condition="!Exists('..\packages\Text.Analyzers.2.6.2\build\Text.Analyzers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Text.Analyzers.2.6.2\build\Text.Analyzers.props'))" />
   </Target>
   <PropertyGroup>
-    <PreBuildEvent>
-    </PreBuildEvent>
+    <PreBuildEvent>if exist "$(TargetPath).locked" del "$(TargetPath).locked"
+if exist "$(TargetPath)" if not exist "$(TargetPath).locked" move "$(TargetPath)" "$(TargetPath).locked"</PreBuildEvent>
   </PropertyGroup>
 </Project>
