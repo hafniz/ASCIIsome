@@ -320,6 +320,24 @@ namespace ASCIIsome.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Failed to load character sets from the last configuration. Default character set is loaded. .
+        /// </summary>
+        public static string DefaultCharSetLoaded {
+            get {
+                return ResourceManager.GetString("DefaultCharSetLoaded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete.
+        /// </summary>
+        public static string Delete {
+            get {
+                return ResourceManager.GetString("Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Use dynamic grayscale range.
         /// </summary>
         public static string DynamicGrayscaleRange {
@@ -370,6 +388,15 @@ namespace ASCIIsome.Properties {
         public static string ImgWidth {
             get {
                 return ResourceManager.GetString("ImgWidth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Import….
+        /// </summary>
+        public static string Import {
+            get {
+                return ResourceManager.GetString("Import", resourceCulture);
             }
         }
         

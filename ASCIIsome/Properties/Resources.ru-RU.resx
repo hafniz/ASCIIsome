@@ -201,4 +201,13 @@
   <data name="ChooseCharSetWindowTitle" xml:space="preserve">
     <value>Выбрать набор символов</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Удалить</value>
+  </data>
+  <data name="Import" xml:space="preserve">
+    <value>Импортировать…</value>
+  </data>
+  <data name="DefaultCharSetLoaded" xml:space="preserve">
+    <value>Не удалось загрузить наборы символов из последней конфигурации. Набор символов по умолчанию загружен.</value>
+  </data>
 </root>

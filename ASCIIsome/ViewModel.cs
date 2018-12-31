@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Threading;
@@ -211,6 +212,8 @@ namespace ASCIIsome
         public CancelAndCloseCommand CancelAndCloseCommand { get; set; }
         public SubmitLanguageChangeCommand SubmitLanguageChangeCommand { get; set; }
         public SubmitCharSetChoiceCommand SubmitCharSetChoiceCommand { get; set; }
+        public ImportCharSetCommand ImportCharSetCommand { get; set; }
+        public DeleteCharSetCommand DeleteCharSetCommand { get; set; }
         #endregion
 
         public ViewModel()
@@ -226,6 +229,38 @@ namespace ASCIIsome
             CancelAndCloseCommand = new CancelAndCloseCommand(this);
             SubmitLanguageChangeCommand = new SubmitLanguageChangeCommand(this);
             SubmitCharSetChoiceCommand = new SubmitCharSetChoiceCommand(this);
+            ImportCharSetCommand = new ImportCharSetCommand(this);
+            DeleteCharSetCommand = new DeleteCharSetCommand(this);
+        }
+
+        public void LoadConfig()
+        {
+            // TODO: [HV] Load some other settings
+
+            List<string> charSetFileNames = new List<string>
+            {
+                "some", 
+                "parsed", 
+                "strings", 
+                "from", 
+                "config.xml", 
+                "file"
+            };
+            try
+            {
+                CurrentCharSet = CharSet.Load(charSetFileNames);
+                StatusBarText = Properties.Resources.Ready;
+            }
+            catch (Exception)
+            {
+                CurrentCharSet = CharSet.LoadDefault();
+                StatusBarText = Properties.Resources.DefaultCharSetLoaded;
+            }
+        }
+
+        public void SaveConfig()
+        {
+            // TODO: [HV] Save CharSet config to file
         }
     }
 }

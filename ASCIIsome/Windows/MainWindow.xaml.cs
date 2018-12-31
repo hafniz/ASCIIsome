@@ -1,4 +1,7 @@
-﻿namespace ASCIIsome.Windows
+﻿using System.ComponentModel;
+using System.Windows;
+
+namespace ASCIIsome.Windows
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -8,13 +11,29 @@
         public MainWindow()
         {
             InitializeComponent();
-            (DataContext as ViewModel).StatusBarText = Properties.Resources.Ready; // TODO: [HV] Show random tips on status bar on startup
+            AdjustWindowSize();
+            (DataContext as ViewModel).LoadConfig();
         }
 
-        public void Show(ViewModel viewModel) // TODO: [HV] Decide startup/minimal height/width of MainWindow in initializing depending on current culture info
+        public void Show(ViewModel viewModel) 
         {
             DataContext = viewModel;
+            AdjustWindowSize();
             Show();
+        }
+
+        private void AdjustWindowSize()
+        {
+            // TODO: [HV] Decide startup/minimal height/width of MainWindow in initializing depending on current culture info
+        }
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            if (Application.Current.MainWindow == this)
+            {
+                (DataContext as ViewModel).SaveConfig();
+            }
+            base.OnClosing(e);
         }
     }
 }

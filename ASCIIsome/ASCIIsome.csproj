@@ -96,6 +96,8 @@
     <Compile Include="CharSet.cs" />
     <Compile Include="Commands\CancelAndCloseCommand.cs" />
     <Compile Include="Commands\CommonCommandBase.cs" />
+    <Compile Include="Commands\DeleteCharSetCommand.cs" />
+    <Compile Include="Commands\ImportCharSetCommand.cs" />
     <Compile Include="Commands\ShowChangeLanguageCommand.cs" />
     <Compile Include="Commands\ExportToClipboardCommand.cs" />
     <Compile Include="Commands\ShowChooseCharSetCommand.cs" />

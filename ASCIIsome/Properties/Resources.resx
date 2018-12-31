@@ -256,4 +256,13 @@
   <data name="ChooseCharSetWindowTitle" xml:space="preserve">
     <value>Choose character set</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Import" xml:space="preserve">
+    <value>Import…</value>
+  </data>
+  <data name="DefaultCharSetLoaded" xml:space="preserve">
+    <value>Failed to load character sets from the last configuration. Default character set is loaded. </value>
+  </data>
 </root>

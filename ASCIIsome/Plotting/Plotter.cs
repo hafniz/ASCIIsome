@@ -6,6 +6,8 @@ namespace ASCIIsome.Plotting
     public static class Plotter
     {
         // TODO: [HV] Build ConfigChanged event and relative types
+        // TODO: [HV] Use async methods for time-consuming processes
+        // TODO: [HV] Add progress bar to status bar and allow canceling by pressing Esc key
 
         private static ViewModel currentViewModel;
         private static Bitmap originalBitmap;
@@ -38,7 +40,7 @@ namespace ASCIIsome.Plotting
                     break;
 
                 case nameof(ViewModel.CurrentCharSet):
-                    Plot(PlottingStage.MatchCharacter);
+                    Plot(PlottingStage.MatchCharacter); // TODO: [HV] Prompt on the status bar and abort plotting process if no CharSet is selected
                     break;
             }
         }

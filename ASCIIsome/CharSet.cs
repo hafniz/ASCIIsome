@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
+using System.IO;
 using System.Linq;
+using System.Resources;
 using System.Xml;
 
 namespace ASCIIsome
@@ -11,6 +14,8 @@ namespace ASCIIsome
     {
         private const double minimalGrayscaleDivision = 1E-5;
         private static readonly Range<double> defaultGrayscaleRange = new Range<double>(0.00000, 1.00000);
+        private static readonly string charSetFolderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), ApplicationInfo.ApplicationName, "CharSets");
+        private static readonly string defaultCharSetFileName = "cs_ASCIISymbols";
         public string DisplayName { get; set; }
         public override string ToString() => DisplayName;
 
@@ -66,11 +71,18 @@ namespace ASCIIsome
             }
         }
 
-        public static CharSet ParseFromXmlFile(string filePath) // TODO: [HV] Validation/Exception handling needed (in external code)
+        public static CharSet ParseFromXmlFile(string filePath, Stream fileStream = null) // TODO: [HV] Validation/Exception handling needed (in external code)
         {
             CharSet parsedCharSet = new CharSet();
             XmlDocument document = new XmlDocument { XmlResolver = new XmlSecureResolver(new XmlUrlResolver(), typeof(CharSet).Assembly.Evidence) };
-            document.Load(filePath);
+            if (fileStream is null) // [HV] Load from file path by default, or load from stream of provided
+            {
+                document.Load(filePath);
+            }
+            else
+            {
+                document.Load(fileStream);
+            }
             XmlNode rootNode = document.DocumentElement;
             XmlNodeList nodeList = rootNode.ChildNodes;
             foreach (XmlNode keyValuePairNode in nodeList)
@@ -126,5 +138,41 @@ namespace ASCIIsome
         public override bool Equals(object obj) => Equals(obj as CharSet);
         public bool Equals(CharSet other) => other != null && this.SequenceEqual(other); // [HV] Test for equivalence (only identical contents required)
         public override int GetHashCode() => base.GetHashCode(); // TODO: [HV] Find a way to make equal (equivalent or identical?) CharSet instances return same hashcodes
+
+        public static void InitializeCharSetFolder()
+        {
+            if (!Directory.Exists(charSetFolderPath))
+            {
+                Directory.CreateDirectory(charSetFolderPath);
+                ResourceSet resourceSet = Properties.Resources.ResourceManager.GetResourceSet(CultureInfo.InvariantCulture, true, true);
+                foreach (DictionaryEntry resourceEntry in resourceSet)
+                {
+                    string resourceName = resourceEntry.Key.ToString();
+                    if (resourceName.StartsWith("cs_", StringComparison.InvariantCulture))
+                    {
+                        using (Stream resourceStream = typeof(CharSet).Assembly.GetManifestResourceStream($"ASCIIsome.Resources.CharSets.{resourceName}.xml"))
+                        {
+                            using (FileStream fileStream = new FileStream($"{charSetFolderPath}\\{resourceName}.xml", FileMode.Create, FileAccess.Write))
+                            {
+                                resourceStream.CopyTo(fileStream);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        public static CharSet Load(List<string> filenames)
+        {
+            List<CharSet> parsedCharSets = new List<CharSet>();
+            foreach (string filename in filenames)
+            {
+                string filePath = $"{charSetFolderPath}\\{filename}.xml";
+                parsedCharSets.Add(ParseFromXmlFile(filePath));
+            }
+            return Concat(parsedCharSets.ToArray());
+        }
+
+        public static CharSet LoadDefault() => ParseFromXmlFile("", typeof(CharSet).Assembly.GetManifestResourceStream($"ASCIIsome.Resources.CharSets.{defaultCharSetFileName}.xml"));
     }
 }

@@ -136,7 +136,7 @@
     <value>文本已成功导入至剪贴板。</value>
   </data>
   <data name="ExportToClipboard" xml:space="preserve">
-    <value>导出到剪贴板</value>
+    <value>导出至剪贴板</value>
   </data>
   <data name="ImgHeight" xml:space="preserve">
     <value>字符画高度</value>
@@ -200,5 +200,14 @@
   </data>
   <data name="ChooseCharSetWindowTitle" xml:space="preserve">
     <value>选择字符集</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="Import" xml:space="preserve">
+    <value>导入…</value>
+  </data>
+  <data name="DefaultCharSetLoaded" xml:space="preserve">
+    <value>从上次的配置中加载字符集失败。已加载默认字符集。</value>
   </data>
 </root>

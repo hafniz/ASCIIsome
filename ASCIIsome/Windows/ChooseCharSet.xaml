@@ -13,5 +13,8 @@
     <Grid>
         <Button Content="{x:Static p:Resources.OK}" HorizontalAlignment="Left" Margin="199,282,0,0" VerticalAlignment="Top" Command="{Binding SubmitCharSetChoiceCommand}" CommandParameter="{Binding ElementName=window}" IsDefault="True"/>
         <Button Content="{x:Static p:Resources.Cancel}" HorizontalAlignment="Left" Margin="330,282,0,0" VerticalAlignment="Top" Command="{Binding CancelAndCloseCommand}" CommandParameter="{Binding ElementName=window}" IsCancel="True"/>
+        <Button Content="{x:Static p:Resources.Import}" HorizontalAlignment="Left" Margin="199,245,0,0" VerticalAlignment="Top" Command="{Binding ImportCharSetCommand}" CommandParameter="{Binding ElementName=window}"/>
+        <Button Content="{x:Static p:Resources.Delete}" HorizontalAlignment="Left" Margin="330,245,0,0" VerticalAlignment="Top" Command="{Binding DeleteCharSetCommand}" CommandParameter="{Binding ElementName=window}"/>
+        <ListBox HorizontalAlignment="Left" Height="100" Margin="268,80,0,0" VerticalAlignment="Top" Width="100"/>
     </Grid>
 </Window>
