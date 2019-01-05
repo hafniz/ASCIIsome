@@ -98,15 +98,14 @@ namespace ASCIIsome.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-        ///&lt;xs:schema attributeFormDefault=&quot;unqualified&quot; elementFormDefault=&quot;qualified&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
+        ///&lt;xs:schema attributeFormDefault=&quot;unqualified&quot; elementFormDefault=&quot;qualified&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;
         ///  &lt;xs:element name=&quot;CharSet&quot;&gt;
         ///    &lt;xs:complexType&gt;
         ///      &lt;xs:sequence&gt;
-        ///        &lt;xs:element maxOccurs=&quot;unbounded&quot; name=&quot;KeyValuePair&quot;&gt;
+        ///        &lt;xs:element maxOccurs=&quot;unbounded&quot; name=&quot;CharInfo&quot;&gt;
         ///          &lt;xs:complexType&gt;
         ///            &lt;xs:attribute name=&quot;GrayscaleIndex&quot; type=&quot;xs:double&quot; use=&quot;required&quot; /&gt;
-        ///            &lt;xs:attribute name=&quot;Character&quot; type=&quot;xs:string&quot; use=&quot;required&quot; /&gt;
-        ///          &lt;/xs:compl [rest of string was truncated]&quot;;.
+        ///            &lt;xs:attribute name=&quot;Character&quot; type=&quot; [rest of string was truncated]&quot;;.
         /// </summary>
         public static string CharSetSchema {
             get {
@@ -133,14 +132,30 @@ namespace ASCIIsome.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;xs:schema attributeFormDefault=&quot;unqualified&quot; elementFormDefault=&quot;qualified&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;
+        ///    &lt;xs:element name=&quot;ASCIIsome.config&quot;&gt;
+        ///        &lt;xs:complexType&gt;
+        ///            &lt;xs:all&gt;
+        ///                &lt;xs:element name=&quot;IsAspectRatioKept&quot; type=&quot;xs:boolean&quot; /&gt;
+        ///                &lt;xs:element name=&quot;IsDynamicGrayscaleRangeEnabled&quot; type=&quot;xs:boolean&quot; /&gt;
+        ///                &lt;xs:element name=&quot;IsGraysc [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string ConfigSchemaV1 {
+            get {
+                return ResourceManager.GetString("ConfigSchemaV1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
-        ///&lt;CharSet DisplayName=&quot;ASCII symbols&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;ASCIIsome.CharSets CharSetSchema.xsd&quot;&gt;
-        ///  &lt;KeyValuePair GrayscaleIndex=&quot;0.00000&quot; Character=&quot; &quot;/&gt;
-        ///  &lt;KeyValuePair GrayscaleIndex=&quot;0.09771&quot; Character=&quot;!&quot;/&gt;
-        ///  &lt;KeyValuePair GrayscaleIndex=&quot;0.08598&quot; Character=&quot;&amp;quot;&quot;/&gt;
-        ///  &lt;KeyValuePair GrayscaleIndex=&quot;0.26690&quot; Character=&quot;#&quot;/&gt;
-        ///  &lt;KeyValuePair GrayscaleIndex=&quot;0.24652&quot; Character=&quot;$&quot;/&gt;
-        ///  &lt;KeyValuePair Grayscale [rest of string was truncated]&quot;;.
+        ///&lt;CharSet DisplayName=&quot;ASCII symbols&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;ASCIIsome.Resources.CharSets CharSetSchema.xsd&quot;&gt;
+        ///  &lt;CharInfo GrayscaleIndex=&quot;0.00000&quot; Character=&quot; &quot;/&gt;
+        ///  &lt;CharInfo GrayscaleIndex=&quot;0.09771&quot; Character=&quot;!&quot;/&gt;
+        ///  &lt;CharInfo GrayscaleIndex=&quot;0.08598&quot; Character=&quot;&amp;quot;&quot;/&gt;
+        ///  &lt;CharInfo GrayscaleIndex=&quot;0.26690&quot; Character=&quot;#&quot;/&gt;
+        ///  &lt;CharInfo GrayscaleIndex=&quot;0.24652&quot; Character=&quot;$&quot;/&gt;
+        ///  &lt;CharInfo GrayscaleIndex=&quot;0.26139 [rest of string was truncated]&quot;;.
         /// </summary>
         public static string cs_ASCIISymbols {
             get {
@@ -150,13 +165,13 @@ namespace ASCIIsome.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-        ///&lt;CharSet DisplayName=&quot;All 11 charset presets concatenated&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;ASCIIsome.CharSets CharSetSchema.xsd&quot;&gt;
-        ///  &lt;KeyValuePair GrayscaleIndex=&quot;0&quot; Character=&quot; &quot; /&gt;
-        ///  &lt;KeyValuePair GrayscaleIndex=&quot;0.01924&quot; Character=&quot;`&quot; /&gt;
-        ///  &lt;KeyValuePair GrayscaleIndex=&quot;0.03526&quot; Character=&quot;.&quot; /&gt;
-        ///  &lt;KeyValuePair GrayscaleIndex=&quot;0.04805&quot; Character=&quot;-&quot; /&gt;
-        ///  &lt;KeyValuePair GrayscaleIndex=&quot;0.05551&quot; Character=&quot;,&quot; /&gt;
-        ///  &lt;KeyValu [rest of string was truncated]&quot;;.
+        ///&lt;CharSet DisplayName=&quot;All 11 charset presets concatenated&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;ASCIIsome.Resources.CharSets CharSetSchema.xsd&quot;&gt;
+        ///  &lt;CharInfo GrayscaleIndex=&quot;0&quot; Character=&quot; &quot; /&gt;
+        ///  &lt;CharInfo GrayscaleIndex=&quot;0.01924&quot; Character=&quot;`&quot; /&gt;
+        ///  &lt;CharInfo GrayscaleIndex=&quot;0.03526&quot; Character=&quot;.&quot; /&gt;
+        ///  &lt;CharInfo GrayscaleIndex=&quot;0.04805&quot; Character=&quot;-&quot; /&gt;
+        ///  &lt;CharInfo GrayscaleIndex=&quot;0.05551&quot; Character=&quot;,&quot; /&gt;
+        ///  &lt;CharInfo Grayscal [rest of string was truncated]&quot;;.
         /// </summary>
         public static string cs_CharSetPresetsConcated {
             get {
@@ -166,13 +181,13 @@ namespace ASCIIsome.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
-        ///&lt;CharSet DisplayName=&quot;Lowercase English alphabets&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;ASCIIsome.CharSets CharSetSchema.xsd&quot;&gt;
-        ///  &lt;KeyValuePair GrayscaleIndex=&quot;0.21409&quot; Character=&quot;a&quot;/&gt;
-        ///  &lt;KeyValuePair GrayscaleIndex=&quot;0.26391&quot; Character=&quot;b&quot;/&gt;
-        ///  &lt;KeyValuePair GrayscaleIndex=&quot;0.15864&quot; Character=&quot;c&quot;/&gt;
-        ///  &lt;KeyValuePair GrayscaleIndex=&quot;0.26404&quot; Character=&quot;d&quot;/&gt;
-        ///  &lt;KeyValuePair GrayscaleIndex=&quot;0.21643&quot; Character=&quot;e&quot;/&gt;
-        ///  &lt;KeyValuePair  [rest of string was truncated]&quot;;.
+        ///&lt;CharSet DisplayName=&quot;Lowercase English alphabets&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;ASCIIsome.Resources.CharSets CharSetSchema.xsd&quot;&gt;
+        ///  &lt;CharInfo GrayscaleIndex=&quot;0.21409&quot; Character=&quot;a&quot;/&gt;
+        ///  &lt;CharInfo GrayscaleIndex=&quot;0.26391&quot; Character=&quot;b&quot;/&gt;
+        ///  &lt;CharInfo GrayscaleIndex=&quot;0.15864&quot; Character=&quot;c&quot;/&gt;
+        ///  &lt;CharInfo GrayscaleIndex=&quot;0.26404&quot; Character=&quot;d&quot;/&gt;
+        ///  &lt;CharInfo GrayscaleIndex=&quot;0.21643&quot; Character=&quot;e&quot;/&gt;
+        ///  &lt;CharInfo GrayscaleIndex [rest of string was truncated]&quot;;.
         /// </summary>
         public static string cs_LowercaseEnglishAlphabets {
             get {
@@ -182,13 +197,13 @@ namespace ASCIIsome.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
-        ///&lt;CharSet DisplayName=&quot;Lowercase Russian alphabets&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;ASCIIsome.CharSets CharSetSchema.xsd&quot;&gt;
-        ///  &lt;KeyValuePair GrayscaleIndex=&quot;0.21409&quot; Character=&quot;а&quot;/&gt;
-        ///  &lt;KeyValuePair GrayscaleIndex=&quot;0.28532&quot; Character=&quot;б&quot;/&gt;
-        ///  &lt;KeyValuePair GrayscaleIndex=&quot;0.23818&quot; Character=&quot;в&quot;/&gt;
-        ///  &lt;KeyValuePair GrayscaleIndex=&quot;0.12600&quot; Character=&quot;г&quot;/&gt;
-        ///  &lt;KeyValuePair GrayscaleIndex=&quot;0.26104&quot; Character=&quot;д&quot;/&gt;
-        ///  &lt;KeyValuePair  [rest of string was truncated]&quot;;.
+        ///&lt;CharSet DisplayName=&quot;Lowercase Russian alphabets&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;ASCIIsome.Resources.CharSets CharSetSchema.xsd&quot;&gt;
+        ///  &lt;CharInfo GrayscaleIndex=&quot;0.21409&quot; Character=&quot;а&quot;/&gt;
+        ///  &lt;CharInfo GrayscaleIndex=&quot;0.28532&quot; Character=&quot;б&quot;/&gt;
+        ///  &lt;CharInfo GrayscaleIndex=&quot;0.23818&quot; Character=&quot;в&quot;/&gt;
+        ///  &lt;CharInfo GrayscaleIndex=&quot;0.12600&quot; Character=&quot;г&quot;/&gt;
+        ///  &lt;CharInfo GrayscaleIndex=&quot;0.26104&quot; Character=&quot;д&quot;/&gt;
+        ///  &lt;CharInfo GrayscaleIndex [rest of string was truncated]&quot;;.
         /// </summary>
         public static string cs_LowercaseRussianAlphabets {
             get {
@@ -198,13 +213,13 @@ namespace ASCIIsome.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
-        ///&lt;CharSet DisplayName=&quot;Numerals&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;ASCIIsome.CharSets CharSetSchema.xsd&quot;&gt;
-        ///  &lt;KeyValuePair GrayscaleIndex=&quot;0.26270&quot; Character=&quot;0&quot;/&gt;
-        ///  &lt;KeyValuePair GrayscaleIndex=&quot;0.18531&quot; Character=&quot;1&quot;/&gt;
-        ///  &lt;KeyValuePair GrayscaleIndex=&quot;0.19975&quot; Character=&quot;2&quot;/&gt;
-        ///  &lt;KeyValuePair GrayscaleIndex=&quot;0.19922&quot; Character=&quot;3&quot;/&gt;
-        ///  &lt;KeyValuePair GrayscaleIndex=&quot;0.21424&quot; Character=&quot;4&quot;/&gt;
-        ///  &lt;KeyValuePair GrayscaleIndex=&quot;0.1 [rest of string was truncated]&quot;;.
+        ///&lt;CharSet DisplayName=&quot;Numerals&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;ASCIIsome.Resources.CharSets CharSetSchema.xsd&quot;&gt;
+        ///  &lt;CharInfo GrayscaleIndex=&quot;0.26270&quot; Character=&quot;0&quot;/&gt;
+        ///  &lt;CharInfo GrayscaleIndex=&quot;0.18531&quot; Character=&quot;1&quot;/&gt;
+        ///  &lt;CharInfo GrayscaleIndex=&quot;0.19975&quot; Character=&quot;2&quot;/&gt;
+        ///  &lt;CharInfo GrayscaleIndex=&quot;0.19922&quot; Character=&quot;3&quot;/&gt;
+        ///  &lt;CharInfo GrayscaleIndex=&quot;0.21424&quot; Character=&quot;4&quot;/&gt;
+        ///  &lt;CharInfo GrayscaleIndex=&quot;0.19647&quot; Characte [rest of string was truncated]&quot;;.
         /// </summary>
         public static string cs_Numerals {
             get {
@@ -214,9 +229,9 @@ namespace ASCIIsome.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
-        ///&lt;CharSet DisplayName=&quot;Other symbols in ISO/IEC 8859-5&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;ASCIIsome.CharSets CharSetSchema.xsd&quot;&gt;
-        ///  &lt;KeyValuePair GrayscaleIndex=&quot;0.31727&quot; Character=&quot;№&quot;/&gt;
-        ///  &lt;KeyValuePair GrayscaleIndex=&quot;0.26907&quot; Character=&quot;§&quot;/&gt;
+        ///&lt;CharSet DisplayName=&quot;Other symbols in ISO/IEC 8859-5&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;ASCIIsome.Resources.CharSets CharSetSchema.xsd&quot;&gt;
+        ///  &lt;CharInfo GrayscaleIndex=&quot;0.31727&quot; Character=&quot;№&quot;/&gt;
+        ///  &lt;CharInfo GrayscaleIndex=&quot;0.26907&quot; Character=&quot;§&quot;/&gt;
         ///&lt;/CharSet&gt;
         ///.
         /// </summary>
@@ -228,12 +243,13 @@ namespace ASCIIsome.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
-        ///&lt;CharSet DisplayName=&quot;Other lowercase Cyrillic alphabets in ISO/IEC 8859-5&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;ASCIIsome.CharSets CharSetSchema.xsd&quot;&gt;
-        ///  &lt;KeyValuePair GrayscaleIndex=&quot;0.30674&quot; Character=&quot;ђ&quot;/&gt;
-        ///  &lt;KeyValuePair GrayscaleIndex=&quot;0.15040&quot; Character=&quot;ѓ&quot;/&gt;
-        ///  &lt;KeyValuePair GrayscaleIndex=&quot;0.18357&quot; Character=&quot;є&quot;/&gt;
-        ///  &lt;KeyValuePair GrayscaleIndex=&quot;0.17880&quot; Character=&quot;ѕ&quot;/&gt;
-        ///  &lt;KeyValuePair GrayscaleIndex=&quot;0.13311&quot; Characte [rest of string was truncated]&quot;;.
+        ///&lt;CharSet DisplayName=&quot;Other lowercase Cyrillic alphabets in ISO/IEC 8859-5&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;ASCIIsome.Resources.CharSets CharSetSchema.xsd&quot;&gt;
+        ///  &lt;CharInfo GrayscaleIndex=&quot;0.30674&quot; Character=&quot;ђ&quot;/&gt;
+        ///  &lt;CharInfo GrayscaleIndex=&quot;0.15040&quot; Character=&quot;ѓ&quot;/&gt;
+        ///  &lt;CharInfo GrayscaleIndex=&quot;0.18357&quot; Character=&quot;є&quot;/&gt;
+        ///  &lt;CharInfo GrayscaleIndex=&quot;0.17880&quot; Character=&quot;ѕ&quot;/&gt;
+        ///  &lt;CharInfo GrayscaleIndex=&quot;0.13311&quot; Character=&quot;і&quot;/&gt;
+        ///  [rest of string was truncated]&quot;;.
         /// </summary>
         public static string cs_OtherLowercaseCyrillicAlphabets {
             get {
@@ -243,12 +259,13 @@ namespace ASCIIsome.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
-        ///&lt;CharSet DisplayName=&quot;Other uppercase Cyrillic alphabets in ISO/IEC 8859-5&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;ASCIIsome.CharSets CharSetSchema.xsd&quot;&gt;
-        ///  &lt;KeyValuePair GrayscaleIndex=&quot;0.24264&quot; Character=&quot;Ђ&quot;/&gt;
-        ///  &lt;KeyValuePair GrayscaleIndex=&quot;0.16226&quot; Character=&quot;Ѓ&quot;/&gt;
-        ///  &lt;KeyValuePair GrayscaleIndex=&quot;0.22168&quot; Character=&quot;Є&quot;/&gt;
-        ///  &lt;KeyValuePair GrayscaleIndex=&quot;0.20835&quot; Character=&quot;Ѕ&quot;/&gt;
-        ///  &lt;KeyValuePair GrayscaleIndex=&quot;0.18173&quot; Characte [rest of string was truncated]&quot;;.
+        ///&lt;CharSet DisplayName=&quot;Other uppercase Cyrillic alphabets in ISO/IEC 8859-5&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;ASCIIsome.Resources.CharSets CharSetSchema.xsd&quot;&gt;
+        ///  &lt;CharInfo GrayscaleIndex=&quot;0.24264&quot; Character=&quot;Ђ&quot;/&gt;
+        ///  &lt;CharInfo GrayscaleIndex=&quot;0.16226&quot; Character=&quot;Ѓ&quot;/&gt;
+        ///  &lt;CharInfo GrayscaleIndex=&quot;0.22168&quot; Character=&quot;Є&quot;/&gt;
+        ///  &lt;CharInfo GrayscaleIndex=&quot;0.20835&quot; Character=&quot;Ѕ&quot;/&gt;
+        ///  &lt;CharInfo GrayscaleIndex=&quot;0.18173&quot; Character=&quot;І&quot;/&gt;
+        ///  [rest of string was truncated]&quot;;.
         /// </summary>
         public static string cs_OtherUppercaseCyrillicAlphabets {
             get {
@@ -258,12 +275,12 @@ namespace ASCIIsome.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
-        ///&lt;CharSet DisplayName=&quot;Shades&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;ASCIIsome.CharSets CharSetSchema.xsd&quot;&gt;
-        ///  &lt;KeyValuePair GrayscaleIndex=&quot;0.00000&quot; Character=&quot; &quot;/&gt;
-        ///  &lt;KeyValuePair GrayscaleIndex=&quot;0.25308&quot; Character=&quot;░&quot;/&gt;
-        ///  &lt;KeyValuePair GrayscaleIndex=&quot;0.50514&quot; Character=&quot;▒&quot;/&gt;
-        ///  &lt;KeyValuePair GrayscaleIndex=&quot;0.75307&quot; Character=&quot;▓&quot;/&gt;
-        ///  &lt;KeyValuePair GrayscaleIndex=&quot;1.00000&quot; Character=&quot;█&quot;/&gt;
+        ///&lt;CharSet DisplayName=&quot;Shades&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;ASCIIsome.Resources.CharSets CharSetSchema.xsd&quot;&gt;
+        ///  &lt;CharInfo GrayscaleIndex=&quot;0.00000&quot; Character=&quot; &quot;/&gt;
+        ///  &lt;CharInfo GrayscaleIndex=&quot;0.25308&quot; Character=&quot;░&quot;/&gt;
+        ///  &lt;CharInfo GrayscaleIndex=&quot;0.50514&quot; Character=&quot;▒&quot;/&gt;
+        ///  &lt;CharInfo GrayscaleIndex=&quot;0.75307&quot; Character=&quot;▓&quot;/&gt;
+        ///  &lt;CharInfo GrayscaleIndex=&quot;1.00000&quot; Character=&quot;█&quot;/&gt;
         ///&lt;/CharSet&gt;
         ///.
         /// </summary>
@@ -275,9 +292,9 @@ namespace ASCIIsome.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
-        ///&lt;CharSet DisplayName=&quot;Space and full block&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;ASCIIsome.CharSets CharSetSchema.xsd&quot;&gt;
-        ///  &lt;KeyValuePair GrayscaleIndex=&quot;0.00000&quot; Character=&quot; &quot;/&gt;
-        ///  &lt;KeyValuePair GrayscaleIndex=&quot;1.00000&quot; Character=&quot;█&quot;/&gt;
+        ///&lt;CharSet DisplayName=&quot;Space and full block&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;ASCIIsome.Resources.CharSets CharSetSchema.xsd&quot;&gt;
+        ///  &lt;CharInfo GrayscaleIndex=&quot;0.00000&quot; Character=&quot; &quot;/&gt;
+        ///  &lt;CharInfo GrayscaleIndex=&quot;1.00000&quot; Character=&quot;█&quot;/&gt;
         ///&lt;/CharSet&gt;
         ///.
         /// </summary>
@@ -289,13 +306,13 @@ namespace ASCIIsome.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
-        ///&lt;CharSet DisplayName=&quot;Uppercase English alphabets&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;ASCIIsome.CharSets CharSetSchema.xsd&quot;&gt;
-        ///  &lt;KeyValuePair GrayscaleIndex=&quot;0.21228&quot; Character=&quot;A&quot;/&gt;
-        ///  &lt;KeyValuePair GrayscaleIndex=&quot;0.27039&quot; Character=&quot;B&quot;/&gt;
-        ///  &lt;KeyValuePair GrayscaleIndex=&quot;0.18776&quot; Character=&quot;C&quot;/&gt;
-        ///  &lt;KeyValuePair GrayscaleIndex=&quot;0.25390&quot; Character=&quot;D&quot;/&gt;
-        ///  &lt;KeyValuePair GrayscaleIndex=&quot;0.21602&quot; Character=&quot;E&quot;/&gt;
-        ///  &lt;KeyValuePair  [rest of string was truncated]&quot;;.
+        ///&lt;CharSet DisplayName=&quot;Uppercase English alphabets&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;ASCIIsome.Resources.CharSets CharSetSchema.xsd&quot;&gt;
+        ///  &lt;CharInfo GrayscaleIndex=&quot;0.21228&quot; Character=&quot;A&quot;/&gt;
+        ///  &lt;CharInfo GrayscaleIndex=&quot;0.27039&quot; Character=&quot;B&quot;/&gt;
+        ///  &lt;CharInfo GrayscaleIndex=&quot;0.18776&quot; Character=&quot;C&quot;/&gt;
+        ///  &lt;CharInfo GrayscaleIndex=&quot;0.25390&quot; Character=&quot;D&quot;/&gt;
+        ///  &lt;CharInfo GrayscaleIndex=&quot;0.21602&quot; Character=&quot;E&quot;/&gt;
+        ///  &lt;CharInfo GrayscaleIndex [rest of string was truncated]&quot;;.
         /// </summary>
         public static string cs_UppercaseEnglishAlphabets {
             get {
@@ -305,13 +322,13 @@ namespace ASCIIsome.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
-        ///&lt;CharSet DisplayName=&quot;Uppercase Russian alphabets&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;ASCIIsome.CharSets CharSetSchema.xsd&quot;&gt;
-        ///  &lt;KeyValuePair GrayscaleIndex=&quot;0.21229&quot; Character=&quot;А&quot;/&gt;
-        ///  &lt;KeyValuePair GrayscaleIndex=&quot;0.24278&quot; Character=&quot;Б&quot;/&gt;
-        ///  &lt;KeyValuePair GrayscaleIndex=&quot;0.27045&quot; Character=&quot;В&quot;/&gt;
-        ///  &lt;KeyValuePair GrayscaleIndex=&quot;0.14285&quot; Character=&quot;Г&quot;/&gt;
-        ///  &lt;KeyValuePair GrayscaleIndex=&quot;0.31134&quot; Character=&quot;Д&quot;/&gt;
-        ///  &lt;KeyValuePair  [rest of string was truncated]&quot;;.
+        ///&lt;CharSet DisplayName=&quot;Uppercase Russian alphabets&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;ASCIIsome.Resources.CharSets CharSetSchema.xsd&quot;&gt;
+        ///  &lt;CharInfo GrayscaleIndex=&quot;0.21229&quot; Character=&quot;А&quot;/&gt;
+        ///  &lt;CharInfo GrayscaleIndex=&quot;0.24278&quot; Character=&quot;Б&quot;/&gt;
+        ///  &lt;CharInfo GrayscaleIndex=&quot;0.27045&quot; Character=&quot;В&quot;/&gt;
+        ///  &lt;CharInfo GrayscaleIndex=&quot;0.14285&quot; Character=&quot;Г&quot;/&gt;
+        ///  &lt;CharInfo GrayscaleIndex=&quot;0.31134&quot; Character=&quot;Д&quot;/&gt;
+        ///  &lt;CharInfo GrayscaleIndex [rest of string was truncated]&quot;;.
         /// </summary>
         public static string cs_UppercaseRussianAlphabets {
             get {
@@ -586,11 +603,29 @@ namespace ASCIIsome.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to (Unknown character).
+        /// </summary>
+        public static string UnknownCharacter {
+            get {
+                return ResourceManager.GetString("UnknownCharacter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Failed to import from clipboard: The file on clipboard is of unsupported type. .
         /// </summary>
         public static string UnsupportedType {
             get {
                 return ResourceManager.GetString("UnsupportedType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Welcome to ASCIIsome! See About window for more information. .
+        /// </summary>
+        public static string Welcome {
+            get {
+                return ResourceManager.GetString("Welcome", resourceCulture);
             }
         }
     }

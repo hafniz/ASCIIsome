@@ -2,10 +2,15 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Globalization;
+using System.IO;
 using System.Threading;
 using System.Windows;
+using System.Xml;
+using System.Xml.Schema;
 using ASCIIsome.Commands;
 using ASCIIsome.Plotting;
+using ASCIIsome.Properties;
 
 namespace ASCIIsome
 {
@@ -137,16 +142,28 @@ namespace ASCIIsome
             }
         }
 
-        private ObservableCollection<CharSet> charSetsAvailable;
-        public ObservableCollection<CharSet> CharSetsAvailable
+        private ObservableCollection<string> nameOfCharSetsAvailable = new ObservableCollection<string>();
+        public ObservableCollection<string> NameOfCharSetsAvailable
         {
-            get => charSetsAvailable;
+            get => nameOfCharSetsAvailable;
             set
             {
-                charSetsAvailable = value;
-                OnPropertyChanged(nameof(CharSetsAvailable));
+                nameOfCharSetsAvailable = value;
+                OnPropertyChanged(nameof(NameOfCharSetsAvailable));
             }
         }
+
+        private ObservableCollection<string> nameOfCharSetsSelected = new ObservableCollection<string>();
+        public ObservableCollection<string> NameOfCharSetsSelected
+        {
+            get => nameOfCharSetsSelected;
+            set
+            {
+                nameOfCharSetsSelected = value;
+                OnPropertyChanged(nameof(NameOfCharSetsSelected));
+            }
+        }
+
 
         private CharSet currentCharSet;
         public CharSet CurrentCharSet
@@ -195,9 +212,11 @@ namespace ASCIIsome
             ImgSourcePath = ImgSourcePath,
             CharOut = CharOut,
             RubberDuckText = RubberDuckText,
-            CharSetsAvailable = CharSetsAvailable,
+            NameOfCharSetsAvailable = NameOfCharSetsAvailable,
+            NameOfCharSetsSelected = NameOfCharSetsSelected,
             CurrentCharSet = CurrentCharSet,
-            DisplayLanguage = DisplayLanguage
+            DisplayLanguage = DisplayLanguage,
+            StatusBarText = StatusBarText
         };
 
         #region command type declaration
@@ -233,34 +252,96 @@ namespace ASCIIsome
             DeleteCharSetCommand = new DeleteCharSetCommand(this);
         }
 
-        public void LoadConfig()
+        private static readonly string configFileName = Path.Combine(ApplicationInfo.AppDataFolder, "config.xml");
+        private const int latestConfigVersion = 1;
+        public void LoadConfig(bool validate = true, int version = latestConfigVersion) // TODO: [HV] Exception handling needed
         {
-            // TODO: [HV] Load some other settings
+            if (File.Exists(configFileName))
+            {
+                XmlSchemaSet schemaSet = new XmlSchemaSet();
+                switch (version)
+                {
+                    case 1:
+                        schemaSet.Add(XmlSchema.Read(typeof(ViewModel).Assembly.GetManifestResourceStream("ASCIIsome.Resources.ConfigSchemaV1.xsd"), (sender, e) => throw e.Exception));
+                        break;
+                    default:
+                        break;
+                }
+                XmlDocument document = new XmlDocument { XmlResolver = new XmlSecureResolver(new XmlUrlResolver(), typeof(ViewModel).Assembly.Evidence), Schemas = schemaSet };
+                document.Load(configFileName);
+                if (validate)
+                {
+                    document.Validate((sender, e) => throw e.Exception);
+                }
+                XmlNode rootNode = document.DocumentElement;
+                XmlNodeList nodeList = rootNode.ChildNodes;
+                switch (version)
+                {
+                    case 1:
+                        ParseConfigVersion1();
+                        break;
+                    default:
+                        break;
+                }
+                StatusBarText = Resources.Ready;
 
-            List<string> charSetFileNames = new List<string>
-            {
-                "some", 
-                "parsed", 
-                "strings", 
-                "from", 
-                "config.xml", 
-                "file"
-            };
-            try
-            {
-                CurrentCharSet = CharSet.Load(charSetFileNames);
-                StatusBarText = Properties.Resources.Ready;
+                void ParseConfigVersion1()
+                {
+                    foreach (XmlNode xmlNode in nodeList)
+                    {
+                        switch (xmlNode.Name)
+                        {
+                            case nameof(IsAspectRatioKept):
+                                IsAspectRatioKept = xmlNode.InnerText == "true" ? true : false;
+                                break;
+                            case nameof(IsDynamicGrayscaleRangeEnabled):
+                                IsDynamicGrayscaleRangeEnabled = xmlNode.InnerText == "true" ? true : false;
+                                break;
+                            case nameof(IsGrayscaleRangeInverted):
+                                IsGrayscaleRangeInverted = xmlNode.InnerText == "true" ? true : false;
+                                break;
+                            case "CharSets":
+                                XmlNodeList charSetNodeList = xmlNode.ChildNodes;
+                                List<string> fileNames = new List<string>();
+                                foreach (XmlNode charSetNode in charSetNodeList)
+                                {
+                                    fileNames.Add(charSetNode.InnerText);
+                                    NameOfCharSetsSelected.Add(charSetNode.InnerText);
+                                }
+                                CurrentCharSet = CharSet.Concat(fileNames);
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
             }
-            catch (Exception)
+            else
             {
-                CurrentCharSet = CharSet.LoadDefault();
-                StatusBarText = Properties.Resources.DefaultCharSetLoaded;
+                StatusBarText = Resources.Welcome;
             }
         }
 
-        public void SaveConfig()
+        public void SaveConfig() // [HV] XML file will be written in the latest version of format only. i.e. This method will be rewritten immediately upon config version is updated
         {
-            // TODO: [HV] Save CharSet config to file
+            XmlWriterSettings xmlWriterSettings = new XmlWriterSettings { Indent = true };
+            using (XmlWriter xmlWriter = XmlWriter.Create(configFileName, xmlWriterSettings))
+            {
+                xmlWriter.WriteStartElement("ASCIIsome.config");
+                xmlWriter.WriteAttributeString("xmlns", "xsi", null, "http://www.w3.org/2001/XMLSchema-instance");
+                xmlWriter.WriteAttributeString("xsi", "schemaLocation", null, "ASCIIsome.Resources ConfigSchemaV1.xsd");
+                xmlWriter.WriteElementString(nameof(IsAspectRatioKept), IsAspectRatioKept.ToString(CultureInfo.InvariantCulture).ToLowerInvariant());
+                xmlWriter.WriteElementString(nameof(IsDynamicGrayscaleRangeEnabled), IsDynamicGrayscaleRangeEnabled.ToString(CultureInfo.InvariantCulture).ToLowerInvariant());
+                xmlWriter.WriteElementString(nameof(IsGrayscaleRangeInverted), IsGrayscaleRangeInverted.ToString(CultureInfo.InvariantCulture).ToLowerInvariant());
+                xmlWriter.WriteStartElement("CharSets");
+                foreach (string charSetFileName in NameOfCharSetsSelected)
+                {
+                    xmlWriter.WriteElementString("Include", charSetFileName);
+                }
+                xmlWriter.WriteEndElement();
+                xmlWriter.WriteEndElement();
+                xmlWriter.Flush();
+            }
         }
     }
 }

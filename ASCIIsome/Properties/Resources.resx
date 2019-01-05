@@ -265,4 +265,13 @@
   <data name="DefaultCharSetLoaded" xml:space="preserve">
     <value>Failed to load character sets from the last configuration. Default character set is loaded. </value>
   </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>Welcome to ASCIIsome! See About window for more information. </value>
+  </data>
+  <data name="UnknownCharacter" xml:space="preserve">
+    <value>(Unknown character)</value>
+  </data>
+  <data name="ConfigSchemaV1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ConfigSchemaV1.xsd;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
 </root>

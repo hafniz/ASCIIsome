@@ -210,4 +210,10 @@
   <data name="DefaultCharSetLoaded" xml:space="preserve">
     <value>Не удалось загрузить наборы символов из последней конфигурации. Набор символов по умолчанию загружен.</value>
   </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>Добро пожаловать в ASCIIsome! Смотрите окно «О программе» для получения дополнительной информации.</value>
+  </data>
+  <data name="UnknownCharacter" xml:space="preserve">
+    <value>(неизвестный символ)</value>
+  </data>
 </root>

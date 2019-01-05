@@ -4,6 +4,7 @@ using System.Collections.Specialized;
 using System.IO;
 using System.Windows;
 using System.Windows.Media.Imaging;
+using ASCIIsome.Properties;
 
 namespace ASCIIsome.Commands
 {
@@ -18,7 +19,7 @@ namespace ASCIIsome.Commands
                 BitmapSource bitmapSource = (BitmapSource)Clipboard.GetData(DataFormats.Bitmap);
                 SaveBitmapSourceToFile(bitmapSource, tempPath);
                 CurrentViewModel.ImgSourcePath = tempPath;
-                CurrentViewModel.StatusBarText = Properties.Resources.ImportedFromClipboard;
+                CurrentViewModel.StatusBarText = Resources.ImportedFromClipboard;
             }
             else if (Clipboard.ContainsFileDropList())
             {
@@ -29,11 +30,11 @@ namespace ASCIIsome.Commands
                     if (IsOfSupportedType(fileExtension))
                     {
                         CurrentViewModel.ImgSourcePath = fileName; // WARNING: [HV] Only the lastly single-selected file of supported type or first file of supported type shown in the file explorer in rectangular selection will be opened
-                        CurrentViewModel.StatusBarText = Properties.Resources.ImportedFromClipboard;
+                        CurrentViewModel.StatusBarText = Resources.ImportedFromClipboard;
                         return;
                     }
                 }
-                CurrentViewModel.StatusBarText = Properties.Resources.UnsupportedType;
+                CurrentViewModel.StatusBarText = Resources.UnsupportedType;
             }
             else if (Clipboard.ContainsText())
             {
@@ -44,23 +45,23 @@ namespace ASCIIsome.Commands
                 }
                 catch (Exception)
                 {
-                    CurrentViewModel.StatusBarText = Properties.Resources.InvalidFilePath;
+                    CurrentViewModel.StatusBarText = Resources.InvalidFilePath;
                     return;
                 }
 
                 if (IsOfSupportedType(fileInfo.Extension))
                 {
                     CurrentViewModel.ImgSourcePath = $"{fileInfo.DirectoryName}\\{fileInfo.Name}";
-                    CurrentViewModel.StatusBarText = Properties.Resources.ImportedFromClipboard;
+                    CurrentViewModel.StatusBarText = Resources.ImportedFromClipboard;
                 }
                 else
                 {
-                    CurrentViewModel.StatusBarText = Properties.Resources.UnsupportedType; // TODO: [HV] Call TextImageConverter on encountering unsupported file type
+                    CurrentViewModel.StatusBarText = Resources.UnsupportedType; // TODO: [HV] Call TextImageConverter on encountering unsupported file type
                 }
             }
             else
             {
-                CurrentViewModel.StatusBarText = Properties.Resources.UnsupportedType;
+                CurrentViewModel.StatusBarText = Resources.UnsupportedType;
             }
         }
 

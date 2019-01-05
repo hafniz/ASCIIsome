@@ -10,7 +10,7 @@ namespace ASCIIsome
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-            //System.Threading.Thread.CurrentThread.CurrentUICulture = new CultureInfo("ru-RU"); // [HV] Override CultureInfo to display corresponding display language in UI
+            //System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("ru-RU"); // [HV] Override CultureInfo to display corresponding display language in UI
             ShutdownMode = ShutdownMode.OnMainWindowClose;
             CharSet.InitializeCharSetFolder();
         }

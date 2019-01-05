@@ -1,5 +1,19 @@
+﻿Change(s) in alpha 0.0.44.30
+    * Added using ASCIIsome.Properties; statements where needed, instead of fully qualifying Resources class
+    * Change of CharSet file structure and correspondingly the CharSet schema
+    * Multiple changes of CharSet class. See diff view for details
+    + Created XML schema for config file, and correspondingly implemented config saving/loading method in ViewModel class
+    * Other minor changes
+
+Change(s) in alpha 0.0.43.15
+    + Added import and delete CharSet commands (not implemented yet)
+    + Assigned different color for application title in About window according to build channels: canary, RC and formal release (master)
+    + Added Load and LoadDefault methods for CharSet class
+    + Made a draft of configuration saving/loading feature
+    + Bringing New Year's Greetings and Congratulations to everyone! 
+
 Change(s) in alpha 0.0.42.39
-    + Appication now copy CharSet presets to appdata folder on first use (folder not detected)
+    + Application now copy CharSet presets to appdata folder on first use (folder not detected)
     + Added ChooseCharSet window and open/close command
 
 Change(s) in alpha 0.0.40.60
@@ -32,7 +46,7 @@ Change(s) in alpha 0.0.33.29
 
 Change(s) in alpha 0.0.32.8
     + Outlined workflow of Plotter class
-    + Added PlottingStage enum for clearity
+    + Added PlottingStage enum for clarity
     + Adopted Range<T> class from StackOverflow
 
 Change(s) in alpha 0.0.29.30
@@ -50,7 +64,7 @@ Change(s) in alpha 0.0.24.20
 Change(s) in alpha 0.0.23.29
     + Added version prefix and suffix for ApplicationVersion and its value converter
     - Removed convert back method implementation in the value converter since ApplicationVersion is readonly
-    + Added random seed offset for random in RubberDuckCommand, which is equivalent to ���
+    + Added random seed offset for random in RubberDuckCommand, which is equivalent to ¿¿¿
     * Moved window resources into application resources and made data context effective on whole window
     * Extended ChatSet type, overloaded == and != operator and implemented IEquatable<CharSet> interface
     + Added WindowTop/WindowLeft props in ViewModel, which are binded to the MainWindow, so that it keeps its position on the screen after being reset after language change
@@ -60,3 +74,5 @@ Change(s) in alpha 0.0.23.29
     * Added [HV] prefix for all manual comment for easy searching
     * Other minor refinements
     + Added this change log
+
+-------- 想吃蛋挞//w// --------

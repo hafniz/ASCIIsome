@@ -47,7 +47,7 @@ namespace TextImageConverter
             }
         }
 
-        private static void ShowHelp() => WriteLine("\nThis program composes an image from specified file by plotting pixels bitwisely, or writes the byte data from the pixels of specified image into a file. \n" +
+        private static void ShowHelp() => WriteLine("\nThis program composes an image from specified file by plotting pixels bitwise-ly, or writes the byte data from the pixels of specified image into a file. \n" +
                 "Simply attach argument -c or -d to start composing or decomposing an image with command line prompts, or use the following syntax for unattended process: \n\n" +
                 "Usage: [-c [source-path save-path [-w width] [-h height]] | -d [source-path save-path]] [-s seed]\n\n" +
                 " -c\t\t Compose an image from specified file. \n" +

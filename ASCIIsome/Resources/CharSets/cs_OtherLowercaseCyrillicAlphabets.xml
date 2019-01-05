@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<CharSet DisplayName="Other lowercase Cyrillic alphabets in ISO/IEC 8859-5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="ASCIIsome.CharSets CharSetSchema.xsd">
-  <KeyValuePair GrayscaleIndex="0.30674" Character="ђ"/>
-  <KeyValuePair GrayscaleIndex="0.15040" Character="ѓ"/>
-  <KeyValuePair GrayscaleIndex="0.18357" Character="є"/>
-  <KeyValuePair GrayscaleIndex="0.17880" Character="ѕ"/>
-  <KeyValuePair GrayscaleIndex="0.13311" Character="і"/>
-  <KeyValuePair GrayscaleIndex="0.13239" Character="ї"/>
-  <KeyValuePair GrayscaleIndex="0.19157" Character="ј"/>
-  <KeyValuePair GrayscaleIndex="0.24480" Character="љ"/>
-  <KeyValuePair GrayscaleIndex="0.24832" Character="њ"/>
-  <KeyValuePair GrayscaleIndex="0.26298" Character="ћ"/>
-  <KeyValuePair GrayscaleIndex="0.20410" Character="ќ"/>
-  <KeyValuePair GrayscaleIndex="0.23317" Character="ў"/>
-  <KeyValuePair GrayscaleIndex="0.21467" Character="џ"/>
+<CharSet DisplayName="Other lowercase Cyrillic alphabets in ISO/IEC 8859-5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="ASCIIsome.Resources.CharSets CharSetSchema.xsd">
+  <CharInfo GrayscaleIndex="0.30674" Character="ђ"/>
+  <CharInfo GrayscaleIndex="0.15040" Character="ѓ"/>
+  <CharInfo GrayscaleIndex="0.18357" Character="є"/>
+  <CharInfo GrayscaleIndex="0.17880" Character="ѕ"/>
+  <CharInfo GrayscaleIndex="0.13311" Character="і"/>
+  <CharInfo GrayscaleIndex="0.13239" Character="ї"/>
+  <CharInfo GrayscaleIndex="0.19157" Character="ј"/>
+  <CharInfo GrayscaleIndex="0.24480" Character="љ"/>
+  <CharInfo GrayscaleIndex="0.24832" Character="њ"/>
+  <CharInfo GrayscaleIndex="0.26298" Character="ћ"/>
+  <CharInfo GrayscaleIndex="0.20410" Character="ќ"/>
+  <CharInfo GrayscaleIndex="0.23317" Character="ў"/>
+  <CharInfo GrayscaleIndex="0.21467" Character="џ"/>
 </CharSet>

@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using ASCIIsome.Properties;
 
 namespace ASCIIsome.Commands
 {
@@ -10,7 +11,7 @@ namespace ASCIIsome.Commands
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
                 Multiselect = false,
-                Filter = Properties.Resources.OpenFileDialogFilter, // TODO: [HV] Add all files filter once TextImageConverter call is implemented
+                Filter = Resources.OpenFileDialogFilter, // TODO: [HV] Add all files filter once TextImageConverter call is implemented
                 FilterIndex = 8,
                 RestoreDirectory = true
             };
@@ -18,7 +19,7 @@ namespace ASCIIsome.Commands
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 CurrentViewModel.ImgSourcePath = openFileDialog.FileName; // TODO: [HV] Optimize scaling algorithm of Image control in MainWindow for image display
-                CurrentViewModel.StatusBarText = Properties.Resources.ImageLoaded;
+                CurrentViewModel.StatusBarText = Resources.ImageLoaded;
             }
         }
     }

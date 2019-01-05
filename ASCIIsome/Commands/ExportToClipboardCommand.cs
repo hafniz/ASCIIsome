@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using ASCIIsome.Properties;
 
 namespace ASCIIsome.Commands
 {
@@ -8,7 +9,7 @@ namespace ASCIIsome.Commands
         public override void Execute(object parameter)
         {
             Clipboard.SetText(CurrentViewModel.CharOut);
-            CurrentViewModel.StatusBarText = Properties.Resources.ExportedToClipboard;
+            CurrentViewModel.StatusBarText = Resources.ExportedToClipboard;
         }
     }
 }

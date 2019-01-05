@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Windows.Forms;
+using ASCIIsome.Properties;
 
 namespace ASCIIsome.Commands
 {
@@ -10,14 +11,14 @@ namespace ASCIIsome.Commands
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog
             {
-                Filter = Properties.Resources.SaveFileDialogFilter,
+                Filter = Resources.SaveFileDialogFilter,
                 RestoreDirectory = true
             };
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
                 File.WriteAllText(saveFileDialog.FileName, CurrentViewModel.CharOut);
-                CurrentViewModel.StatusBarText = Properties.Resources.SavedToFile;
+                CurrentViewModel.StatusBarText = Resources.SavedToFile;
             }
         }
     }

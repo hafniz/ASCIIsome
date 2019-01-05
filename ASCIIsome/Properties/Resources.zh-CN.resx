@@ -210,4 +210,10 @@
   <data name="DefaultCharSetLoaded" xml:space="preserve">
     <value>从上次的配置中加载字符集失败。已加载默认字符集。</value>
   </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>欢迎使用 ASCIIsome！参阅“关于”窗口以了解更多信息。</value>
+  </data>
+  <data name="UnknownCharacter" xml:space="preserve">
+    <value>(未知字符)</value>
+  </data>
 </root>

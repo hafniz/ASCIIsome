@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.IO;
 using System.Windows.Media;
 using DrawingColor = System.Drawing.Color;
 using MediaColor = System.Windows.Media.Color;
@@ -11,12 +12,13 @@ namespace ASCIIsome
         // TODO: [HV] Have an icon for the application
 
         public static string ApplicationName { get; } = "ASCIIsome";
-        public static Version ApplicationVersion { get; } = new Version(0, 0, 43, 15); // TODO: [HV] Automatically generate (and format) version info in ApplicationInfo and AssemblyInfo class on building/publishing 
+        public static string AppDataFolder { get; } = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), ApplicationName);
+        public static Version ApplicationVersion { get; } = new Version(0, 0, 44, 30); // TODO: [HV] Automatically generate (and format) version info in ApplicationInfo and AssemblyInfo class on building/publishing 
         public static string VersionPrefix { get; } = "a";
         public static string VersionSuffix { get; } = "_181231-2355";
         public static SolidColorBrush ApplicationTitleBrush { get; } = new SolidColorBrush(GetTitleColor());
 
-        private static MediaColor GetTitleColor()
+        private static MediaColor GetTitleColor() // TODO: [HV] Change to switch expression in C# 8.0
         {
             switch (VersionSuffix)
             {

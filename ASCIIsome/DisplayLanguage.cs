@@ -2,6 +2,7 @@
 using System.Globalization;
 using System.Threading;
 using System.Windows;
+using ASCIIsome.Properties;
 using ASCIIsome.Windows;
 
 namespace ASCIIsome
@@ -39,7 +40,7 @@ namespace ASCIIsome
                 MainWindow newMainWindow = new MainWindow();
                 Application.Current.MainWindow = newMainWindow;
                 oldMainWindow?.Close();
-                viewModel.StatusBarText = Properties.Resources.LanguageChanged;
+                viewModel.StatusBarText = Resources.LanguageChanged;
                 newMainWindow.Show(viewModel);
             }
         }
