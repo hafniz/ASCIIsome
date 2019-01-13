@@ -9,7 +9,7 @@
                 <xs:element name="CharSets">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element maxOccurs="unbounded" name="Include" type="xs:string" minOccurs="0"/>
+                            <xs:element minOccurs="0" maxOccurs="unbounded" name="Include" type="xs:string"/>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>

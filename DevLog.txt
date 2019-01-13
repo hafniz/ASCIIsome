@@ -1,5 +1,13 @@
-﻿Change(s) in alpha 0.0.44.30
-    * Added using ASCIIsome.Properties; statements where needed, instead of fully qualifying Resources class
+﻿Change(s) in alpha 0.0.45.20
+    * Marked CanExecute method in CommonCommandBase virtual for future extension
+    + Implemented Import, Delete, Submit CharSets and OpenCharSetFolder commands
+    * Updated ConfigSchema
+    + Added CharSetNameConverter ValueConverter
+    + Implemented synchronization of CharSetsInUse selection upon ChooseCharSet window is shown
+    + Proposed related structure changes
+
+Change(s) in alpha 0.0.44.30
+    * Added 'using ASCIIsome.Properties' statements where needed, instead of fully qualifying Resources class
     * Change of CharSet file structure and correspondingly the CharSet schema
     * Multiple changes of CharSet class. See diff view for details
     + Created XML schema for config file, and correspondingly implemented config saving/loading method in ViewModel class

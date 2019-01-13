@@ -10,7 +10,7 @@ namespace ASCIIsome.Commands
 
         public event EventHandler CanExecuteChanged;
         protected void OnCanExecuteChanged() => CanExecuteChanged?.Invoke(this, new EventArgs());
-        public bool CanExecute(object parameter) => true;
+        public virtual bool CanExecute(object parameter) => true;
         public abstract void Execute(object parameter);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 
 namespace ASCIIsome.Plotting
@@ -87,13 +88,28 @@ namespace ASCIIsome.Plotting
         private static void ResizeImage() => throw new NotImplementedException();
         private static void AccessImageFromFilePath() => throw new NotImplementedException();
 
-        public static void OutputEnumerateConfig(ViewModel inputViewModel) => inputViewModel.CharOut =
-            "CharImgHeight: " + inputViewModel.CharImgHeight + Environment.NewLine +
-            "CharImgWidth: " + inputViewModel.CharImgWidth + Environment.NewLine +
-            "ImgSource: " + (inputViewModel.ImgSourcePath ?? "(null)") + Environment.NewLine +
-            "IsAspectRatioKept: " + inputViewModel.IsAspectRatioKept + Environment.NewLine +
-            "IsDynamicGrayscaleRangeEnabled: " + inputViewModel.IsDynamicGrayscaleRangeEnabled + Environment.NewLine +
-            "IsGrayscaleRangeInverted: " + inputViewModel.IsGrayscaleRangeInverted + Environment.NewLine +
-            "CurrentCharSet: " + inputViewModel.CurrentCharSet + Environment.NewLine;
+        [Obsolete("This method is for debug use only. Remove calls to it in production code. ")]
+        public static void OutputEnumerateConfig(ViewModel inputViewModel)
+        {
+            inputViewModel.CharOut = "";
+            inputViewModel.CharOut += "CharImgHeight: " + inputViewModel.CharImgHeight + Environment.NewLine;
+            inputViewModel.CharOut += "CharImgWidth: " + inputViewModel.CharImgWidth + Environment.NewLine;
+            inputViewModel.CharOut += "ImgSource: " + (inputViewModel.ImgSourcePath ?? "(null)") + Environment.NewLine;
+            inputViewModel.CharOut += "IsAspectRatioKept: " + inputViewModel.IsAspectRatioKept + Environment.NewLine;
+            inputViewModel.CharOut += "IsDynamicGrayscaleRangeEnabled: " + inputViewModel.IsDynamicGrayscaleRangeEnabled + Environment.NewLine;
+            inputViewModel.CharOut += "IsGrayscaleRangeInverted: " + inputViewModel.IsGrayscaleRangeInverted + Environment.NewLine;
+            inputViewModel.CharOut += "CurrentCharSet: " + (inputViewModel.CurrentCharSet?.ToString() ?? "(null)") + Environment.NewLine;
+            inputViewModel.CharOut += "CharSetsInUse: " + PrintCharSetsInUse(inputViewModel.CharSetsInUse) + Environment.NewLine;
+
+            string PrintCharSetsInUse(IEnumerable<string> charSetsInUse)
+            {
+                string names = "";
+                foreach (string name in charSetsInUse)
+                {
+                    names += name + Environment.NewLine;
+                }
+                return names;
+            }
+        }
     }
 }

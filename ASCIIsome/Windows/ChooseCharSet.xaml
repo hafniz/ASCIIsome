@@ -4,17 +4,22 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:p="clr-namespace:ASCIIsome.Properties"
-        xmlns:r="clr-namespace:ASCIIsome"
-        xmlns:local="clr-namespace:ASCIIsome.Windows"
         mc:Ignorable="d"
         x:Name="window"
         Title="{x:Static p:Resources.ChooseCharSetWindowTitle}" Height="450" Width="800" WindowStartupLocation="CenterScreen" 
         DataContext="{Binding Source={StaticResource ViewModel}}">
     <Grid>
-        <Button Content="{x:Static p:Resources.OK}" HorizontalAlignment="Left" Margin="199,282,0,0" VerticalAlignment="Top" Command="{Binding SubmitCharSetChoiceCommand}" CommandParameter="{Binding ElementName=window}" IsDefault="True"/>
-        <Button Content="{x:Static p:Resources.Cancel}" HorizontalAlignment="Left" Margin="330,282,0,0" VerticalAlignment="Top" Command="{Binding CancelAndCloseCommand}" CommandParameter="{Binding ElementName=window}" IsCancel="True"/>
-        <Button Content="{x:Static p:Resources.Import}" HorizontalAlignment="Left" Margin="199,245,0,0" VerticalAlignment="Top" Command="{Binding ImportCharSetCommand}" CommandParameter="{Binding ElementName=window}"/>
-        <Button Content="{x:Static p:Resources.Delete}" HorizontalAlignment="Left" Margin="330,245,0,0" VerticalAlignment="Top" Command="{Binding DeleteCharSetCommand}" CommandParameter="{Binding ElementName=window}"/>
-        <ListBox HorizontalAlignment="Left" Height="100" Margin="268,80,0,0" VerticalAlignment="Top" Width="100"/>
+        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="145" Margin="246,34,0,0" VerticalAlignment="Top" Width="367" ItemsSource="{Binding CharSetsAvailable}" SelectionMode="Extended">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Converter={StaticResource CharSetNameConverter}}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button Content="{x:Static p:Resources.OK}" HorizontalAlignment="Left" Margin="246,293,0,0" VerticalAlignment="Top" Command="{Binding SubmitCharSetChoiceCommand}" CommandParameter="{Binding ElementName=window}" IsDefault="True"/>
+        <Button Content="{x:Static p:Resources.Cancel}" HorizontalAlignment="Left" Margin="353,293,0,0" VerticalAlignment="Top" Command="{Binding CancelAndCloseCommand}" CommandParameter="{Binding ElementName=window}" IsCancel="True"/>
+        <Button Content="{x:Static p:Resources.Import}" HorizontalAlignment="Left" Margin="246,253,0,0" VerticalAlignment="Top" Command="{Binding ImportCharSetCommand}" CommandParameter="{Binding ElementName=listBox}"/>
+        <Button Content="{x:Static p:Resources.Delete}" HorizontalAlignment="Left" Margin="353,253,0,0" VerticalAlignment="Top" CommandParameter="{Binding ElementName=listBox}" Command="{Binding DeleteCharSetCommand}"/>
+        <Button Content="{x:Static p:Resources.OpenCharSetFolder}" HorizontalAlignment="Left" Margin="246,213,0,0" VerticalAlignment="Top" Command="{Binding OpenCharSetFolderCommand}"/>
     </Grid>
 </Window>

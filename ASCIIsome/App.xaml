@@ -5,6 +5,7 @@
              xmlns:local="clr-namespace:ASCIIsome"
              StartupUri="Windows\MainWindow.xaml">
     <Application.Resources>
+        <c:CharSetNameConverter x:Key="CharSetNameConverter"/>
         <c:DisplayLanguageIndexConverter x:Key="DisplayLanguageIndexConverter"/>
         <c:VersionNumberConverter x:Key="VersionNumberConverter"/>
         <local:ViewModel x:Key="ViewModel"/>

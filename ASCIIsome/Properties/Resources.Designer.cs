@@ -409,11 +409,20 @@ namespace ASCIIsome.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Import….
+        ///   Looks up a localized string similar to Import....
         /// </summary>
         public static string Import {
             get {
                 return ResourceManager.GetString("Import", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to XML files (*.xml)|*.xml|All files (*.*)|*.*.
+        /// </summary>
+        public static string ImportCharSetDialogFilter {
+            get {
+                return ResourceManager.GetString("ImportCharSetDialogFilter", resourceCulture);
             }
         }
         
@@ -530,6 +539,15 @@ namespace ASCIIsome.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Open character set folder....
+        /// </summary>
+        public static string OpenCharSetFolder {
+            get {
+                return ResourceManager.GetString("OpenCharSetFolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Open file....
         /// </summary>
         public static string OpenFile {
@@ -599,15 +617,6 @@ namespace ASCIIsome.Properties {
         public static string Title {
             get {
                 return ResourceManager.GetString("Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to (Unknown character).
-        /// </summary>
-        public static string UnknownCharacter {
-            get {
-                return ResourceManager.GetString("UnknownCharacter", resourceCulture);
             }
         }
         

@@ -142,25 +142,19 @@ namespace ASCIIsome
             }
         }
 
-        private ObservableCollection<string> nameOfCharSetsAvailable = new ObservableCollection<string>();
-        public ObservableCollection<string> NameOfCharSetsAvailable
-        {
-            get => nameOfCharSetsAvailable;
-            set
-            {
-                nameOfCharSetsAvailable = value;
-                OnPropertyChanged(nameof(NameOfCharSetsAvailable));
-            }
-        }
+        // TODO: [HV] Re-evaluate the necessity of using ObservableCollection
+        public static ObservableCollection<(string displayName, string filename)> CharSetsAvailable => new ObservableCollection<(string displayName, string filename)>(CharSet.GetDisplayNames(CharSet.EnumerateFiles()));
 
-        private ObservableCollection<string> nameOfCharSetsSelected = new ObservableCollection<string>();
-        public ObservableCollection<string> NameOfCharSetsSelected
+        // TODO: [HV] Consider separating this to two properties: List<(string displayName, string filename)> SelectedCharSets and List<CharSet> CharSetsInUse, where the later one can be bound to the listBox
+        private List<string> charSetsInUse = new List<string>();
+        public List<string> CharSetsInUse
         {
-            get => nameOfCharSetsSelected;
+            get => charSetsInUse;
             set
             {
-                nameOfCharSetsSelected = value;
-                OnPropertyChanged(nameof(NameOfCharSetsSelected));
+                charSetsInUse = value;
+                OnPropertyChanged(nameof(CharSetsInUse));
+                Plotter.OutputEnumerateConfig(this);
             }
         }
 
@@ -212,8 +206,7 @@ namespace ASCIIsome
             ImgSourcePath = ImgSourcePath,
             CharOut = CharOut,
             RubberDuckText = RubberDuckText,
-            NameOfCharSetsAvailable = NameOfCharSetsAvailable,
-            NameOfCharSetsSelected = NameOfCharSetsSelected,
+            CharSetsInUse = CharSetsInUse,
             CurrentCharSet = CurrentCharSet,
             DisplayLanguage = DisplayLanguage,
             StatusBarText = StatusBarText
@@ -233,6 +226,7 @@ namespace ASCIIsome
         public SubmitCharSetChoiceCommand SubmitCharSetChoiceCommand { get; set; }
         public ImportCharSetCommand ImportCharSetCommand { get; set; }
         public DeleteCharSetCommand DeleteCharSetCommand { get; set; }
+        public OpenCharSetFolderCommand OpenCharSetFolderCommand { get; set; }
         #endregion
 
         public ViewModel()
@@ -250,6 +244,7 @@ namespace ASCIIsome
             SubmitCharSetChoiceCommand = new SubmitCharSetChoiceCommand(this);
             ImportCharSetCommand = new ImportCharSetCommand(this);
             DeleteCharSetCommand = new DeleteCharSetCommand(this);
+            OpenCharSetFolderCommand = new OpenCharSetFolderCommand(this);
         }
 
         private static readonly string configFileName = Path.Combine(ApplicationInfo.AppDataFolder, "config.xml");
@@ -306,7 +301,7 @@ namespace ASCIIsome
                                 foreach (XmlNode charSetNode in charSetNodeList)
                                 {
                                     fileNames.Add(charSetNode.InnerText);
-                                    NameOfCharSetsSelected.Add(charSetNode.InnerText);
+                                    CharSetsInUse.Add(charSetNode.InnerText);
                                 }
                                 CurrentCharSet = CharSet.Concat(fileNames);
                                 break;
@@ -334,7 +329,7 @@ namespace ASCIIsome
                 xmlWriter.WriteElementString(nameof(IsDynamicGrayscaleRangeEnabled), IsDynamicGrayscaleRangeEnabled.ToString(CultureInfo.InvariantCulture).ToLowerInvariant());
                 xmlWriter.WriteElementString(nameof(IsGrayscaleRangeInverted), IsGrayscaleRangeInverted.ToString(CultureInfo.InvariantCulture).ToLowerInvariant());
                 xmlWriter.WriteStartElement("CharSets");
-                foreach (string charSetFileName in NameOfCharSetsSelected)
+                foreach (string charSetFileName in CharSetsInUse)
                 {
                     xmlWriter.WriteElementString("Include", charSetFileName);
                 }

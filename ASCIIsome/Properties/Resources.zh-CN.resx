@@ -160,19 +160,19 @@
     <value>语言已切换至中文。</value>
   </data>
   <data name="ChooseCharSet" xml:space="preserve">
-    <value>选择字符集…</value>
+    <value>选择字符集...</value>
   </data>
   <data name="OK" xml:space="preserve">
     <value>确定</value>
   </data>
   <data name="OpenFile" xml:space="preserve">
-    <value>打开文件…</value>
+    <value>打开文件...</value>
   </data>
   <data name="Ready" xml:space="preserve">
     <value>就绪</value>
   </data>
   <data name="SaveAs" xml:space="preserve">
-    <value>保存为…</value>
+    <value>保存为...</value>
   </data>
   <data name="SavedToFile" xml:space="preserve">
     <value>文本已成功保存。</value>
@@ -205,7 +205,7 @@
     <value>删除</value>
   </data>
   <data name="Import" xml:space="preserve">
-    <value>导入…</value>
+    <value>导入...</value>
   </data>
   <data name="DefaultCharSetLoaded" xml:space="preserve">
     <value>从上次的配置中加载字符集失败。已加载默认字符集。</value>
@@ -213,7 +213,10 @@
   <data name="Welcome" xml:space="preserve">
     <value>欢迎使用 ASCIIsome！参阅“关于”窗口以了解更多信息。</value>
   </data>
-  <data name="UnknownCharacter" xml:space="preserve">
-    <value>(未知字符)</value>
+  <data name="OpenCharSetFolder" xml:space="preserve">
+    <value>打开字符集文件夹...</value>
+  </data>
+  <data name="ImportCharSetDialogFilter" xml:space="preserve">
+    <value>XML 文件 (*.xml)|*.xml|所有文件 (*.*)|*.*</value>
   </data>
 </root>
