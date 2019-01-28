@@ -219,4 +219,7 @@
   <data name="ImportCharSetDialogFilter" xml:space="preserve">
     <value>Файлы XML (*.xml)|*.xml|Все файлы (*.*)|*.*</value>
   </data>
+  <data name="EmptyCharSet" xml:space="preserve">
+    <value>(Пустой набор символов)</value>
+  </data>
 </root>

@@ -2,18 +2,19 @@
 <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <xs:element name="ASCIIsome.config">
         <xs:complexType>
-            <xs:all>
-                <xs:element name="IsAspectRatioKept" type="xs:boolean" />
-                <xs:element name="IsDynamicGrayscaleRangeEnabled" type="xs:boolean" />
-                <xs:element name="IsGrayscaleRangeInverted" type="xs:boolean" />
-                <xs:element name="CharSets">
-                    <xs:complexType>
-                        <xs:sequence>
-                            <xs:element minOccurs="0" maxOccurs="unbounded" name="Include" type="xs:string"/>
-                        </xs:sequence>
-                    </xs:complexType>
-                </xs:element>
-            </xs:all>
+				<xs:all>
+					<xs:element name="DisplayLanguage" type="xs:string" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="IsAspectRatioKept" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="IsDynamicGrayscaleRangeEnabled" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="IsGrayscaleRangeInverted" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="CharSets" minOccurs="0" maxOccurs="1">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="Include" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+				</xs:all>
         </xs:complexType>
     </xs:element>
 </xs:schema>

@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Windows;
 
+#nullable enable
 namespace ASCIIsome.Windows
 {
     /// <summary>
@@ -8,18 +9,18 @@ namespace ASCIIsome.Windows
     /// </summary>
     public sealed partial class MainWindow
     {
-        public MainWindow()
+        // TODO: [HV] Adjust brightness of the window and controls ('dark mode')
+
+        public MainWindow() : this(true) { }
+
+        public MainWindow(bool isAppStartingUp)
         {
             InitializeComponent();
+            if (isAppStartingUp)
+            {
+                (DataContext as ViewModel).LoadConfig();
+            }
             AdjustWindowSize();
-            (DataContext as ViewModel).LoadConfig();
-        }
-
-        public void Show(ViewModel viewModel) 
-        {
-            DataContext = viewModel;
-            AdjustWindowSize();
-            Show();
         }
 
         private void AdjustWindowSize()
@@ -35,5 +36,8 @@ namespace ASCIIsome.Windows
             }
             base.OnClosing(e);
         }
+
+#warning DebugBreak_Click is for debug use only. 
+        private void DebugBreak_Click(object sender, RoutedEventArgs e) { }
     }
 }

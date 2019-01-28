@@ -96,6 +96,7 @@
             <Image Grid.Column="0" Margin="0,0,10,0" Source="{Binding ImgSourcePath}"/>
             <GridSplitter Grid.Column="0" Width="5"/>
             <TextBox Grid.Column="1" Margin="5,0,0,0" FontFamily="Lucida Console" IsReadOnly="True" Text="{Binding CharOut}"/>
+            <Button x:Name="debugBreakButton" Content="DebugBreak" HorizontalAlignment="Left" Margin="61,80,0,0" VerticalAlignment="Top" Width="157" Click="DebugBreak_Click"/>
         </Grid>
     </DockPanel>
 </Window>

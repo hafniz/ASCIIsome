@@ -364,6 +364,15 @@ namespace ASCIIsome.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to (Empty character set).
+        /// </summary>
+        public static string EmptyCharSet {
+            get {
+                return ResourceManager.GetString("EmptyCharSet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Text exported to clipboard successfully. .
         /// </summary>
         public static string ExportedToClipboard {

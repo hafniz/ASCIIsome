@@ -5,6 +5,7 @@ using System.Globalization;
 using System.IO;
 using static System.Console;
 
+#nullable enable
 namespace TextImageConverter
 {
     public static class Decomposer

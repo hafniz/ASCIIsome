@@ -5,6 +5,7 @@ using System.Windows;
 using ASCIIsome.Properties;
 using ASCIIsome.Windows;
 
+#nullable enable
 namespace ASCIIsome
 {
     public sealed class DisplayLanguage
@@ -31,17 +32,17 @@ namespace ASCIIsome
             Index = index;
         }
 
-        public static void ChangeDisplayLanguage(ViewModel viewModel)
+        public static void ChangeDisplayLanguage(ViewModel viewModel, bool isAppStartingUp = false)
         {
             if (viewModel.DisplayLanguage.CultureSymbol != Thread.CurrentThread.CurrentUICulture.Name)
             {
                 Thread.CurrentThread.CurrentUICulture = new CultureInfo(viewModel.DisplayLanguage.CultureSymbol);
                 Window oldMainWindow = Application.Current.MainWindow;
-                MainWindow newMainWindow = new MainWindow();
+                MainWindow newMainWindow = new MainWindow(isAppStartingUp);
                 Application.Current.MainWindow = newMainWindow;
                 oldMainWindow?.Close();
                 viewModel.StatusBarText = Resources.LanguageChanged;
-                newMainWindow.Show(viewModel);
+                newMainWindow.Show();
             }
         }
     }

@@ -1,5 +1,6 @@
 ﻿using System;
 
+#nullable enable
 namespace TextImageConverter
 {
     public abstract class ConfigurationBase

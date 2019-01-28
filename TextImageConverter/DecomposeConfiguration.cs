@@ -1,5 +1,6 @@
 ﻿using System.Drawing;
 
+#nullable enable
 namespace TextImageConverter
 {
     public class DecomposeConfiguration : ConfigurationBase

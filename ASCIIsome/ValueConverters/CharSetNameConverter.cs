@@ -2,6 +2,7 @@
 using System.Globalization;
 using System.Windows.Data;
 
+#nullable enable
 namespace ASCIIsome.ValueConverters
 {
     [ValueConversion(typeof((string, string)), typeof(string))]

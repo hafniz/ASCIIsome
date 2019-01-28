@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using ASCIIsome.Properties;
 using ListBox = System.Windows.Controls.ListBox;
 
+#nullable enable
 namespace ASCIIsome.Commands
 {
     public sealed class ImportCharSetCommand : CommonCommandBase

@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using ASCIIsome.Properties;
 
+#nullable enable
 namespace ASCIIsome.Commands
 {
     public sealed class SaveAsCommand : CommonCommandBase

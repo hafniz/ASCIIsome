@@ -10,6 +10,7 @@ using System.Xml;
 using System.Xml.Schema;
 using ASCIIsome.Properties;
 
+#nullable enable
 namespace ASCIIsome
 {
     [Serializable]
@@ -22,6 +23,7 @@ namespace ASCIIsome
         public static CharSet Default { get; } = ParseFromXmlFile(typeof(CharSet).Assembly.GetManifestResourceStream($"ASCIIsome.Resources.CharSets.{defaultCharSetFileName}.xml"), false);
         public string DisplayName { get; set; }
         public override string ToString() => DisplayName;
+        public CharSet() => DisplayName = Resources.EmptyCharSet;
 
         public static CharSet Concat(List<string> filenames)
         {
@@ -39,7 +41,7 @@ namespace ASCIIsome
             switch (charSets.Length)
             {
                 case 0:
-                    return null;
+                    return new CharSet();
                 case 1:
                     return charSets[0];
                 default:
@@ -92,6 +94,7 @@ namespace ASCIIsome
                     }
                     catch (ArgumentException)
                     {
+#warning Unexpected behavoirs may occur. See comments for more info. 
                         // WARNING: [HV] This particular approach can theoretically cause significant difference between the actual value of grayscale 
                         // index of a character and the value assigned when being added into a charset, in case that all neighboring keys have been occupied. 
                         // OR, if all possible values of key between it's original grayscale index and DefaultGrayscaleRange.Maximum have already been occupied, 
@@ -183,7 +186,7 @@ namespace ASCIIsome
             }
         }
 
-        [Obsolete("This method is for debug use only. Remove calls to it in production code. ")]
+#warning DebugEnumerateKeyValuePairs is for debug use only. 
         public void DebugEnumerateKeyValuePairs()
         {
             foreach (KeyValuePair<double, char> charInfo in this)
@@ -238,26 +241,54 @@ namespace ASCIIsome
         public bool Contains(CharSet other) => other.All(v => this.Contains(v));
         public int CompareTo(CharSet other)
         {
-            if (Contains(other))
+            if (ReferenceEquals(this, other))
             {
-                if (other.Contains(this))
-                {
-                    return 0;
-                }
-                else
-                {
-                    return 1;
-                }
+                return 0;
             }
             else
             {
-                if (other.Contains(this))
+                if (this is null)
                 {
-                    return -1;
+                    if (other is null)
+                    {
+                        return 0;
+                    }
+                    else
+                    {
+                        return -1;
+                    }
                 }
                 else
                 {
-                    return int.MinValue;
+                    if (other is null)
+                    {
+                        return 1;
+                    }
+                    else
+                    {
+                        if (Contains(other))
+                        {
+                            if (other.Contains(this))
+                            {
+                                return 0;
+                            }
+                            else
+                            {
+                                return 1;
+                            }
+                        }
+                        else
+                        {
+                            if (other.Contains(this))
+                            {
+                                return -1;
+                            }
+                            else
+                            {
+                                return int.MinValue;
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -265,22 +296,7 @@ namespace ASCIIsome
         public static bool operator <=(CharSet left, CharSet right) => left.CompareTo(right) <= 0;
         public static bool operator >(CharSet left, CharSet right) => left.CompareTo(right) > 0;
         public static bool operator >=(CharSet left, CharSet right) => left.CompareTo(right) >= 0;
-
-        public bool Equals(CharSet other)
-        {
-            if (ReferenceEquals(this, other) || this is null && other is null)
-            {
-                return true;
-            }
-            else if (this is null || other is null)
-            {
-                return false;
-            }
-            else
-            {
-                return CompareTo(other) == 0;
-            }
-        }
+        public bool Equals(CharSet other) => CompareTo(other) == 0;
         public override bool Equals(object obj) => obj is CharSet ? Equals(obj as CharSet) : false;
         public static bool operator ==(CharSet left, CharSet right) => left.Equals(right);
         public static bool operator !=(CharSet left, CharSet right) => !left.Equals(right);

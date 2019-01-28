@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 
+#nullable enable
 namespace ASCIIsome.Plotting
 {
     public static class Plotter
@@ -88,8 +89,8 @@ namespace ASCIIsome.Plotting
         private static void ResizeImage() => throw new NotImplementedException();
         private static void AccessImageFromFilePath() => throw new NotImplementedException();
 
-        [Obsolete("This method is for debug use only. Remove calls to it in production code. ")]
-        public static void OutputEnumerateConfig(ViewModel inputViewModel)
+#warning DebugEnumerateConfig is for debug use only. 
+        public static void DebugEnumerateConfig(ViewModel inputViewModel)
         {
             inputViewModel.CharOut = "";
             inputViewModel.CharOut += "CharImgHeight: " + inputViewModel.CharImgHeight + Environment.NewLine;
@@ -99,7 +100,7 @@ namespace ASCIIsome.Plotting
             inputViewModel.CharOut += "IsDynamicGrayscaleRangeEnabled: " + inputViewModel.IsDynamicGrayscaleRangeEnabled + Environment.NewLine;
             inputViewModel.CharOut += "IsGrayscaleRangeInverted: " + inputViewModel.IsGrayscaleRangeInverted + Environment.NewLine;
             inputViewModel.CharOut += "CurrentCharSet: " + (inputViewModel.CurrentCharSet?.ToString() ?? "(null)") + Environment.NewLine;
-            inputViewModel.CharOut += "CharSetsInUse: " + PrintCharSetsInUse(inputViewModel.CharSetsInUse) + Environment.NewLine;
+            inputViewModel.CharOut += "CharSetsInUse: " + (inputViewModel.CharSetsInUse.Count == 0 ? "(null)" : PrintCharSetsInUse(inputViewModel.CharSetsInUse)) + Environment.NewLine;
 
             string PrintCharSetsInUse(IEnumerable<string> charSetsInUse)
             {

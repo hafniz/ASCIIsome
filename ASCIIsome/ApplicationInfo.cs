@@ -5,35 +5,30 @@ using System.Windows.Media;
 using DColor = System.Drawing.Color;
 using MColor = System.Windows.Media.Color;
 
+#nullable enable
 namespace ASCIIsome
 {
     public static class ApplicationInfo
     {
         // TODO: [HV] Have an icon for the application
+        // TODO: [HV] 'Check for update' feature
         public static string ApplicationName { get; } = "ASCIIsome";
         public static string AppDataFolder { get; } = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), ApplicationName);
-        public static Version ApplicationVersion { get; } = new Version(0, 0, 45, 20); // TODO: [HV] Automatically generate (and format) version info in ApplicationInfo and AssemblyInfo class on building/publishing 
+        public static Version ApplicationVersion { get; } = new Version(0, 0, 46, 45); // TODO: [HV] Automatically generate (and format) version info in ApplicationInfo and AssemblyInfo class on building/publishing 
         public static string VersionPrefix { get; } = "a";
-        public static string VersionSuffix { get; } = "_190113-1805";
+        public static string VersionSuffix { get; } = "_190128-1725";
         public static SolidColorBrush ApplicationTitleBrush { get; } = new SolidColorBrush(GetTitleColor());
 
-        private static MColor GetTitleColor() // TODO: [HV] Change to switch expression in C# 8.0
+        private static MColor GetTitleColor() => VersionSuffix switch
         {
-            switch (VersionSuffix)
-            {
-                case string s when string.IsNullOrWhiteSpace(s): // [HV] Formal releases on branch master
-                    return MColor.FromRgb(43, 87, 151);
-                case string s when s.Trim().StartsWith("RC", StringComparison.InvariantCulture): // [HV] Release candidates on branch RC
-                    return GetRandomKnownColor();
-                default: // [HV] Internal development versions on branch canary
-                    return MColor.FromRgb(192, 192, 192);
-            }
-        }
+            string s when string.IsNullOrWhiteSpace(s) => MColor.FromRgb(43, 87, 151), // [HV] Formal releases on branch master
+            string s when s.Trim().StartsWith("RC", StringComparison.InvariantCulture) => GetRandomKnownColor(), // [HV] Release candidates on branch RC
+            _ => MColor.FromRgb(192, 192, 192) // [HV] Internal development versions on branch canary
+        };
 
         private static MColor GetRandomKnownColor()
         {
             KnownColor[] knownColors = (KnownColor[])Enum.GetValues(typeof(KnownColor));
-            KnownColor knownColor = knownColors[new Random().Next(knownColors.Length)];
             DColor drawingColor = DColor.FromKnownColor(knownColors[new Random().Next(knownColors.Length)]);
             return MColor.FromRgb(drawingColor.R, drawingColor.G, drawingColor.B);
         }

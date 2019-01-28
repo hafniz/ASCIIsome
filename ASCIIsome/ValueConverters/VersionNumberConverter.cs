@@ -3,6 +3,7 @@ using System.Globalization;
 using System.Windows.Data;
 using static ASCIIsome.ApplicationInfo;
 
+#nullable enable
 namespace ASCIIsome.ValueConverters
 {
     [ValueConversion(typeof(Version), typeof(string))]

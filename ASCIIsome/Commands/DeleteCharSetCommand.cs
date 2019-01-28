@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using System.Windows.Controls;
 
+#nullable enable
 namespace ASCIIsome.Commands
 {
     public sealed class DeleteCharSetCommand : CommonCommandBase

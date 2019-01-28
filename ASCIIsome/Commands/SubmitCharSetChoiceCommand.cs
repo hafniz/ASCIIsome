@@ -2,6 +2,7 @@
 using System.Windows;
 using ASCIIsome.Windows;
 
+#nullable enable
 namespace ASCIIsome.Commands
 {
     public sealed class SubmitCharSetChoiceCommand : CommonCommandBase

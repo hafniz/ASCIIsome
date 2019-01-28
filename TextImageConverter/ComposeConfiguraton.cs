@@ -1,4 +1,5 @@
-﻿namespace TextImageConverter
+﻿#nullable enable
+namespace TextImageConverter
 {
     public class ComposeConfiguration : ConfigurationBase
     {

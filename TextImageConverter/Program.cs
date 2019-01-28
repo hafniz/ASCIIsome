@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Linq;
 using static System.Console;
 
+#nullable enable
 namespace TextImageConverter
 {
     public static class Program

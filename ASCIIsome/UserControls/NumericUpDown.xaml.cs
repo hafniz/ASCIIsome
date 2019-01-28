@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 
+#nullable enable
 namespace ASCIIsome.UserControls
 {
     /// <summary>

@@ -277,4 +277,7 @@
   <data name="ImportCharSetDialogFilter" xml:space="preserve">
     <value>XML files (*.xml)|*.xml|All files (*.*)|*.*</value>
   </data>
+  <data name="EmptyCharSet" xml:space="preserve">
+    <value>(Empty character set)</value>
+  </data>
 </root>

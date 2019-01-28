@@ -1,4 +1,5 @@
-﻿namespace ASCIIsome.Windows
+﻿#nullable enable
+namespace ASCIIsome.Windows
 {
     /// <summary>
     /// Interaction logic for About.xaml

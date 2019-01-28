@@ -1,8 +1,16 @@
-﻿Change(s) in alpha 0.0.45.20
+﻿Change(s) in alpha 0.0.46.45
+    * Migrated to C# 8.0 (beta)
+    + Enabled Nullable Reference Type and added null checks for some code
+    + Supported record/restore display language for application
+    * Re-implemented CompareTo and Equals methods for CharSet class
+    * Other modifications and refactorization
+
+Change(s) in alpha 0.0.45.20
     * Marked CanExecute method in CommonCommandBase virtual for future extension
     + Implemented Import, Delete, Submit CharSets and OpenCharSetFolder commands
     * Updated ConfigSchema
     + Added CharSetNameConverter ValueConverter
+    + Implemented IComparable and ICloneable as well as re-implemented IEquatable interfaces to CharSet class 
     + Implemented synchronization of CharSetsInUse selection upon ChooseCharSet window is shown
     + Proposed related structure changes
 
@@ -83,4 +91,4 @@ Change(s) in alpha 0.0.23.29
     * Other minor refinements
     + Added this change log
 
--------- 想吃蛋挞//w// --------
+-------- 想吃蛋挞 //w// --------

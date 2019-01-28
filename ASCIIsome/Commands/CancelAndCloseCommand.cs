@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 
+#nullable enable
 namespace ASCIIsome.Commands
 {
     public sealed class CancelAndCloseCommand : CommonCommandBase

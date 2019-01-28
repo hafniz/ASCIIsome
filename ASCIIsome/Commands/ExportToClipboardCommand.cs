@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using ASCIIsome.Properties;
 
+#nullable enable
 namespace ASCIIsome.Commands
 {
     public sealed class ExportToClipboardCommand : CommonCommandBase

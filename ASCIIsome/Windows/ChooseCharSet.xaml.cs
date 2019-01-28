@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 
+#nullable enable
 namespace ASCIIsome.Windows
 {
     /// <summary>
@@ -9,19 +10,23 @@ namespace ASCIIsome.Windows
     {
         public ChooseCharSet() => InitializeComponent();
 
-        public void ShowDialog(ViewModel viewModel)
+        public new void ShowDialog()
         {
-            DataContext = viewModel.Clone();
+            SyncSelectedCharSets();
+            base.ShowDialog();
+        }
+
+        private void SyncSelectedCharSets()
+        {
             foreach (object item in listBox.Items)
             {
                 string filename = (((string displayName, string filename))item).filename;
-                if (viewModel.CharSetsInUse.Contains(filename.Substring(filename.LastIndexOf('\\') + 1)))
+                if ((DataContext as ViewModel).CharSetsInUse.Contains(filename.Substring(filename.LastIndexOf('\\') + 1)))
                 {
                     listBox.SelectedItems.Add(item);
                 }
             }
             listBox.Focus();
-            ShowDialog();
         }
     }
 }

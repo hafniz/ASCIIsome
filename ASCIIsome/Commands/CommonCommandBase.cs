@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
+#nullable enable
 namespace ASCIIsome.Commands
 {
     public abstract class CommonCommandBase : ICommand

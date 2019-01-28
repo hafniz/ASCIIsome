@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 
+#nullable enable
 namespace ASCIIsome.Commands
 {
     public sealed class OpenCharSetFolderCommand : CommonCommandBase

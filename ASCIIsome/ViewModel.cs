@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Threading;
 using System.Windows;
 using System.Xml;
@@ -12,6 +13,7 @@ using ASCIIsome.Commands;
 using ASCIIsome.Plotting;
 using ASCIIsome.Properties;
 
+#nullable enable
 namespace ASCIIsome
 {
     public class ViewModel : INotifyPropertyChanged, ICloneable
@@ -52,7 +54,7 @@ namespace ASCIIsome
                 {
                     charImgWidth = value;
                     OnPropertyChanged(nameof(CharImgWidth));
-                    Plotter.OutputEnumerateConfig(this); // TODO: [HV] Use ConfigChanged event on actual calling instead
+                    Plotter.DebugEnumerateConfig(this); // TODO: [HV] Use ConfigChanged event on actual calling instead
                 }
             }
         }
@@ -67,7 +69,7 @@ namespace ASCIIsome
                 {
                     charImgHeight = value;
                     OnPropertyChanged(nameof(CharImgHeight));
-                    Plotter.OutputEnumerateConfig(this);
+                    Plotter.DebugEnumerateConfig(this);
                 }
             }
         }
@@ -80,7 +82,7 @@ namespace ASCIIsome
             {
                 isAspectRatioKept = value;
                 OnPropertyChanged(nameof(IsAspectRatioKept));
-                Plotter.OutputEnumerateConfig(this);
+                Plotter.DebugEnumerateConfig(this);
             }
         }
 
@@ -92,7 +94,7 @@ namespace ASCIIsome
             {
                 isDynamicGrayscaleRangeEnabled = value;
                 OnPropertyChanged(nameof(IsDynamicGrayscaleRangeEnabled));
-                Plotter.OutputEnumerateConfig(this);
+                Plotter.DebugEnumerateConfig(this);
             }
         }
 
@@ -104,7 +106,7 @@ namespace ASCIIsome
             {
                 isGrayscaleRangeInverted = value;
                 OnPropertyChanged(nameof(IsGrayscaleRangeInverted));
-                Plotter.OutputEnumerateConfig(this);
+                Plotter.DebugEnumerateConfig(this);
             }
         }
 
@@ -116,7 +118,7 @@ namespace ASCIIsome
             {
                 imgSourcePath = value;
                 OnPropertyChanged(nameof(ImgSourcePath));
-                Plotter.OutputEnumerateConfig(this);
+                Plotter.DebugEnumerateConfig(this);
             }
         }
 
@@ -154,7 +156,7 @@ namespace ASCIIsome
             {
                 charSetsInUse = value;
                 OnPropertyChanged(nameof(CharSetsInUse));
-                Plotter.OutputEnumerateConfig(this);
+                Plotter.DebugEnumerateConfig(this);
             }
         }
 
@@ -167,7 +169,7 @@ namespace ASCIIsome
             {
                 currentCharSet = value;
                 OnPropertyChanged(nameof(CurrentCharSet));
-                Plotter.OutputEnumerateConfig(this);
+                Plotter.DebugEnumerateConfig(this);
             }
         }
 
@@ -251,6 +253,7 @@ namespace ASCIIsome
         private const int latestConfigVersion = 1;
         public void LoadConfig(bool validate = true, int version = latestConfigVersion) // TODO: [HV] Exception handling needed
         {
+            // TODO: [HV] Determine the version of config XML automatically by reading xsi:schemaLocation attribute
             if (File.Exists(configFileName))
             {
                 XmlSchemaSet schemaSet = new XmlSchemaSet();
@@ -282,6 +285,12 @@ namespace ASCIIsome
 
                 void ParseConfigVersion1()
                 {
+                    if (nodeList.Cast<XmlNode>().Any(n => n.Name == nameof(DisplayLanguage)) && nodeList.Cast<XmlNode>().Single(n => n.Name == nameof(DisplayLanguage)).InnerText != Thread.CurrentThread.CurrentUICulture.Name)
+                    {
+                        DisplayLanguage = DisplayLanguage.GetDisplayLanguageFromSymbol(nodeList.Cast<XmlNode>().Single(n => n.Name == nameof(DisplayLanguage)).InnerText);
+                        DisplayLanguage.ChangeDisplayLanguage(this, true);
+                        return;
+                    }
                     foreach (XmlNode xmlNode in nodeList)
                     {
                         switch (xmlNode.Name)
@@ -322,9 +331,11 @@ namespace ASCIIsome
             XmlWriterSettings xmlWriterSettings = new XmlWriterSettings { Indent = true };
             using (XmlWriter xmlWriter = XmlWriter.Create(configFileName, xmlWriterSettings))
             {
+                //xmlWriter.WriteComment(Resources.ConfigFileMessage);
                 xmlWriter.WriteStartElement("ASCIIsome.config");
                 xmlWriter.WriteAttributeString("xmlns", "xsi", null, "http://www.w3.org/2001/XMLSchema-instance");
                 xmlWriter.WriteAttributeString("xsi", "schemaLocation", null, "ASCIIsome.Resources ConfigSchemaV1.xsd");
+                xmlWriter.WriteElementString(nameof(DisplayLanguage), DisplayLanguage.CultureSymbol);
                 xmlWriter.WriteElementString(nameof(IsAspectRatioKept), IsAspectRatioKept.ToString(CultureInfo.InvariantCulture).ToLowerInvariant());
                 xmlWriter.WriteElementString(nameof(IsDynamicGrayscaleRangeEnabled), IsDynamicGrayscaleRangeEnabled.ToString(CultureInfo.InvariantCulture).ToLowerInvariant());
                 xmlWriter.WriteElementString(nameof(IsGrayscaleRangeInverted), IsGrayscaleRangeInverted.ToString(CultureInfo.InvariantCulture).ToLowerInvariant());

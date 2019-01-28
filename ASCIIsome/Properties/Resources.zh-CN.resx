@@ -219,4 +219,7 @@
   <data name="ImportCharSetDialogFilter" xml:space="preserve">
     <value>XML 文件 (*.xml)|*.xml|所有文件 (*.*)|*.*</value>
   </data>
+  <data name="EmptyCharSet" xml:space="preserve">
+    <value>（空字符集）</value>
+  </data>
 </root>

@@ -6,6 +6,7 @@ using System.Windows;
 using System.Windows.Media.Imaging;
 using ASCIIsome.Properties;
 
+#nullable enable
 namespace ASCIIsome.Commands
 {
     public sealed class ImportFromClipboardCommand : CommonCommandBase
@@ -29,6 +30,7 @@ namespace ASCIIsome.Commands
                     string fileExtension = fileName.Remove(0, fileName.LastIndexOf('.'));
                     if (IsOfSupportedType(fileExtension))
                     {
+#warning Unexpected behavoirs may occur. See comments for more info. 
                         CurrentViewModel.ImgSourcePath = fileName; // WARNING: [HV] Only the lastly single-selected file of supported type or first file of supported type shown in the file explorer in rectangular selection will be opened
                         CurrentViewModel.StatusBarText = Resources.ImportedFromClipboard;
                         return;

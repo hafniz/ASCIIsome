@@ -2,6 +2,7 @@
 using System.Media;
 using System.Windows.Threading;
 
+#nullable enable
 namespace ASCIIsome.Commands
 {
     public sealed class RubberDuckCommand : CommonCommandBase
@@ -34,7 +35,7 @@ namespace ASCIIsome.Commands
 
         private void FillRandomQuestionMark()
         {
-            CurrentViewModel.CharOut = null;
+            CurrentViewModel.CharOut = "";
             for (int y = 0; y < CurrentViewModel.CharImgHeight; y++)
             {
                 for (int x = 0; x < CurrentViewModel.CharImgWidth; x++)
