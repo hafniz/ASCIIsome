@@ -12,7 +12,7 @@ namespace ASCIIsome.Commands
     public sealed class ImportFromClipboardCommand : CommonCommandBase
     {
         public ImportFromClipboardCommand(ViewModel viewModel) : base(viewModel) { }
-        public override void Execute(object parameter) // TODO: [HV] Support Ctrl-V shortcut and drag-and-drop to window
+        public override void Execute(object parameter) // TODO: [HV] Support Ctrl-V shortcut and drag-and-drop to window. 
         {
             if (Clipboard.ContainsData(DataFormats.Bitmap))
             {
@@ -58,7 +58,7 @@ namespace ASCIIsome.Commands
                 }
                 else
                 {
-                    CurrentViewModel.StatusBarText = Resources.UnsupportedType; // TODO: [HV] Call TextImageConverter on encountering unsupported file type
+                    CurrentViewModel.StatusBarText = Resources.UnsupportedType; // TODO: [HV] Call TextImageConverter on encountering unsupported file type. 
                 }
             }
             else

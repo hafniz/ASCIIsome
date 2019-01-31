@@ -26,7 +26,7 @@ namespace ASCIIsome.Commands
                 {
                     File.Copy(filename, Path.Combine(CharSet.CharSetFolderPath, filename.Substring(filename.LastIndexOf('\\') + 1)));
                 }
-                (parameter as ListBox).SetBinding(ItemsControl.ItemsSourceProperty, (parameter as ListBox).GetBindingExpression(ItemsControl.ItemsSourceProperty).ParentBinding); // [HV] Reset binding and therefore refresh item list shown in the UI
+                (parameter as ListBox).SetBinding(ItemsControl.ItemsSourceProperty, (parameter as ListBox).GetBindingExpression(ItemsControl.ItemsSourceProperty).ParentBinding); // [HV] Re-set binding and therefore refresh item list shown in the UI. 
             }
         }
     }

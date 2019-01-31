@@ -111,13 +111,13 @@ namespace TextImageConverter
             while (true)
             {
                 fileStream.Seek(-1, SeekOrigin.End);
-                if (fileStream.ReadByte() == 0) // [HV] Read the last byte of the file
+                if (fileStream.ReadByte() == 0) // [HV] Read the last byte of the file. 
                 {
                     fileStream.SetLength(fileStream.Length - 1);
                 }
                 else
                 {
-                    fileStream.SetLength(fileStream.Length - 1); // [HV] Also delete the 'End of Transmission Block' byte appended during composing process
+                    fileStream.SetLength(fileStream.Length - 1); // [HV] Also delete the 'End of Transmission Block' byte appended during composing process. 
                     break;
                 }
             }

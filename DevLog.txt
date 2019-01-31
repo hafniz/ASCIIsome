@@ -1,4 +1,9 @@
-﻿Change(s) in alpha 0.0.46.45
+﻿Change(s) in alpha 0.0.47.28
+    * Fixed a bug regarding reloading display language
+    + Added message to config file
+    * Standardized comment and indenting style
+ 
+Change(s) in alpha 0.0.46.45
     * Migrated to C# 8.0 (beta)
     + Enabled Nullable Reference Type and added null checks for some code
     + Supported record/restore display language for application

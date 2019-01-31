@@ -8,10 +8,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ASCIIsome.Properties {
-    using System;
-    
-    
+namespace ASCIIsome.Properties
+{
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -22,80 +20,96 @@ namespace ASCIIsome.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Resources {
-        
+    public class Resources
+    {
+
         private static global::System.Resources.ResourceManager resourceMan;
-        
+
         private static global::System.Globalization.CultureInfo resourceCulture;
-        
+
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources() {
+        internal Resources()
+        {
         }
-        
+
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Resources.ResourceManager ResourceManager {
-            get {
-                if (object.ReferenceEquals(resourceMan, null)) {
+        public static global::System.Resources.ResourceManager ResourceManager
+        {
+            get
+            {
+                if (object.ReferenceEquals(resourceMan, null))
+                {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ASCIIsome.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
             }
         }
-        
+
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Globalization.CultureInfo Culture {
-            get {
+        public static global::System.Globalization.CultureInfo Culture
+        {
+            get
+            {
                 return resourceCulture;
             }
-            set {
+            set
+            {
                 resourceCulture = value;
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to About.
         /// </summary>
-        public static string About {
-            get {
+        public static string About
+        {
+            get
+            {
                 return ResourceManager.GetString("About", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to (placeholder for English aboutdetails).
         /// </summary>
-        public static string AboutDetails {
-            get {
+        public static string AboutDetails
+        {
+            get
+            {
                 return ResourceManager.GetString("AboutDetails", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
-        public static string Cancel {
-            get {
+        public static string Cancel
+        {
+            get
+            {
                 return ResourceManager.GetString("Cancel", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Choose display language.
         /// </summary>
-        public static string ChangeLanguage {
-            get {
+        public static string ChangeLanguage
+        {
+            get
+            {
                 return ResourceManager.GetString("ChangeLanguage", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
         ///&lt;xs:schema attributeFormDefault=&quot;unqualified&quot; elementFormDefault=&quot;qualified&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;
@@ -107,46 +121,69 @@ namespace ASCIIsome.Properties {
         ///            &lt;xs:attribute name=&quot;GrayscaleIndex&quot; type=&quot;xs:double&quot; use=&quot;required&quot; /&gt;
         ///            &lt;xs:attribute name=&quot;Character&quot; type=&quot; [rest of string was truncated]&quot;;.
         /// </summary>
-        public static string CharSetSchema {
-            get {
+        public static string CharSetSchema
+        {
+            get
+            {
                 return ResourceManager.GetString("CharSetSchema", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Choose character set....
         /// </summary>
-        public static string ChooseCharSet {
-            get {
+        public static string ChooseCharSet
+        {
+            get
+            {
                 return ResourceManager.GetString("ChooseCharSet", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Choose character set.
         /// </summary>
-        public static string ChooseCharSetWindowTitle {
-            get {
+        public static string ChooseCharSetWindowTitle
+        {
+            get
+            {
                 return ResourceManager.GetString("ChooseCharSetWindowTitle", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   Looks up a localized string similar to  This configuration file is generated by the Program. Since all of the configuration entries can be modified 
+        ///via the user interface and will be automatically saved when the Program exits, you are advised to change the value 
+        ///of the elements only when necessary while keeping the structure of the XML document throughout. Make sure this file 
+        ///conforms with the schema (https://github.com/hafniz/ASCIIsome/blob/canary/ASCIIsome/Resources/ConfigSchemaV1.xsd) 
+        ///when saving your changes. Failure to validate with [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string ConfigFileMessage
+        {
+            get
+            {
+                return ResourceManager.GetString("ConfigFileMessage", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
         ///&lt;xs:schema attributeFormDefault=&quot;unqualified&quot; elementFormDefault=&quot;qualified&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;
         ///    &lt;xs:element name=&quot;ASCIIsome.config&quot;&gt;
         ///        &lt;xs:complexType&gt;
         ///            &lt;xs:all&gt;
-        ///                &lt;xs:element name=&quot;IsAspectRatioKept&quot; type=&quot;xs:boolean&quot; /&gt;
-        ///                &lt;xs:element name=&quot;IsDynamicGrayscaleRangeEnabled&quot; type=&quot;xs:boolean&quot; /&gt;
-        ///                &lt;xs:element name=&quot;IsGraysc [rest of string was truncated]&quot;;.
+        ///                &lt;xs:element name=&quot;DisplayLanguage&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;/&gt;
+        ///                &lt;xs:element name=&quot;IsAspectRatioKept&quot; type=&quot;xs:boolean&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot;/&gt;
+        ///                &lt;xs:element name=&quot;IsDynamicGr [rest of string was truncated]&quot;;.
         /// </summary>
-        public static string ConfigSchemaV1 {
-            get {
+        public static string ConfigSchemaV1
+        {
+            get
+            {
                 return ResourceManager.GetString("ConfigSchemaV1", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
         ///&lt;CharSet DisplayName=&quot;ASCII symbols&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;ASCIIsome.Resources.CharSets CharSetSchema.xsd&quot;&gt;
@@ -157,12 +194,14 @@ namespace ASCIIsome.Properties {
         ///  &lt;CharInfo GrayscaleIndex=&quot;0.24652&quot; Character=&quot;$&quot;/&gt;
         ///  &lt;CharInfo GrayscaleIndex=&quot;0.26139 [rest of string was truncated]&quot;;.
         /// </summary>
-        public static string cs_ASCIISymbols {
-            get {
+        public static string cs_ASCIISymbols
+        {
+            get
+            {
                 return ResourceManager.GetString("cs_ASCIISymbols", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
         ///&lt;CharSet DisplayName=&quot;All 11 charset presets concatenated&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;ASCIIsome.Resources.CharSets CharSetSchema.xsd&quot;&gt;
@@ -173,12 +212,14 @@ namespace ASCIIsome.Properties {
         ///  &lt;CharInfo GrayscaleIndex=&quot;0.05551&quot; Character=&quot;,&quot; /&gt;
         ///  &lt;CharInfo Grayscal [rest of string was truncated]&quot;;.
         /// </summary>
-        public static string cs_CharSetPresetsConcated {
-            get {
+        public static string cs_CharSetPresetsConcated
+        {
+            get
+            {
                 return ResourceManager.GetString("cs_CharSetPresetsConcated", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
         ///&lt;CharSet DisplayName=&quot;Lowercase English alphabets&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;ASCIIsome.Resources.CharSets CharSetSchema.xsd&quot;&gt;
@@ -189,12 +230,14 @@ namespace ASCIIsome.Properties {
         ///  &lt;CharInfo GrayscaleIndex=&quot;0.21643&quot; Character=&quot;e&quot;/&gt;
         ///  &lt;CharInfo GrayscaleIndex [rest of string was truncated]&quot;;.
         /// </summary>
-        public static string cs_LowercaseEnglishAlphabets {
-            get {
+        public static string cs_LowercaseEnglishAlphabets
+        {
+            get
+            {
                 return ResourceManager.GetString("cs_LowercaseEnglishAlphabets", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
         ///&lt;CharSet DisplayName=&quot;Lowercase Russian alphabets&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;ASCIIsome.Resources.CharSets CharSetSchema.xsd&quot;&gt;
@@ -205,12 +248,14 @@ namespace ASCIIsome.Properties {
         ///  &lt;CharInfo GrayscaleIndex=&quot;0.26104&quot; Character=&quot;д&quot;/&gt;
         ///  &lt;CharInfo GrayscaleIndex [rest of string was truncated]&quot;;.
         /// </summary>
-        public static string cs_LowercaseRussianAlphabets {
-            get {
+        public static string cs_LowercaseRussianAlphabets
+        {
+            get
+            {
                 return ResourceManager.GetString("cs_LowercaseRussianAlphabets", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
         ///&lt;CharSet DisplayName=&quot;Numerals&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;ASCIIsome.Resources.CharSets CharSetSchema.xsd&quot;&gt;
@@ -221,12 +266,14 @@ namespace ASCIIsome.Properties {
         ///  &lt;CharInfo GrayscaleIndex=&quot;0.21424&quot; Character=&quot;4&quot;/&gt;
         ///  &lt;CharInfo GrayscaleIndex=&quot;0.19647&quot; Characte [rest of string was truncated]&quot;;.
         /// </summary>
-        public static string cs_Numerals {
-            get {
+        public static string cs_Numerals
+        {
+            get
+            {
                 return ResourceManager.GetString("cs_Numerals", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
         ///&lt;CharSet DisplayName=&quot;Other symbols in ISO/IEC 8859-5&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;ASCIIsome.Resources.CharSets CharSetSchema.xsd&quot;&gt;
@@ -235,12 +282,14 @@ namespace ASCIIsome.Properties {
         ///&lt;/CharSet&gt;
         ///.
         /// </summary>
-        public static string cs_Other8859_5Symbols {
-            get {
+        public static string cs_Other8859_5Symbols
+        {
+            get
+            {
                 return ResourceManager.GetString("cs_Other8859_5Symbols", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
         ///&lt;CharSet DisplayName=&quot;Other lowercase Cyrillic alphabets in ISO/IEC 8859-5&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;ASCIIsome.Resources.CharSets CharSetSchema.xsd&quot;&gt;
@@ -251,12 +300,14 @@ namespace ASCIIsome.Properties {
         ///  &lt;CharInfo GrayscaleIndex=&quot;0.13311&quot; Character=&quot;і&quot;/&gt;
         ///  [rest of string was truncated]&quot;;.
         /// </summary>
-        public static string cs_OtherLowercaseCyrillicAlphabets {
-            get {
+        public static string cs_OtherLowercaseCyrillicAlphabets
+        {
+            get
+            {
                 return ResourceManager.GetString("cs_OtherLowercaseCyrillicAlphabets", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
         ///&lt;CharSet DisplayName=&quot;Other uppercase Cyrillic alphabets in ISO/IEC 8859-5&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;ASCIIsome.Resources.CharSets CharSetSchema.xsd&quot;&gt;
@@ -267,12 +318,14 @@ namespace ASCIIsome.Properties {
         ///  &lt;CharInfo GrayscaleIndex=&quot;0.18173&quot; Character=&quot;І&quot;/&gt;
         ///  [rest of string was truncated]&quot;;.
         /// </summary>
-        public static string cs_OtherUppercaseCyrillicAlphabets {
-            get {
+        public static string cs_OtherUppercaseCyrillicAlphabets
+        {
+            get
+            {
                 return ResourceManager.GetString("cs_OtherUppercaseCyrillicAlphabets", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
         ///&lt;CharSet DisplayName=&quot;Shades&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;ASCIIsome.Resources.CharSets CharSetSchema.xsd&quot;&gt;
@@ -284,12 +337,14 @@ namespace ASCIIsome.Properties {
         ///&lt;/CharSet&gt;
         ///.
         /// </summary>
-        public static string cs_Shades {
-            get {
+        public static string cs_Shades
+        {
+            get
+            {
                 return ResourceManager.GetString("cs_Shades", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
         ///&lt;CharSet DisplayName=&quot;Space and full block&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;ASCIIsome.Resources.CharSets CharSetSchema.xsd&quot;&gt;
@@ -298,12 +353,14 @@ namespace ASCIIsome.Properties {
         ///&lt;/CharSet&gt;
         ///.
         /// </summary>
-        public static string cs_SpaceAndFullBlock {
-            get {
+        public static string cs_SpaceAndFullBlock
+        {
+            get
+            {
                 return ResourceManager.GetString("cs_SpaceAndFullBlock", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
         ///&lt;CharSet DisplayName=&quot;Uppercase English alphabets&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;ASCIIsome.Resources.CharSets CharSetSchema.xsd&quot;&gt;
@@ -314,12 +371,14 @@ namespace ASCIIsome.Properties {
         ///  &lt;CharInfo GrayscaleIndex=&quot;0.21602&quot; Character=&quot;E&quot;/&gt;
         ///  &lt;CharInfo GrayscaleIndex [rest of string was truncated]&quot;;.
         /// </summary>
-        public static string cs_UppercaseEnglishAlphabets {
-            get {
+        public static string cs_UppercaseEnglishAlphabets
+        {
+            get
+            {
                 return ResourceManager.GetString("cs_UppercaseEnglishAlphabets", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
         ///&lt;CharSet DisplayName=&quot;Uppercase Russian alphabets&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;ASCIIsome.Resources.CharSets CharSetSchema.xsd&quot;&gt;
@@ -330,319 +389,389 @@ namespace ASCIIsome.Properties {
         ///  &lt;CharInfo GrayscaleIndex=&quot;0.31134&quot; Character=&quot;Д&quot;/&gt;
         ///  &lt;CharInfo GrayscaleIndex [rest of string was truncated]&quot;;.
         /// </summary>
-        public static string cs_UppercaseRussianAlphabets {
-            get {
+        public static string cs_UppercaseRussianAlphabets
+        {
+            get
+            {
                 return ResourceManager.GetString("cs_UppercaseRussianAlphabets", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Failed to load character sets from the last configuration. Default character set is loaded. .
         /// </summary>
-        public static string DefaultCharSetLoaded {
-            get {
+        public static string DefaultCharSetLoaded
+        {
+            get
+            {
                 return ResourceManager.GetString("DefaultCharSetLoaded", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Delete.
         /// </summary>
-        public static string Delete {
-            get {
+        public static string Delete
+        {
+            get
+            {
                 return ResourceManager.GetString("Delete", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Use dynamic grayscale range.
         /// </summary>
-        public static string DynamicGrayscaleRange {
-            get {
+        public static string DynamicGrayscaleRange
+        {
+            get
+            {
                 return ResourceManager.GetString("DynamicGrayscaleRange", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to (Empty character set).
         /// </summary>
-        public static string EmptyCharSet {
-            get {
+        public static string EmptyCharSet
+        {
+            get
+            {
                 return ResourceManager.GetString("EmptyCharSet", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Text exported to clipboard successfully. .
         /// </summary>
-        public static string ExportedToClipboard {
-            get {
+        public static string ExportedToClipboard
+        {
+            get
+            {
                 return ResourceManager.GetString("ExportedToClipboard", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Export to clipboard.
         /// </summary>
-        public static string ExportToClipboard {
-            get {
+        public static string ExportToClipboard
+        {
+            get
+            {
                 return ResourceManager.GetString("ExportToClipboard", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Image loaded. .
         /// </summary>
-        public static string ImageLoaded {
-            get {
+        public static string ImageLoaded
+        {
+            get
+            {
                 return ResourceManager.GetString("ImageLoaded", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Image height.
         /// </summary>
-        public static string ImgHeight {
-            get {
+        public static string ImgHeight
+        {
+            get
+            {
                 return ResourceManager.GetString("ImgHeight", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Image width.
         /// </summary>
-        public static string ImgWidth {
-            get {
+        public static string ImgWidth
+        {
+            get
+            {
                 return ResourceManager.GetString("ImgWidth", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Import....
         /// </summary>
-        public static string Import {
-            get {
+        public static string Import
+        {
+            get
+            {
                 return ResourceManager.GetString("Import", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to XML files (*.xml)|*.xml|All files (*.*)|*.*.
         /// </summary>
-        public static string ImportCharSetDialogFilter {
-            get {
+        public static string ImportCharSetDialogFilter
+        {
+            get
+            {
                 return ResourceManager.GetString("ImportCharSetDialogFilter", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Successfully imported image from clipboard..
         /// </summary>
-        public static string ImportedFromClipboard {
-            get {
+        public static string ImportedFromClipboard
+        {
+            get
+            {
                 return ResourceManager.GetString("ImportedFromClipboard", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Import from clipboard.
         /// </summary>
-        public static string ImportFromClipboard {
-            get {
+        public static string ImportFromClipboard
+        {
+            get
+            {
                 return ResourceManager.GetString("ImportFromClipboard", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        public static System.Drawing.Icon info {
-            get {
+        public static System.Drawing.Icon info
+        {
+            get
+            {
                 object obj = ResourceManager.GetObject("info", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Failed to import from clipboard: The text on clipboard is not a valid file path..
         /// </summary>
-        public static string InvalidFilePath {
-            get {
+        public static string InvalidFilePath
+        {
+            get
+            {
                 return ResourceManager.GetString("InvalidFilePath", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Invert grayscale range.
         /// </summary>
-        public static string InvertGrayscaleRange {
-            get {
+        public static string InvertGrayscaleRange
+        {
+            get
+            {
                 return ResourceManager.GetString("InvertGrayscaleRange", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Keep aspect ratio of the image.
         /// </summary>
-        public static string KeepAspectRatio {
-            get {
+        public static string KeepAspectRatio
+        {
+            get
+            {
                 return ResourceManager.GetString("KeepAspectRatio", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Language.
         /// </summary>
-        public static string Language {
-            get {
+        public static string Language
+        {
+            get
+            {
                 return ResourceManager.GetString("Language", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Language changed to English. .
         /// </summary>
-        public static string LanguageChanged {
-            get {
+        public static string LanguageChanged
+        {
+            get
+            {
                 return ResourceManager.GetString("LanguageChanged", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        public static System.Drawing.Icon link {
-            get {
+        public static System.Drawing.Icon link
+        {
+            get
+            {
                 object obj = ResourceManager.GetObject("link", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        public static System.Drawing.Icon linkactivated {
-            get {
+        public static System.Drawing.Icon linkactivated
+        {
+            get
+            {
                 object obj = ResourceManager.GetObject("linkactivated", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        public static System.Drawing.Icon locale {
-            get {
+        public static System.Drawing.Icon locale
+        {
+            get
+            {
                 object obj = ResourceManager.GetObject("locale", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to OK.
         /// </summary>
-        public static string OK {
-            get {
+        public static string OK
+        {
+            get
+            {
                 return ResourceManager.GetString("OK", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Open character set folder....
         /// </summary>
-        public static string OpenCharSetFolder {
-            get {
+        public static string OpenCharSetFolder
+        {
+            get
+            {
                 return ResourceManager.GetString("OpenCharSetFolder", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Open file....
         /// </summary>
-        public static string OpenFile {
-            get {
+        public static string OpenFile
+        {
+            get
+            {
                 return ResourceManager.GetString("OpenFile", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to BMP files (*.bmp)|*.bmp|JPEG files (*.jpg; *.jpeg)|*.jpg; *.jpeg|JPEG XR files (*.jxr)|*.jxr|PNG files (*.png)|*.png|TIFF files (*.tif; *.tiff)|*.tif; *.tiff|GIF files (*.gif)|*.gif|Icon files (*.ico)|*.ico|All supported files (*.bmp; *.jpg; *.jpeg; *.jxr; *.png; *.tif; *.tiff; *.gif; *.ico)|*.bmp; *.jpg; *.jpeg; *.jxr; *.png; *.tif; *.tiff; *.gif; *.ico.
         /// </summary>
-        public static string OpenFileDialogFilter {
-            get {
+        public static string OpenFileDialogFilter
+        {
+            get
+            {
                 return ResourceManager.GetString("OpenFileDialogFilter", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Ready.
         /// </summary>
-        public static string Ready {
-            get {
+        public static string Ready
+        {
+            get
+            {
                 return ResourceManager.GetString("Ready", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        public static System.Drawing.Icon rubberduck {
-            get {
+        public static System.Drawing.Icon rubberduck
+        {
+            get
+            {
                 object obj = ResourceManager.GetObject("rubberduck", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Save As....
         /// </summary>
-        public static string SaveAs {
-            get {
+        public static string SaveAs
+        {
+            get
+            {
                 return ResourceManager.GetString("SaveAs", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Text saved successfully. .
         /// </summary>
-        public static string SavedToFile {
-            get {
+        public static string SavedToFile
+        {
+            get
+            {
                 return ResourceManager.GetString("SavedToFile", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Text files (*.txt)|*.txt|All files (*.*)|*.*.
         /// </summary>
-        public static string SaveFileDialogFilter {
-            get {
+        public static string SaveFileDialogFilter
+        {
+            get
+            {
                 return ResourceManager.GetString("SaveFileDialogFilter", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Instant view - ASCIIsome.
         /// </summary>
-        public static string Title {
-            get {
+        public static string Title
+        {
+            get
+            {
                 return ResourceManager.GetString("Title", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Failed to import from clipboard: The file on clipboard is of unsupported type. .
         /// </summary>
-        public static string UnsupportedType {
-            get {
+        public static string UnsupportedType
+        {
+            get
+            {
                 return ResourceManager.GetString("UnsupportedType", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Welcome to ASCIIsome! See About window for more information. .
         /// </summary>
-        public static string Welcome {
-            get {
+        public static string Welcome
+        {
+            get
+            {
                 return ResourceManager.GetString("Welcome", resourceCulture);
             }
         }

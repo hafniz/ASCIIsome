@@ -38,7 +38,15 @@ namespace ASCIIsome
             {
                 Thread.CurrentThread.CurrentUICulture = new CultureInfo(viewModel.DisplayLanguage.CultureSymbol);
                 Window oldMainWindow = Application.Current.MainWindow;
-                MainWindow newMainWindow = new MainWindow(isAppStartingUp);
+                MainWindow newMainWindow;
+                if (isAppStartingUp)
+                {
+                    newMainWindow = new MainWindow(true);
+                }
+                else
+                {
+                    newMainWindow = new MainWindow(false) { DataContext = viewModel };
+                }
                 Application.Current.MainWindow = newMainWindow;
                 oldMainWindow?.Close();
                 viewModel.StatusBarText = Resources.LanguageChanged;

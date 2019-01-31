@@ -21,7 +21,7 @@ namespace ASCIIsome.Commands
             {
                 timer.Start();
             }
-            timer.Tick -= Reset; // [HV] To prevent subscribing the event repeatedly
+            timer.Tick -= Reset; // [HV] To prevent subscribing the event repeatedly. 
             timer.Tick += Reset;
             count++;
             if (count == 16)

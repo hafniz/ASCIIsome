@@ -23,23 +23,23 @@ namespace TextImageConverter
 
         private static void ParseArgs(string[] args)
         {
-            switch (args[0])
+            switch (args[0].ToUpperInvariant())
             {
-                case "-c":
-                case "/c":
+                case "-C":
+                case "/C":
                     ParseForCompose(args);
                     break;
-                case "-d":
-                case "/d":
+                case "-D":
+                case "/D":
                     ParseForDecompose(args);
                     break;
-                case "-h":
-                case "/h":
+                case "-H":
+                case "/H":
                 case "-?":
                 case "/?":
-                case "-help":
-                case "--help": // [HV] Taking Linux users' usage habit into consideration
-                case "/help":
+                case "-HELP":
+                case "--HELP": // [HV] Taking Linux users' usage habit into consideration. 
+                case "/HELP":
                     ShowHelp();
                     break;
                 default:

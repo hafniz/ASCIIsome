@@ -7,9 +7,9 @@ namespace ASCIIsome.Plotting
 {
     public static class Plotter
     {
-        // TODO: [HV] Build ConfigChanged event and relative types
-        // TODO: [HV] Use async methods for time-consuming processes
-        // TODO: [HV] Add progress bar to status bar and allow canceling by pressing Esc key
+        // TODO: [HV] Build ConfigChanged event and relative types. 
+        // TODO: [HV] Use async methods for time-consuming processes. 
+        // TODO: [HV] Add progress bar to status bar and allow canceling by pressing Esc key. 
 
         private static ViewModel currentViewModel;
         private static Bitmap originalBitmap;
@@ -18,7 +18,7 @@ namespace ASCIIsome.Plotting
         private static double[][] grayscaleIndexArray;
         private static char[][] characterMatchedArray;
 
-        private static void OnConfigChanged(ViewModel inputViewModel, string configPropertyName) // [HV] Is the subscriber of ConfigChanged event
+        private static void OnConfigChanged(ViewModel inputViewModel, string configPropertyName) // [HV] Is the subscriber of ConfigChanged event. 
         {
             currentViewModel = inputViewModel;
             switch (configPropertyName)
@@ -27,13 +27,13 @@ namespace ASCIIsome.Plotting
                     Plot(PlottingStage.AccessImageFromFilePath);
                     break;
 
-                case nameof(ViewModel.IsAspectRatioKept): // TODO: [HV] Need to do more on this case regarding CharImgHeight and CharImgWidth properties and their corresponding UI controls
+                case nameof(ViewModel.IsAspectRatioKept): // TODO: [HV] Need to do more on this case regarding CharImgHeight and CharImgWidth properties and their corresponding UI controls. 
                 case nameof(ViewModel.CharImgHeight):
                 case nameof(ViewModel.CharImgWidth):
                     Plot(PlottingStage.ResizeImage);
                     break;
 
-                case nameof(ViewModel.IsDynamicGrayscaleRangeEnabled): // TODO: [HV] Use when clause for basic conditional decision when necessary
+                case nameof(ViewModel.IsDynamicGrayscaleRangeEnabled): // TODO: [HV] Use when clause for basic conditional decision when necessary. 
                     Plot(PlottingStage.CalculateGrayscaleRange);
                     break;
 
@@ -42,7 +42,7 @@ namespace ASCIIsome.Plotting
                     break;
 
                 case nameof(ViewModel.CurrentCharSet):
-                    Plot(PlottingStage.MatchCharacter); // TODO: [HV] Prompt on the status bar and abort plotting process if no CharSet is selected
+                    Plot(PlottingStage.MatchCharacter); // TODO: [HV] Prompt on the status bar and abort plotting process if no CharSet is selected. 
                     break;
             }
         }
@@ -61,7 +61,7 @@ namespace ASCIIsome.Plotting
 
                 case PlottingStage.CalculateGrayscaleRange:
                     CalculateGrayscaleRange();
-                    goto case PlottingStage.AssignGrayscaleIndex; // TODO: [HV] Use if/else or when clause checking to decide whether goto 0x30 or 0x31
+                    goto case PlottingStage.AssignGrayscaleIndex; // TODO: [HV] Use if/else or when clause checking to decide whether goto 0x30 or 0x31. 
 
                 case PlottingStage.AssignGrayscaleIndex:
                     AssignGrayscaleIndex();

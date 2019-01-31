@@ -222,4 +222,10 @@
   <data name="EmptyCharSet" xml:space="preserve">
     <value>（空字符集）</value>
   </data>
+  <data name="ConfigFileMessage" xml:space="preserve">
+    <value> 该配置文件由程序生成。 由于所有配置条目都可以通过用户界面进行修改并在程序退出时自动保存，因此建议您仅在
+必要时更改元素的值，同时保持XML文档的结构。 保存更改时，请确保此文件符合相应的 XSD 结构定义
+(https://github.com/hafniz/ASCIIsome/blob/canary/ASCIIsome/Resources/ConfigSchemaV1.xsd)。无法用 
+XSD 结构定义验证配置文件将导致加载默认配置并且您保存的自定义配置将丢失，除非您在程序退出之前手动备份。 </value>
+  </data>
 </root>

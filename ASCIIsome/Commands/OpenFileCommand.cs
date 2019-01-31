@@ -12,14 +12,14 @@ namespace ASCIIsome.Commands
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
                 Multiselect = false,
-                Filter = Resources.OpenFileDialogFilter, // TODO: [HV] Add all files filter once TextImageConverter call is implemented
+                Filter = Resources.OpenFileDialogFilter, // TODO: [HV] Add all files filter once TextImageConverter call is implemented. 
                 FilterIndex = 8,
                 RestoreDirectory = true
             };
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                CurrentViewModel.ImgSourcePath = openFileDialog.FileName; // TODO: [HV] Optimize scaling algorithm of Image control in MainWindow for image display
+                CurrentViewModel.ImgSourcePath = openFileDialog.FileName; // TODO: [HV] Optimize scaling algorithm of Image control in MainWindow for image display. 
                 CurrentViewModel.StatusBarText = Resources.ImageLoaded;
             }
         }

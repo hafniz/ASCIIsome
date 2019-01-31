@@ -54,7 +54,7 @@ namespace ASCIIsome
                 {
                     charImgWidth = value;
                     OnPropertyChanged(nameof(CharImgWidth));
-                    Plotter.DebugEnumerateConfig(this); // TODO: [HV] Use ConfigChanged event on actual calling instead
+                    Plotter.DebugEnumerateConfig(this); // TODO: [HV] Use ConfigChanged event on actual calling instead. 
                 }
             }
         }
@@ -122,7 +122,7 @@ namespace ASCIIsome
             }
         }
 
-        private string charOut;
+        private string charOut; // TODO: [HV] Prompt user to start importing image here. 
         public string CharOut
         {
             get => charOut;
@@ -144,10 +144,10 @@ namespace ASCIIsome
             }
         }
 
-        // TODO: [HV] Re-evaluate the necessity of using ObservableCollection
+        // TODO: [HV] Re-evaluate the necessity of using ObservableCollection. 
         public static ObservableCollection<(string displayName, string filename)> CharSetsAvailable => new ObservableCollection<(string displayName, string filename)>(CharSet.GetDisplayNames(CharSet.EnumerateFiles()));
 
-        // TODO: [HV] Consider separating this to two properties: List<(string displayName, string filename)> SelectedCharSets and List<CharSet> CharSetsInUse, where the later one can be bound to the listBox
+        // TODO: [HV] Consider separating this to two properties: List<(string displayName, string filename)> SelectedCharSets and List<CharSet> CharSetsInUse, where the later one can be bound to the listBox. 
         private List<string> charSetsInUse = new List<string>();
         public List<string> CharSetsInUse
         {
@@ -251,9 +251,9 @@ namespace ASCIIsome
 
         private static readonly string configFileName = Path.Combine(ApplicationInfo.AppDataFolder, "config.xml");
         private const int latestConfigVersion = 1;
-        public void LoadConfig(bool validate = true, int version = latestConfigVersion) // TODO: [HV] Exception handling needed
+        public void LoadConfig(bool validate = true, int version = latestConfigVersion) // TODO: [HV] Exception handling needed. 
         {
-            // TODO: [HV] Determine the version of config XML automatically by reading xsi:schemaLocation attribute
+            // TODO: [HV] Determine the version of config XML automatically by reading xsi:schemaLocation attribute. 
             if (File.Exists(configFileName))
             {
                 XmlSchemaSet schemaSet = new XmlSchemaSet();
@@ -288,7 +288,7 @@ namespace ASCIIsome
                     if (nodeList.Cast<XmlNode>().Any(n => n.Name == nameof(DisplayLanguage)) && nodeList.Cast<XmlNode>().Single(n => n.Name == nameof(DisplayLanguage)).InnerText != Thread.CurrentThread.CurrentUICulture.Name)
                     {
                         DisplayLanguage = DisplayLanguage.GetDisplayLanguageFromSymbol(nodeList.Cast<XmlNode>().Single(n => n.Name == nameof(DisplayLanguage)).InnerText);
-                        DisplayLanguage.ChangeDisplayLanguage(this, true);
+                        DisplayLanguage.ChangeDisplayLanguage(this, true); // [HV] Passing in 'true' for isAppStartingUp here will lead to a recursive call where the rest of the config will be loaded, so we can simply return after that. 
                         return;
                     }
                     foreach (XmlNode xmlNode in nodeList)
@@ -326,12 +326,14 @@ namespace ASCIIsome
             }
         }
 
-        public void SaveConfig() // [HV] XML file will be written in the latest version of format only. i.e. This method will be rewritten immediately upon config version is updated
+        public void SaveConfig() // [HV] XML file will be written in the latest version of format only. i.e. This method will be rewritten immediately upon config version is updated. 
         {
             XmlWriterSettings xmlWriterSettings = new XmlWriterSettings { Indent = true };
             using (XmlWriter xmlWriter = XmlWriter.Create(configFileName, xmlWriterSettings))
             {
-                //xmlWriter.WriteComment(Resources.ConfigFileMessage);
+                xmlWriter.WriteWhitespace("\r\n\r\n");
+                xmlWriter.WriteComment(Resources.ConfigFileMessage);
+                xmlWriter.WriteWhitespace("\r\n\r\n");
                 xmlWriter.WriteStartElement("ASCIIsome.config");
                 xmlWriter.WriteAttributeString("xmlns", "xsi", null, "http://www.w3.org/2001/XMLSchema-instance");
                 xmlWriter.WriteAttributeString("xsi", "schemaLocation", null, "ASCIIsome.Resources ConfigSchemaV1.xsd");

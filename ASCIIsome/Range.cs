@@ -13,12 +13,12 @@ namespace ASCIIsome
         /// <remarks>It is always the argument holding the smaller value that will be assigned to the Minimum property of the Range instance and the other argument being assigned to the Maximum property. </remarks>
         public Range(T endPoint1, T endPoint2)
         {
-            if (endPoint2.CompareTo(endPoint1) == 1) // [HV] maximum is greater than minimum
+            if (endPoint2.CompareTo(endPoint1) == 1) // [HV] maximum is greater than minimum. 
             {
                 Minimum = endPoint1;
                 Maximum = endPoint2;
             }
-            else // [HV] maximum is actually the argument of smaller value provided, OR two of the arguments are of the same value
+            else // [HV] maximum is actually the argument of smaller value provided, or two of the arguments are of the same value. 
             {
                 Minimum = endPoint2;
                 Maximum = endPoint1;

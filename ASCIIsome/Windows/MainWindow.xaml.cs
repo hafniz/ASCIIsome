@@ -9,7 +9,7 @@ namespace ASCIIsome.Windows
     /// </summary>
     public sealed partial class MainWindow
     {
-        // TODO: [HV] Adjust brightness of the window and controls ('dark mode')
+        // TODO: [HV] Adjust brightness of the window and controls ('dark mode'). 
 
         public MainWindow() : this(true) { }
 
@@ -25,7 +25,7 @@ namespace ASCIIsome.Windows
 
         private void AdjustWindowSize()
         {
-            // TODO: [HV] Decide startup/minimal height/width of MainWindow in initializing depending on current culture info
+            // TODO: [HV] Decide startup/minimal height/width of MainWindow in initializing depending on current culture info. 
         }
 
         protected override void OnClosing(CancelEventArgs e)

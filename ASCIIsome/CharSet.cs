@@ -54,7 +54,7 @@ namespace ASCIIsome
                             {
                                 charSetsConcatenated.Add(charInfo.Key, charInfo.Value);
                             }
-                            catch (Exception) // [HV] In case that Key already exists, thus make KeyValuePairs distinct (in term of keys)
+                            catch (Exception) // [HV] Ignore the KeyValuePair if its Key already exists, thus make KeyValuePairs distinct. 
                             {
                                 continue;
                             }
@@ -98,7 +98,7 @@ namespace ASCIIsome
                         // WARNING: [HV] This particular approach can theoretically cause significant difference between the actual value of grayscale 
                         // index of a character and the value assigned when being added into a charset, in case that all neighboring keys have been occupied. 
                         // OR, if all possible values of key between it's original grayscale index and DefaultGrayscaleRange.Maximum have already been occupied, 
-                        // the character will be discarded instead of being added to the charset, which may be unexpected to the end user
+                        // the character will be discarded instead of being added to the charset, which may be unexpected to the end user. 
 
                         key += minimalGrayscaleDivision;
                     }
@@ -141,7 +141,7 @@ namespace ASCIIsome
             }
         }
 
-        public static CharSet ParseFromXmlFile(dynamic source, bool validate = true) // TODO: [HV] Exception handling is still needed in external code to prompt user about any failure occurred
+        public static CharSet ParseFromXmlFile(dynamic source, bool validate = true) // TODO: [HV] Exception handling is still needed in external code to prompt user about any failure occurred. 
         {
             CharSet parsedCharSet = new CharSet();
             XmlSchemaSet schemaSet = new XmlSchemaSet();
